@@ -3,8 +3,8 @@
     padding: 0;
 }
 
-body, html {
-    height: 100%;
+html {
+        
 }
 
 @keyframes megjelenes {
@@ -18,7 +18,7 @@ body, html {
 
 header {
     background-image: url(../Kepek/lyingcat.jpg);
-    min-height: 100%;
+    height: 750px;
     margin: 0;
     background-position: center;
     background-size: cover;
@@ -38,6 +38,7 @@ header {
     color: white;
     position: absolute;
     text-align: center;
+    border-radius: 20px;
 }
 
 .cim {
@@ -57,17 +58,19 @@ header {
 }
 
 nav {
-    width: 100%;
-    background-color: rgb(238, 175, 93);
-    height: 85px;
     position: sticky;
-    margin: auto;
-    translate: 0 -100%;  /* Ez viszi feljebb */
+    top: 2px;
+    overflow: none;
+    animation: megjelenes 500ms ease-in;
 }
 
 nav ul {
+    margin: auto;
     list-style-type: none;
-    margin-right: 5%;
+    width: 100%;
+    background-color: rgb(238, 175, 93);
+    height: 85px;
+    border-radius: 0 0 20px 20px;
 }
 
 nav ul li {
@@ -80,7 +83,7 @@ nav ul li {
     width: 5%;
 }
 
-nav ul li a {
+a.gomb {
     padding: 30px;
     display: block;
     color: white;
@@ -90,24 +93,27 @@ nav ul li a {
     transition: all 500ms;
 }
 
-nav ul li a:hover {
+a.gomb:hover {
     transition: all 500ms;
     padding: 27px 25px;
     background-color: rgb(186, 138, 74);
     font-size: 25px;
 }
 
-.icon-img {
-    padding: 10px 20px;
-    height: 70%;
+li.icon-img-container {
     display: flex;
     float: left;
+}
+
+.icon-img {
+    padding: 10px 20px;
+    height: 60px;
     margin-left: 20px;
     transition: all 500ms;
 }
 
 .icon-img:hover {
-    height: 80%;
+    height: 68px;
     padding: 8px 25px;
     background-color: rgb(186, 138, 74);
     transition: all 500ms;
