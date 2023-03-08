@@ -55,3 +55,60 @@ header {
     height: 2px;
     background-color: white;
 }
+
+nav {
+    width: 100%;
+    background-color: rgb(238, 175, 93);
+    height: 85px;
+    position: sticky;
+    margin: auto;
+    translate: 0 -100%;  /* Ez viszi feljebb */
+}
+
+nav ul {
+    list-style-type: none;
+    margin-right: 5%;
+}
+
+nav ul li {
+    float: right;
+    margin-right: 20px;
+}
+
+#profile-img {
+    display: inline-block;
+    width: 5%;
+}
+
+nav ul li a {
+    padding: 30px;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 500ms;
+}
+
+nav ul li a:hover {
+    transition: all 500ms;
+    padding: 27px 25px;
+    background-color: rgb(186, 138, 74);
+    font-size: 25px;
+}
+
+.icon-img {
+    padding: 10px 20px;
+    height: 70%;
+    display: flex;
+    float: left;
+    margin-left: 20px;
+    transition: all 500ms;
+}
+
+.icon-img:hover {
+    height: 80%;
+    padding: 8px 25px;
+    background-color: rgb(186, 138, 74);
+    transition: all 500ms;
+}
