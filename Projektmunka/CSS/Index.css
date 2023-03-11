@@ -66,6 +66,7 @@ nav {
     float:inline-end;
     width: 100%;
     translate: 0 -100%;
+    z-index: 10;
 }
 
 nav ul {
@@ -133,9 +134,10 @@ main {
 
  /* ADOPTALAS */
 
-.adoptalas-container {
-    height: 5000px;
-    margin: 5px 35px 5px 35px ;
+section {
+    height: 800px;
+    margin: 5px 0px 5px 0px ;
+    padding: 30px 10px;
 }
 
 h1 {
@@ -145,7 +147,7 @@ h1 {
     color: #d48b4b;
 }
 
-.adoptalas-kepek {
+.flexbox {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -153,7 +155,7 @@ h1 {
     margin: 30px auto;
 }
 
-.adoptalas-kepek a {
+.adoptalas {
     text-decoration: none;
     color: rgba(143, 67, 1, 0.647);
     font-size: 20px;
@@ -165,10 +167,11 @@ h1 {
     transition: all 200ms;
 }
 
-.adoptalas-kepek a:hover {
+.adoptalas:hover {
     transition: all 200ms;
     box-shadow: 0 0 0px 5px rgba(255, 166, 0, 0.638);
     border-radius: 5%;
+    filter: brightness(85%);
 }
 
 .macska-kep {
@@ -217,6 +220,54 @@ input[type="button"]:hover {
     transition: all 500ms;
     background-color: #ffbe44;
     border-color: #ffbe44;
-    font-size: 17px;
+    font-size: 15px;
+    scale: 105% 105%;
+    box-shadow: 0 0 10px 10px rgba(255, 166, 0, 0.638);
 }
 
+/* TAMOGATAS */
+
+.tamogatas {
+    background-color: orange;
+    box-shadow: 0 0 100px 10px orange;
+    height: 600px;
+}
+
+.tamogatas > h1 {
+    color: white;
+}
+
+.tamogatas > div > a {
+    width: 400px;
+    padding: 20px;
+    color: orange;
+    text-decoration: none;
+    display: block;
+    float: left;
+    background-color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    box-shadow: 0 0 5px 5px white;
+    transition: all 500ms;
+}
+
+.tamogatas > div > a:hover {
+    filter: brightness(85%);
+    box-shadow: 0 0 10px 10px lightgrey;
+    transition: all 500ms;
+}
+
+.tamogatas > div > a > img {
+    height: 150px;
+    width: 150px;
+    display: block;
+    margin: auto;
+}
+
+.tamogatas > div > a > h2 {
+    text-align: center;
+    font-weight: bold;
+    margin: 20px;
+    text-transform: uppercase;
+}
