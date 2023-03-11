@@ -98,6 +98,7 @@ a.gomb {
     transition: all 500ms;
 }
 
+
 a.gomb:hover {
     transition: all 500ms;
     padding: 27px 25px;
@@ -124,6 +125,12 @@ li.icon-img-container {
     transition: all 500ms;
 }
 
+.active {
+    transition: all 500ms;
+    padding: 27px 25px;
+    background-color: #d48b4b;
+    font-size: 25px;
+}
 /* MAIN */
 
 main {
@@ -227,10 +234,11 @@ input[type="button"]:hover {
 
 /* TAMOGATAS */
 
-.tamogatas {
+section:nth-of-type(even) {
     background-color: orange;
-    box-shadow: 0 0 100px 20px rgb(255, 189, 66);
+    box-shadow: 0 0 20px 5px rgb(255, 189, 66);
     min-height: 600px;
+    margin-bottom: 20px;
 }
 
 .tamogatas > h1 {
@@ -276,8 +284,8 @@ input[type="button"]:hover {
 /* STATISZTIKAK */
 
 .statisztikak {
+    z-index: 0;
     min-height: 150px;
-    background-color: white;
 }
 
 .statisztikak > div > div {
@@ -308,4 +316,58 @@ input[type="button"]:hover {
     width: 100px;
     display: block;
     margin: auto;
+}
+
+/* CICAINK GONDOLATA */
+
+.cicaink-gondolata > h1 {
+    color: white;
+    
+}
+
+.cicaink-gondolata > div > div {
+    width: 30%;
+    float: left;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 10px white;
+    margin: 20px;
+}
+
+.cicaink-gondolata > div > div > p {
+    margin-top: 40px;
+}
+
+.cicaink-gondolata > div > div > p > q {
+    position: relative;
+    top: 50%;
+    font-size: 25px;
+}
+
+.cicaink-gondolata > div > div > img {
+    width: 30%;
+    min-width: 100px;
+    float: left;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+/* FOOTER */
+
+footer {
+    height: 150px;
+    background-color: rgb(103, 103, 103);
+    box-shadow: 0 0 10px 10px rgb(103, 103, 103);
+    color: white;
+    filter:brightness(60%);
+    line-height: 150%;
+    padding: 30px 50px;
+}
+
+footer h1 {
+    font-size: 35px;
+    text-align: left;
+    color: white;
+    margin-bottom: 30px;
 }
