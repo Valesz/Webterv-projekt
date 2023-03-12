@@ -8,28 +8,87 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+@keyframes megjelenes {
+    from {
+        opacity: 0.3;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 nav {
-    height: 65px;
-    overflow: hidden;
-    background-color: rgb(255, 255, 71);
     position: sticky;
-    display: block;
-    top: 5px;
+    top: 85px;
+    overflow: none;
+    animation: megjelenes 500ms ease-in;
+    float:inline-end;
     width: 100%;
+    translate: 0 -100%;
+    z-index: 10;
 }
 
-nav a {
-    font-size: x-large;
+nav ul {
+    margin: auto;
+    list-style-type: none;
+    width: 100%;
+    background-color: #da7821;
+    height: 85px;
+    border-radius: 0 0 20px 20px;
+}
+
+nav ul li {
+    float: right;
+    margin-right: 20px;
+}
+
+#profile-img {
+    display: inline-block;
+    width: 5%;
+}
+
+a.gomb {
+    padding: 30px;
+    display: block;
+    color: white;
     text-align: center;
-    float: left;
-    background-color: rgb(255, 255, 71);
-    padding: 14px 16px;
     text-decoration: none;
+    font-size: 20px;
+    transition: all 500ms;
 }
 
-nav a:hover {
-    height: 100%;
-    background-color: rgb(188, 205, 7);
+
+a.gomb:hover {
+    transition: all 500ms;
+    padding: 27px 25px;
+    background-color: #d48b4b;
+    font-size: 25px;
+}
+
+li.icon-img-container {
+    display: flex;
+    float: left;
+}
+
+.icon-img {
+    padding: 10px 20px;
+    height: 60px;
+    margin-left: 20px;
+    transition: all 500ms;
+}
+
+.icon-img:hover {
+    height: 68px;
+    padding: 8px 25px;
+    background-color: #d48b4b;
+    transition: all 500ms;
+}
+
+.active {
+    transition: all 500ms;
+    padding: 27px 25px;
+    background-color: #d48b4b;
+    font-size: 25px;
 }
 
 hr {
@@ -42,7 +101,7 @@ hr {
 
 form {
     padding-top: 20px;
-    height: 800px;
+    height: 780px;
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
