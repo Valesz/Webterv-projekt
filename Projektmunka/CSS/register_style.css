@@ -52,6 +52,10 @@ form {
     background-color: rgba(255, 255, 255, 0.75);
 }
 
+td:nth-of-type(odd) {
+    font-size: x-large;
+}
+
 td {
     text-align: right;
     padding: 25px;
@@ -73,11 +77,13 @@ table {
 }
 
 .h1_register {
+    font-size: 50px;
     margin-top: 25px;
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
     font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 166, 0);
 }
 
 input[type="checkbox"] {
@@ -88,7 +94,7 @@ input[type="checkbox"] {
 input[type="submit"] {
     margin: auto;
     display: block;
-    margin-top: 50px;
+    margin-top: 30px;
     width: 300px;
     height: 50px;
     background-color: orange;
