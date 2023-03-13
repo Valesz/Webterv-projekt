@@ -16,7 +16,7 @@
 
 header {
     background-image: url(../Kepek/hatter_sotet.jpg);
-    height: 750px;
+    height: 100vh;
     margin: 0;
     background-position: bottom;
     background-size: cover;
@@ -95,6 +95,7 @@ a.gomb {
     text-align: center;
     text-decoration: none;
     font-size: 20px;
+    border-radius: 10px;
     transition: all 500ms;
 }
 
@@ -115,6 +116,7 @@ li.icon-img-container {
     padding: 10px 20px;
     height: 60px;
     margin-left: 20px;
+    border-radius: 10px;
     transition: all 500ms;
 }
 
@@ -130,6 +132,7 @@ li.icon-img-container {
     padding: 27px 25px;
     background-color: #d48b4b;
     font-size: 25px;
+    border-radius: 10px;
 }
 /* MAIN */
 
@@ -326,7 +329,7 @@ section:nth-of-type(even) {
 }
 
 .cicaink-gondolata > div > div {
-    width: 30%;
+    width: 500px;
     float: left;
     background-color: white;
     padding: 20px;
@@ -356,7 +359,7 @@ section:nth-of-type(even) {
 /* FOOTER */
 
 footer {
-    height: 150px;
+    height: 175px;
     background-color: rgb(103, 103, 103);
     box-shadow: 0 0 10px 10px rgb(103, 103, 103);
     color: white;
