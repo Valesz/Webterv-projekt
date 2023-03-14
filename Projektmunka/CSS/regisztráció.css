@@ -116,7 +116,7 @@ form {
     padding-bottom: 30px;
     height: 80vh;
     min-height: 800px;
-    width: 150vh;
+    width: 75vw;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -137,8 +137,8 @@ td {
 
 input[type="text"], input[type="email"], input[type="password"] {
     padding-left: 5px;
-    width: 300px;
-    height: 25px;
+    width: 18vw;
+    height: 3vh;
     font-size: larger;
     padding: 5px 10px;
 }
@@ -152,6 +152,26 @@ table {
     margin-right: auto;
 }
 
+.checkbox-table {
+    margin-top: 6vh;
+}
+
+.checkbox-table tr {
+    height: 2vh;
+}
+
+.checkbox-table td {
+    padding: 0;
+}
+
+.checkbox-table td:nth-of-type(even) {
+    padding-left: 7px;
+}
+
+td:nth-of-type(even) {
+    text-align: left;
+}
+
 .h1_register {
     font-size: 50px;
     margin-top: 25px;
@@ -162,17 +182,13 @@ table {
     color: rgb(62, 62, 62);
 }
 
-input[type="checkbox"] {
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
 input[type="submit"] {
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     display: block;
-    margin-top: 30px;
-    width: 300px;
-    height: 50px;
+    margin-top: 40px;
+    width: 22vw;
+    height: 8vh;
     background-color: orange;
     border-color: orange;
     border-radius: 5%;
@@ -184,6 +200,12 @@ input[type="submit"] {
     box-shadow: 0 0 10px 5px rgba(255, 166, 0, 0.638);
     cursor: pointer;
     transition: all 500ms;
+    margin-bottom: 30px;
+}
+
+#already_member {
+    font-size: large;
+    color: rgb(255, 166, 1);
 }
 
 footer {
