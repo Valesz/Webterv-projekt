@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regisztráció - Macskalak</title>
+    <link rel="stylesheet" href="../CSS/regisztráció.css">
+    <link rel="icon" type="image/x-icon" href="../kepek/cat.png">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="" class="gomb">Profil</a></li>
+            <li><a href="" class="gomb">Támogatás</a></li>
+            <li><a href="" class="gomb">Fórum</a></li>
+            <li><a href="" class="gomb active">Kezdőlap</a></li>
+            <li class="icon-img-container"><a href=""><img src="../Kepek/cat.png" class="icon-img" alt=""></a></li>
+        </ul>
+    </nav>
+
+    <br>
+
+    <main>
+        <br>
+        <form method="post">
+            <div class="form-block">
+                <h1 class="h1_register">Regisztráció</h1>
+                <hr>
+                <div class="table-container">
+                    <table>
+                            <tr>
+                                <td>
+                                    <label for="username">
+                                        Felhasználónév:
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="text" name="username" id="username" placeholder="Minta János" required>
+                                </td>    
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="email">
+                                        E-mail:
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="email" name="email" id="email" placeholder="valami@email.com" required>
+                                </td>    
+                            </tr>    
+                            <tr>
+                                <td>
+                                    <label for="password">
+                                        Jelszó:
+                                    </label>
+                                </td>
+                                <td>    
+                                    <input type="password" name="password" id="password" placeholder="Biztonságos jelszót adjon meg!" required>
+                                </td>    
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="password-again">
+                                        Jelszó ismét:
+                                    </label>
+                                </td>    
+                                <td>
+                                    <input type="password" name="password-again" id="password-again" placeholder="Na mégegyszer!" required>
+                                </td>    
+                            </tr>  
+                    </table>          
+                </div>
+            </div>
+            <div class="checkbox-container">
+                <label for="agreement" style="font-size: medium;">
+                    <input type="checkbox" id="agreement" required> A regisztrációval beleegyezik, hogy adatait titkosan kezelhessük, és a szervereinken tárolhassuk.
+                </label>
+                <br>
+                <label for="subscribe" style="font-size: medium;">
+                    <input type="checkbox" id="subscribe"> Szeretnék feliratkozni a Macskalak hírlevelére, mely heti rendszerességgel érkezik a megadott email-címre.
+                </label>
+                <br>
+
+                <label for="register">
+                    <input type="submit" name="submit-btn" id="register" value="Regisztrálok!">
+                </label> 
+            </div>
+        </form>
+    </main>
+    <footer>
+        <div>
+            <h1>Elérhetőségeink:</h1>
+            <p>Tel: +3630 123 4567</p>
+            <p>Email: info@macskalak.hu</p>
+            <p>Facebook: Macskalak</p>
+            <p>Instagram: Macskalak</p>
+        </div>
+    </footer>
+</body>
+</html>
