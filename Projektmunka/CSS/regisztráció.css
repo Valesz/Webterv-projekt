@@ -8,6 +8,11 @@ body {
     font-family: sans-serif;
 }
 
+main {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
 @keyframes megjelenes {
     from {
         opacity: 0.3;
@@ -108,9 +113,10 @@ hr {
 
 form {
     padding-top: 20px;
+    padding-bottom: 30px;
     height: 80vh;
     min-height: 800px;
-    width: 1000px;
+    width: 150vh;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
