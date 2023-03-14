@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    font-family: sans-serif;
+}
+
 @keyframes megjelenes {
     from {
         opacity: 0.3;
