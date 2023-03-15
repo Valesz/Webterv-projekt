@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: orange;
+}
+
+main {
+    width: 90%;
+    margin: auto;
+    padding: 35px 0px;
+    min-height: fit-content;
+    background-color: white;
+    box-shadow: 0 0 20px 20px white;
+    flex-direction: column;
+}
+
+/* NAV BAR*/
+
+nav {
+    position: sticky;
+    top: 85px;
+    overflow: none;
+    animation: megjelenes 500ms ease-in;
+    float:inline-end;
+    width: 100%;
+    translate: 0 -100%;
+    z-index: 10;
+}
+
+nav ul {
+    margin: auto;
+    list-style-type: none;
+    width: 100%;
+    background-color: #da7821;
+    height: 85px;
+    border-radius: 0 0 20px 20px;
+}
+
+nav ul li {
+    float: right;
+    margin-right: 20px;
+}
+
+#profile-img {
+    display: inline-block;
+    width: 5%;
+}
+
+a.gomb {
+    padding: 30px;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: all 500ms;
+}
+
+
+a.gomb:hover {
+    transition: all 500ms;
+    padding: 27px 25px;
+    background-color: #d48b4b;
+    font-size: 25px;
+}
+
+li.icon-img-container {
+    display: flex;
+    float: left;
+}
+
+.icon-img {
+    padding: 10px 20px;
+    height: 60px;
+    margin-left: 20px;
+    border-radius: 10px;
+    transition: all 500ms;
+}
+
+.icon-img:hover {
+    height: 68px;
+    padding: 8px 25px;
+    background-color: #d48b4b;
+    transition: all 500ms;
+}
+
+.active {
+    transition: all 500ms;
+    padding: 27px 25px;
+    background-color: #d48b4b;
+    font-size: 25px;
+    border-radius: 10px;
+}
+
+/* HEADER */
+
+header h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 70px;
+    color: white;
+    margin: 5vh;
+}
+
+.flexbox {
+    display: flex;
+    flex-direction: wrap;
+}
+
+main > div {
+    height: fit-content;
+    margin: 30px auto;
+    width: 80%;
+    background-color: orange;
+    box-shadow: 0px 0px 10px 10px orange;
+    border-radius: 5px;
+}
+
+h2 {
+    margin: 15px;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+    display: block;
+}
+
+.kep {
+    flex-grow: 5;
+    width: 150%;
+    min-height: 600px;
+    border-radius: 20px 0 0 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+.description {
+    flex-grow: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 0 20px 20px 0;
+}
+
+hr {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.description p {
+    color: orange;
+    height:min-content;
+    font-size: 40px;
+    padding: 20px;
+    min-width: 400px;
+    font-style: italic;
+}
+
+input[type="text"] {
+    width: 80%;
+    height: 50px;
+    font-size: 20px;
+}
+
+button {
+    background-color: orange;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+    width: 18%;
+    transition: all 500ms;
+}
+
+button:hover {
+    filter: brightness(80%);
+    transition: all 500ms;
+    scale: 110% 110%;
+}
+
+.description ul {
+    margin-top: 20px;
+    list-style-type:disc;
+    padding:25px;
+    /*border: 5px solid orange;*/
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+.description  li {
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid grey;
+    color: black;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.orokbefogad {
+    width: 50%;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: all 500ms;
+}
+
+.orokbefogad:hover {
+    text-decoration: underline;
+    transition: all 500ms;
+}
+
+.rafiki {
+    background-image: url("../Kepek/Adoptalos/Rafiki.jpg");
+}
+
+/* FOOTER */
+footer {
+    margin-top: 50px;
+    font-size: 15px;
+    height: 175px;
+    background-color: rgb(103, 103, 103);
+    box-shadow: 0 0 10px 10px rgb(103, 103, 103);
+    color: white;
+    filter:brightness(60%);
+    line-height: 150%;
+    padding: 30px 50px;
+}
+
+footer h1 {
+    text-align: left;
+    color: white;
+    margin-bottom: 30px;
+}
+
+/* RESZPONZIVITÁS */
+
+@media screen and (max-width: 800px) {
+    * {
+        overflow-x: hidden;
+    }
+
+    .flexbox {
+        flex-direction: column;
+    }
+
+    .description p {
+        min-width: none;
+        font-style: normal;
+    }
+
+    .kep {
+        min-width: none;
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .description {
+        min-width: none;
+        border-radius: 0 0 20px 20px;
+    }
+
+    button {
+        width:50%;
+        display: block;
+        margin: auto;
+    }
+
+    input[type="text"] {
+        margin: auto;
+        display: block;
+    }
+}
