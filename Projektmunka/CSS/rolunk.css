@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: rgba(255, 239, 214, 0.821);
+    background-color: rgb(255, 255, 255);
     font-family: sans-serif;
 }
 
@@ -27,7 +27,7 @@ main {
 }
 
 .card:hover {
-    background: rgb(255, 221, 159);
+    background: orange;
     box-shadow: 0px 0px 50px rgb(255, 166, 1);
 }
 
@@ -126,18 +126,19 @@ h1 {
 .flexbox-container {
     height: 60vh;
     display: flex;
-    background-color: rgba(255, 239, 214, 0.821);
+    background-color: white;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
 .flexbox-container > div {
-    background-color: rgba(255, 222, 168, 0.821);
+    background-color: rgba(255, 157, 0, 0.821);
     min-width: 30vw;
     min-height: 40vh;
     border-radius: 3vh;
     box-shadow: 0 0 30px rgb(71, 71, 71);
     margin: 20px;
+    margin-bottom: 40px;
     padding: 5px;
     padding-top: 25px;
     overflow: hidden;
@@ -156,6 +157,79 @@ h1 {
     padding: 15px;
     text-align: center;
 }
+
+/* KARTYAK AMIK MAR NEM FLEXBOXOK */
+
+.card {
+    background-color: rgba(255, 157, 0, 0.821);
+    width: 900px;
+    border-radius: 3vh;
+    box-shadow: 0 0 30px rgb(71, 71, 71);
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    overflow: hidden;
+    transition: all 0.75s ease-in-out;
+}
+
+hr {
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    border-color: rgb(30, 30, 30);
+}
+
+.help {
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.donate {
+    text-align: center;
+    font-size: 24px;
+}
+
+/* GOMBOK ÉS ANIMACIOI */
+
+input[type="button"] {
+    margin: auto;
+    display: block;
+    margin-top: 70px;
+    width: 300px;
+    height: 50px;
+    background-color: orange;
+    border-color: orange;
+    border-radius: 5%;
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px 5px rgba(255, 166, 0, 0.638);
+    cursor: pointer;
+    transition: all 500ms;
+}
+
+input[type="button"]:hover {
+    transition: all 500ms;
+    background-color: #ffbe44;
+    border-color: #ffbe44;
+    font-size: 15px;
+    scale: 105% 105%;
+    box-shadow: 0 0 10px 10px rgba(255, 166, 0, 0.638);
+}
+
+input[type="submit"]:hover {
+    transition: all 500ms;
+    background-color: #ffbe44;
+    border-color: #ffbe44;
+    font-size: 15px;
+    scale: 105% 105%;
+    box-shadow: 0 0 10px 10px rgba(255, 166, 0, 0.638);
+}
+
 
 /* FOOTER */
 

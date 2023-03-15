@@ -234,6 +234,17 @@ td:nth-of-type(even) {
     color: rgb(255, 166, 1);
 }
 
+/* GOMBOK ES ANIMACIOI */
+
+input[type="submit"]:hover {
+    transition: all 500ms;
+    background-color: #ffbe44;
+    border-color: #ffbe44;
+    font-size: 15px;
+    scale: 105% 105%;
+    box-shadow: 0 0 10px 10px rgba(255, 166, 0, 0.638);
+}
+
 /* FOOTER */
 
 footer {
