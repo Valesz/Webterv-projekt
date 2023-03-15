@@ -24,7 +24,6 @@ main {
     }
 }
 
-
 /* NAVBAR */
 
 nav {
@@ -142,6 +141,10 @@ td {
     padding: 25px;
 }
 
+table {
+    border-width: 40px;
+}
+
 .login_form input[type="text"] {
     padding-left: 5px;
     width: 18vw;
@@ -168,15 +171,15 @@ table {
 }
 
 .checkbox-table {
-    margin-top: 2vh;
+    margin-top: 3vh;
 }
 
 .checkbox-table tr {
-    height: 2vh;
+    height: 3vh;
 }
 
 .checkbox-table td {
-    padding: 0;
+    padding: 10px;
 }
 
 .checkbox-table td:nth-of-type(even) {
