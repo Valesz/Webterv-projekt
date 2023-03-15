@@ -252,7 +252,7 @@ section:nth-of-type(even) {
     margin-bottom: 20px;
 }
 
-.tamogatas > h1 {
+.tamogatas > h2 {
     color: white;
 }
 
@@ -332,7 +332,7 @@ section:nth-of-type(even) {
 
 /* CICAINK GONDOLATA */
 
-.cicaink-gondolata > h1 {
+.cicaink-gondolata > h2 {
     color: white;
     
 }
