@@ -7,6 +7,10 @@ body {
     font-family: sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 @keyframes megjelenes {
     from {
         opacity: 0.3;
@@ -252,36 +256,36 @@ section:nth-of-type(even) {
     color: white;
 }
 
-.tamogatas > div > a {
+.segitseg {
     width: 400px;
     margin: 15px;
-    padding: 20px;
+    padding: 50px;
     color: orange;
     text-decoration: none;
     display: block;
     float: left;
     background-color: white;
     border-radius: 20px;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 400;
     box-shadow: 0 0 5px 5px white;
     transition: all 500ms;
 }
 
-.tamogatas > div > a:hover {
+.segitseg:hover {
     filter: brightness(85%);
     box-shadow: 0 0 10px 10px lightgrey;
     transition: all 500ms;
 }
 
-.tamogatas > div > a > img {
+.segitseg > img {
     height: 150px;
     width: 150px;
     display: block;
     margin: auto;
 }
 
-.tamogatas > div > a > h2 {
+.segitseg > h2 {
     text-align: center;
     font-weight: bold;
     margin: 20px;
@@ -296,8 +300,9 @@ section:nth-of-type(even) {
 }
 
 .statisztikak > div > div {
+    margin: 15px;
     display: block;
-    width: 200px;
+    width: 250px;
     float: left;
     color: orange;
     text-align: center;
