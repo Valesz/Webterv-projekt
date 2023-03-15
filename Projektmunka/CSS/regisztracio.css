@@ -145,7 +145,23 @@ td {
     padding: 25px;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+.register_form input[type="text"] {
+    padding-left: 5px;
+    width: 18vw;
+    height: 3vh;
+    font-size: larger;
+    padding: 5px 10px;
+}
+
+.register_form input[type="email"] {
+    padding-left: 5px;
+    width: 18vw;
+    height: 3vh;
+    font-size: larger;
+    padding: 5px 10px;
+}
+
+.register_form input[type="password"] {
     padding-left: 5px;
     width: 18vw;
     height: 3vh;

@@ -135,7 +135,15 @@ td {
     padding: 25px;
 }
 
-input[type="text"], input[type="password"] {
+.login_form input[type="text"] {
+    padding-left: 5px;
+    width: 18vw;
+    height: 3vh;
+    font-size: larger;
+    padding: 5px 10px;
+}
+
+.login_form input[type="password"] {
     padding-left: 5px;
     width: 18vw;
     height: 3vh;
