@@ -109,113 +109,46 @@ li.icon-img-container {
     font-size: 25px;
 }
 
-/* ELVALASZTO VONAL */
 
-hr {
-    border: 1px solid black;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 35px;
-}
+/* FLEXBOX */
 
-/* URLAP ES ELEMEI */
-
-form {
-    padding-top: 20px;
-    padding-bottom: 30px;
-    height: 80vh;
-    min-height: 800px;
-    width: 75vw;
-    margin-left: auto;
-    margin-right: auto;
+h1 {
     text-align: center;
+    color: #2a2a2a;
+}
+
+.flexbox-container {
+    height: 50vh;
+    display: flex;
+    background-color: #ffd6b2;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.flexbox-container > div {
+    background-color: #eca76b;
+    min-width: 30vw;
+    min-height: 40vh;
     border-radius: 15px;
-    box-shadow: 15px 15px 40px rgb(32, 32, 32);
-    background-color: rgba(255, 255, 255, 0.75);
-    transition: all 0.5s ease-in-out;
+    box-shadow: 15px 15px 35px black;
+    margin: 20px;
+    padding: 5px;
+    padding-top: 25px;
 }
 
-td:nth-of-type(odd) {
-    font-size: x-large;
+.flexbox-container > div:first-of-type {
+    margin-left: 15px;
 }
 
-td {
-    text-align: right;
-    padding: 25px;
+.flexbox-container > div:last-of-type {
+    margin-right: 15px;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
-    padding-left: 5px;
-    width: 18vw;
-    height: 3vh;
-    font-size: larger;
-    padding: 5px 10px;
-}
-
-input:required {
-    border: 2px solid red;
-}
-
-table {
+.card hr {
     margin-left: auto;
     margin-right: auto;
-}
-
-.checkbox-table {
-    margin-top: 6vh;
-}
-
-.checkbox-table tr {
-    height: 2vh;
-}
-
-.checkbox-table td {
-    padding: 0;
-}
-
-.checkbox-table td:nth-of-type(even) {
-    padding-left: 7px;
-}
-
-td:nth-of-type(even) {
-    text-align: left;
-}
-
-.h1_register {
-    font-size: 50px;
-    margin-top: 25px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(62, 62, 62);
-}
-
-input[type="submit"] {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    margin-top: 40px;
-    width: 22vw;
-    height: 8vh;
-    background-color: orange;
-    border-color: orange;
-    border-radius: 5%;
-    color: white;
-    text-transform: uppercase;
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    box-shadow: 0 0 10px 5px rgba(255, 166, 0, 0.638);
-    cursor: pointer;
-    transition: all 500ms;
-    margin-bottom: 30px;
-}
-
-#already_member {
-    font-size: large;
-    color: rgb(255, 166, 1);
+    width: 75%;
+    border-color: rgb(30, 30, 30);
 }
 
 /* FOOTER */
