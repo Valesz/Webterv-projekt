@@ -12,16 +12,16 @@
     
     <nav>
         <ul>
-            <li><a href="" class="gomb">Profil</a></li>
-            <li><a href="" class="gomb">Támogatás</a></li>
-            <li><a href="" class="gomb">Fórum</a></li>
+            <li><a href="Profil.html" class="gomb">Profil</a></li>
+            <li><a href="Tamogatas.html" class="gomb">Támogatás</a></li>
+            <li><a href="Forum.html" class="gomb">Fórum</a></li>
             <li><a href="Főoldal.html" class="gomb active">Kezdőlap</a></li>
             <li class="icon-img-container"><a href=""><img src="../Kepek/cat.png" class="icon-img" alt=""></a></li>
         </ul>
     </nav>
 
     <main>
-        <form method="post">
+        <form method="post" class="login_form">
             <div class="form-block">
                 <h1 class="h1_login">Bejelentkezés</h1>
                 <hr>
@@ -57,7 +57,7 @@
                             <input type="checkbox" id="remember_me"> 
                         </td>    
                         <td>
-                            <label for="agreement" style="font-size: 100%;">Jegyezz meg!</label>     
+                            <label for="remember_me" style="font-size: 100%;">Jegyezz meg!</label>     
                         </td>    
                     </tr>          
                 </table>        
@@ -66,7 +66,7 @@
                         </label>     
             </div>
             <br>
-            <a href="Regisztráció.html" id="already_member" target="_self">Még nem vagy tagja cicasztikus közösségünknek?</a>
+            <a href="Regisztracio.html" id="already_member" target="_self">Még nem vagy tagja cicasztikus közösségünknek?</a>
         </form>
     </main>
     <footer>
@@ -76,7 +76,14 @@
             <p>Email: info@macskalak.hu</p>
             <p>Facebook: Macskalak</p>
             <p>Instagram: Macskalak</p>
+            <p>Telephely: Macsköztársaság, Kaparófalva, Miautca 12(cicenkettő).</p>
+            <form class="footer_form">
+                <h1>Iratkozz fel hírlevelünkre a funtasztikus cicás hírekért!</h1>
+                <input type="email" name="emailfornewsletter" placeholder="valaki@email.com" required>
+                <input type="submit" name="nl_submit_btn" value="Miau!">
+            </form>
         </div>
+        <p class="copyright">© 2023 Macskalak</p>
     </footer>
 </body>
 </html>
