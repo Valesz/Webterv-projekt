@@ -136,7 +136,7 @@ h1 {
     min-width: 30vw;
     min-height: 40vh;
     border-radius: 3vh;
-    box-shadow: 15px 15px 20px rgb(71, 71, 71);
+    box-shadow: 0 0 30px rgb(71, 71, 71);
     margin: 20px;
     padding: 5px;
     padding-top: 25px;
