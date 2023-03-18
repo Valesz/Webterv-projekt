@@ -49,7 +49,7 @@ nav {
     position: sticky;
     top: 85px;
     overflow: none;
-    animation: megjelenes 500ms ease-in;
+    animation: megjelenes 250ms ease-in;
     float:inline-end;
     width: 100%;
     translate: 0 -100%;
@@ -83,11 +83,11 @@ a.gomb {
     text-decoration: none;
     font-size: 20px;
     border-radius: 10px;
-    transition: all 500ms;
+    transition: all 250ms;
 }
 
 a.gomb:hover {
-    transition: all 500ms;
+    transition: all 250ms;
     background-color: #d48b4b;
     scale: 105% 105%;
 }
@@ -102,17 +102,17 @@ li.icon-img-container {
     height: 8vh;
     margin-left: 20px;
     border-radius: 10px;
-    transition: all 500ms;
+    transition: all 250ms;
 }
 
 .icon-img:hover {
     scale: 105% 105%;
     background-color: #d48b4b;
-    transition: all 500ms;
+    transition: all 250ms;
 }
 
 .active {
-    transition: all 500ms;
+    transition: all 250ms;
     padding: 27px 25px;
     background-color: #d48b4b;
     font-size: 25px;
