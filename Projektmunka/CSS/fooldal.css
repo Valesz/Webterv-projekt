@@ -20,48 +20,27 @@ a {
     }
 }
 
-/* HEADER */
+@keyframes animMegjelenes {
+    0% {
+        scale: 0 100%;
+        translate: -50% 0;
+    }
 
-header {
-    background-image: url(../Kepek/hatter_sotet.jpg);
-    height: 100vh;
-    margin: 0;
-    background-position: bottom;
-    background-size: cover;
-    background-repeat: no-repeat;
-    animation: megjelenes 1500ms ;
-}
+    70% {
+        scale: 0 100%;
+        translate: -50% 0;
+    }
 
-.header-container {
-    width: 30%;
-    min-width: 300px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(99, 99, 99, 0.8);
-    color: white;
-    position: absolute;
-    text-align: center;
-    border-radius: 20px;
-}
+    95% {
+        scale: 110% 100%;
+        translate: 5% 0;
+    }
 
-.cim {
-    text-transform: uppercase;
-    font-size: 300%;
-}
+    100% {
+        scale: 100% 100%;
+        translate: 0 0;
+    }
 
-.alCim {
-    font-size: 150%;
-}
-
-.header-container hr {
-    width: 70%;
-    margin: 10px auto 15px auto;
-    height: 2px;
-    background-color: white;
 }
 
 /* NAV BAR */
@@ -107,12 +86,10 @@ a.gomb {
     transition: all 500ms;
 }
 
-
 a.gomb:hover {
     transition: all 500ms;
-    padding: 27px 25px;
     background-color: #d48b4b;
-    font-size: 25px;
+    scale: 105% 105%;
 }
 
 li.icon-img-container {
@@ -122,15 +99,14 @@ li.icon-img-container {
 
 .icon-img {
     padding: 10px 20px;
-    height: 60px;
+    height: 8vh;
     margin-left: 20px;
     border-radius: 10px;
     transition: all 500ms;
 }
 
 .icon-img:hover {
-    height: 68px;
-    padding: 8px 25px;
+    scale: 105% 105%;
     background-color: #d48b4b;
     transition: all 500ms;
 }
@@ -142,6 +118,70 @@ li.icon-img-container {
     font-size: 25px;
     border-radius: 10px;
 }
+
+@media screen and (max-width: 800px) {
+    nav ul li {
+        width: 15%;
+        min-width: fit-content;
+        padding: 0 5px;
+        margin-right: 5px;
+    }
+    a.gomb {
+        font-size: 20px;
+        padding: 30px 5px;
+    }
+    .icon-img {
+        display: none;
+    }
+}
+
+/* HEADER */
+
+header {
+    background-image: url(../Kepek/hatter_sotet.jpg);
+    height: 100vh;
+    margin: 0;
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: megjelenes 1500ms ;
+}
+
+.header-container {
+    scale: 0% 100%;
+    width: 30%;
+    min-width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(99, 99, 99, 0.8);
+    color: white;
+    position: absolute;
+    text-align: center;
+    border-radius: 20px;
+    animation: forwards animMegjelenes 1500ms;
+    animation-delay: 500ms;
+}
+
+.cim {
+    text-transform: uppercase;
+    font-size: 300%;
+}
+
+.alCim {
+    font-size: 150%;
+}
+
+.header-container hr {
+    width: 70%;
+    margin: 10px auto 15px auto;
+    height: 2px;
+    background-color: white;
+}
+
 /* MAIN */
 
 main {
@@ -388,6 +428,7 @@ footer h1 {
 
 .footer_form > h1 {
     margin-top: 35px;
+    line-height: 100%;
 }
 
 .footer_form > input[type="email"] {
