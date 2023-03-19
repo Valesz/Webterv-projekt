@@ -18,6 +18,15 @@ main {
     flex-direction: column;
 }
 
+@keyframes megjelenes {
+    from {
+        opacity: 0.3;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 /* HEADER */
 
 header h1 {
@@ -30,7 +39,6 @@ header h1 {
 
 .flexbox {
     display: flex;
-    flex-direction: wrap;
 }
 
 main > div {
@@ -135,10 +143,6 @@ button:hover {
     transition: all 500ms;
 }
 
-.rafiki {
-    background-image: url("../Kepek/Adoptalos/Rafiki.jpg");
-}
-
 /* FOOTER */
 footer {
     margin-top: 50px;
@@ -200,7 +204,7 @@ footer h1 {
 /* RESZPONZIVITÁS */
 
 @media screen and (max-width: 800px) {
-    * {
+    main * {
         overflow-x: hidden;
     }
 
@@ -233,5 +237,13 @@ footer h1 {
     input[type="text"] {
         margin: auto;
         display: block;
+    }
+
+    nav {
+        overflow: hidden;
+    }
+
+    nav ul li {
+        overflow: hidden;
     }
 }
