@@ -54,7 +54,7 @@ table {
     margin-bottom: 7vh;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 15px;
+    border-radius: 105px;
     border: 5px solid black;
     border-collapse: collapse;
 }
@@ -64,17 +64,17 @@ table td {
 }
 
 table th {
-    padding: 40px;
+    padding: 30px;
     text-align: left;
-    border: 5px solid black;
+    border: 3px solid black;
     text-decoration: underline;
     background-color: #ffbe44;
 }
 
 table td {
-    padding: 40px;
+    padding: 30px;
     text-align: left;
-    border: 5px solid black;
+    border: 3px solid black;
 }
 
 .quote {
@@ -82,24 +82,26 @@ table td {
     text-align: left;
     font-size: 30px;
     margin-bottom: 15px;
+    color: white;
 }
 
 .proverb {
     padding-right: 40px;
     text-align: right;
     font-size: 30px;
+    color: white;
 }
 
 .card {
     margin-left: auto;
     margin-right: auto;
     width: 700px;
-    height: 950px;
+    height: fit-content;
     padding: 25px;
     padding-top: 40px;
-    background-color: #da7821;
+    background-color: orange;
     border-radius: 15px;
-    box-shadow: 15px 15px 40px rgb(32, 32, 32);
+    box-shadow: 0px 0px 40px rgb(32, 32, 32);
     transition: all 0.75s ease-in-out;
 }
 
