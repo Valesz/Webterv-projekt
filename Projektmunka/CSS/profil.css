@@ -69,8 +69,6 @@ table td:nth-of-type(even) {
 
 table td {
     padding: 40px;
-    padding-top: auto;
-    padding-bottom: auto;
     text-align: left;
     border: 5px solid black;
 }
