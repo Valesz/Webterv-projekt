@@ -174,10 +174,13 @@ input[type="submit"]:hover {
     }
 
     .login_form input[type="submit"] {
-        width: 80%;
+        width: 95%;
     }
 
-    .h1_register {
+    .h1_login {
         font-size: 40px;
+    }
+    .grid-container {
+        gap: 20px;
     }
 }

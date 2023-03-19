@@ -252,11 +252,17 @@ input[type="reset"]:hover {
         padding: 5px;
     }
 
-    .register_form input[type="submit"] {
+    .register_form input[type="submit"], .register_form input[type="reset"] {
         width: 80%;
     }
 
     .h1_register {
         font-size: 40px;
+    }
+    fieldset {
+        padding: 15px;
+    }
+    .grid-container {
+        gap:10px;
     }
 }
