@@ -54,17 +54,21 @@ table {
     margin-bottom: 7vh;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 15px;
     border: 5px solid black;
     border-collapse: collapse;
 }
 
-table td:nth-of-type(odd) {
-    text-decoration: underline;
-    background-color: #ffbe44;
+table td {
+    background-color: rgba(255, 255, 255, 0.81);
 }
 
-table td:nth-of-type(even) {
-    background-color: rgba(255, 255, 255, 0.81);
+table th {
+    padding: 40px;
+    text-align: left;
+    border: 5px solid black;
+    text-decoration: underline;
+    background-color: #ffbe44;
 }
 
 table td {
