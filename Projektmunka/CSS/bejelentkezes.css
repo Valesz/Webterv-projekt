@@ -52,19 +52,6 @@ hr {
     transition: all 0.5s ease-in-out;
 }
 
-td:nth-of-type(odd) {
-    font-size: x-large;
-}
-
-td {
-    text-align: right;
-    padding: 25px;
-}
-
-table {
-    border-width: 40px;
-}
-
 input[type] {
     padding-left: 5px;
     width: 18vw;
@@ -84,38 +71,8 @@ label {
     font-size: 25px;
 }
 
-.checkbox-table label {
-    color: white;
-    font-size: 40px;
-}
-
 input:required {
     border: 1px solid black;
-}
-
-table {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.checkbox-table {
-    margin-top: 3vh;
-}
-
-.checkbox-table tr {
-    height: 3vh;
-}
-
-.checkbox-table td {
-    padding: 10px;
-}
-
-.checkbox-table td:nth-of-type(even) {
-    padding-left: 7px;
-}
-
-td:nth-of-type(even) {
-    text-align: left;
 }
 
 .h1_login {

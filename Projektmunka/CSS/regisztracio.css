@@ -56,14 +56,52 @@ hr {
     transition: all 0.5s ease-in-out;
 }
 
-td:nth-of-type(odd) {
-    font-size: x-large;
+fieldset {
+    border: 3px solid white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 45px;
+    padding: 50px;
+    width: 50%;
 }
 
-td {
-    text-align: right;
-    padding: 25px;
+legend {
+    font-size: 34px;
+    color: white;
 }
+
+/* GRID */
+
+.grid-container {
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-container > .grid-item {
+    text-align: right;
+}
+
+.grid-container-c {
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-container-c > .grid-item-c {
+    text-align: left;
+}
+
+/********/
 
 input[type] {
     padding-left: 5px;

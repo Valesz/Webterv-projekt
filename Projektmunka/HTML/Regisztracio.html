@@ -28,74 +28,61 @@
             <div class="form-block">
                 <h1 class="h1_register">Regisztráció</h1>
                 <hr>
-                <div class="table-container">
-                    <table>
-                            <tr>
-                                <td>
-                                    <label for="username">
-                                        Felhasználónév:
-                                    </label>
-                                </td>
-                                <td>
-                                    <input type="text" name="username" id="username" placeholder="Sanyi Cica" required>
-                                </td>    
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="email">
-                                        E-mail:
-                                    </label>
-                                </td>
-                                <td>
-                                    <input type="email" name="email" id="email" placeholder="valaki@email.com" required>
-                                </td>    
-                            </tr>    
-                            <tr>
-                                <td>
-                                    <label for="password">
-                                        Jelszó:
-                                    </label>
-                                </td>
-                                <td>    
-                                    <input type="password" name="password" id="password" placeholder="Biztonságos jelszót adj meg!" required>
-                                </td>    
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="password-again">
-                                        Jelszó ismét:
-                                    </label>
-                                </td>    
-                                <td>
-                                    <input type="password" name="password-again" id="password-again" placeholder="Na mégegyszer!" required>
-                                </td>    
-                            </tr>  
-                    </table>          
+                <fieldset>
+                    <legend>Adatok</legend>
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <label for="username">
+                                Felhasználónév:
+                            </label>
+                        </div>
+                        <div class="grid-item">    
+                            <input type="text" name="username" id="username" placeholder="Sanyi Cica" required>
+                        </div>
+                        <div class="grid-item">   
+                            <label for="email">
+                                E-mail:
+                            </label>
+                        </div>
+                        <div class="grid-item">  
+                            <input type="email" name="email" id="email" placeholder="valaki@email.com" required>
+                        </div>
+                        <div class="grid-item">    
+                            <label for="password">
+                                Jelszó:
+                            </label>
+                        </div>
+                        <div class="grid-item">    
+                            <input type="password" name="password" id="password" placeholder="Biztonságos jelszót adj meg!" required>
+                        </div>
+                        <div class="grid-item">    
+                            <label for="password-again">
+                                Jelszó ismét:
+                            </label>
+                        </div>
+                        <div class="grid-item">    
+                            <input type="password" name="password-again" id="password-again" placeholder="Na mégegyszer!" required>   
+                        </div>      
+                    </div>
+                </fieldset>    
+            </div>
+            <div class="grid-container-c">
+                <div class="grid-item-c">
+                    <input type="checkbox" id="agreement" required> 
                 </div>
+                <div class="grid-item-c">    
+                    <label for="agreement" style="font-size: 100%;">A regisztrációval beleegyezel, hogy adataidat titkosan kezeljük, és a szervereinken tárolhassuk. Csupa klassz dolog, nemde?</label>     
+                </div>
+                <div class="grid-item-c">           
+                    <input type="checkbox" id="subscribe">
+                </div>
+                <div class="grid-item-c">    
+                    <label for="subscribe" style="font-size: 100%;">Szeretnék feliratkozni a Macskalak hírlevelére, mely napi rendszerességgel fogja bombázni a postaládám, nehogy egy pillanatig is macskás képek nélkül maradjak.</label>
+                </div>    
             </div>
-            <div class="checkbox-container">
-                <table class="checkbox-table">
-                    <tr>
-                        <td>
-                            <input type="checkbox" id="agreement" required> 
-                        </td>    
-                        <td>
-                            <label for="agreement" style="font-size: 100%;">A regisztrációval beleegyezel, hogy adataidat titkosan kezeljük, és a szervereinken tárolhassuk. Csupa klassz dolog, nemde?</label>     
-                        </td>    
-                    </tr>     
-                    <tr>   
-                        <td>    
-                            <input type="checkbox" id="subscribe"> 
-                        </td>  
-                        <td>         
-                            <label for="subscribe" style="font-size: 100%;">Szeretnék feliratkozni a Macskalak hírlevelére, mely napi rendszerességgel fogja bombázni a postaládám, nehogy egy pillanatig is macskás képek nélkül maradjak.</label>
-                        </td>
-                    </tr>        
-                </table>        
-                <label for="register">
-                    <input type="submit" name="submit-btn" id="register" value="Regisztrálok!">
-                </label>     
-            </div>
+            <label for="register">
+                <input type="submit" name="submit-btn" id="register" value="Regisztrálok!">
+            </label>     
             <br>
             <a href="Bejelentkezes.html" id="notyet_member" target="_self">Már tagja vagy cicasztikus közösségünknek?</a>
         </form>
