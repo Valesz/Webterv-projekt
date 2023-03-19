@@ -27,46 +27,39 @@
             <div class="form-block">
                 <h1 class="h1_login">Bejelentkezés</h1>
                 <hr>
-                <div class="table-container">
-                    <table>
-                            <tr>
-                                <td>
-                                    <label for="username">
-                                        Felhasználónév:
-                                    </label>
-                                </td>
-                                <td>
-                                    <input type="text" name="username" id="username" placeholder="Felhasználónév" required>
-                                </td>    
-                            </tr>    
-                            <tr>
-                                <td>
-                                    <label for="password">
-                                        Jelszó:
-                                    </label>
-                                </td>
-                                <td>    
-                                    <input type="password" name="password" id="password" placeholder="Jelszó" required>
-                                </td>    
-                            </tr> 
-                    </table>          
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <label for="username">
+                            Felhasználónév:
+                        </label>
+                    </div>    
+                    <div class="grid-item">    
+                        <input type="text" name="username" id="username" placeholder="Felhasználónév" required>
+                    </div>
+                    <div class="grid-item">    
+                        <label for="password">
+                            Jelszó:
+                        </label>  
+                    </div>
+                    <div>    
+                        <input type="password" name="password" id="password" placeholder="Jelszó" required>  
+                    </div>    
                 </div>
             </div>
-            <div class="checkbox-container">
-                <table class="checkbox-table">
-                    <tr>
-                        <td>
-                            <input type="checkbox" id="remember_me"> 
-                        </td>    
-                        <td>
-                            <label for="remember_me" style="font-size: 100%;">Jegyezz meg!</label>     
-                        </td>    
-                    </tr>          
-                </table>        
-                        <label for="login">
-                            <input type="submit" name="submit-btn" id="login" value="Irány a Cicabirodalom!">
-                        </label>     
+            
+            <div class="grid-container-c">
+                <div class="grid-item-c">    
+                    <input type="checkbox" id="remember_me"> 
+                </div>
+                <div class="grid-item-c">    
+                    <label for="remember_me" style="font-size: 100%;">Jegyezz meg!</label>
+                </div>
             </div>
+
+            <label for="login">
+            <input type="submit" name="submit-btn" id="login" value="Irány a Cicabirodalom!">
+            </label>     
+            
             <br>
             <a href="Regisztracio.html" id="already_member" target="_self">Még nem vagy tagja cicasztikus közösségünknek?</a>
         </form>
