@@ -46,7 +46,7 @@ hr {
     padding: 20px 20px 30px;
     height: fit-content;
     min-height: 800px;
-    width: 75vw;
+    max-width: 75vw;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -71,6 +71,7 @@ input[type] {
     height: 3vh;
     font-size: larger;
     padding: 5px 10px;
+    transition: all 500ms;
 }
 
 input[type="checkbox"] {
@@ -96,6 +97,7 @@ input:required {
 table {
     margin-left: auto;
     margin-right: auto;
+    transition: all 500ms;
 }
 
 .checkbox-table {
@@ -108,6 +110,7 @@ table {
 
 .checkbox-table td {
     padding: 0;
+    transition: all 500ms;
 }
 
 .checkbox-table td:nth-of-type(even) {
@@ -126,6 +129,7 @@ td:nth-of-type(even) {
     margin-right: auto;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
+    transition: all 500ms;
 }
 
 .register_form input[type="submit"] {
@@ -166,4 +170,26 @@ input[type="submit"]:hover {
     font-size: 15px;
     scale: 105% 105%;
     box-shadow: 0 0 10px 10px rgba(255, 166, 0, 0.638);
+}
+
+@media screen and (max-width: 800px) {
+    label {
+        font-size: 20px;
+    }
+
+    input[type] {
+        font-size: 15px;
+    }
+
+    td {
+        padding: 5px;
+    }
+
+    .register_form input[type="submit"] {
+        width: 80%;
+    }
+
+    .h1_register {
+        font-size: 40px;
+    }
 }

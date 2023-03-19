@@ -14,7 +14,7 @@ main {
     padding: 35px 0px;
     /*min-height: fit-content;*/
     background-color: white;
-    box-shadow: 0 0 20px 20px white;
+    box-shadow: 0 0 20px 5px white;
     flex-direction: column;
 }
 
@@ -46,8 +46,9 @@ main > div {
     margin: 30px auto;
     width: 80%;
     background-color: orange;
-    box-shadow: 0px 0px 10px 10px orange;
+    box-shadow: 0px 0px 10px 5px orange;
     border-radius: 5px;
+    padding: 5px;
 }
 
 h2 {
@@ -85,7 +86,6 @@ hr {
     height:min-content;
     font-size: 40px;
     padding: 20px;
-    min-width: 400px;
     font-style: italic;
 }
 
@@ -157,6 +157,8 @@ button:hover {
     .description p {
         min-width: none;
         font-style: normal;
+        width: 80%;
+        font-size: 30px;
     }
 
     .kep {
@@ -171,14 +173,22 @@ button:hover {
     }
 
     button {
-        width:50%;
+        width:80%;
         display: block;
         margin: auto;
+    }
+
+    .orokbefogad {
+        width: 80%;
     }
 
     input[type="text"] {
         margin: auto;
         display: block;
+    }
+
+    header h1 {
+        font-size: 50px;
     }
 
     nav {

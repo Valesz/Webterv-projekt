@@ -42,7 +42,7 @@ hr {
     padding: 20px 20px 30px;
     height: 80vh;
     min-height: 500px;
-    width: 75vw;
+    max-width: 75vw;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -166,4 +166,26 @@ input[type="submit"]:hover {
     font-size: 15px;
     scale: 105% 105%;
     box-shadow: 0 0 10px 10px rgba(255, 166, 0, 0.638);
+}
+
+@media screen and (max-width: 800px) {
+    label {
+        font-size: 20px;
+    }
+
+    input[type] {
+        font-size: 15px;
+    }
+
+    td {
+        padding: 5px;
+    }
+
+    .login_form input[type="submit"] {
+        width: 80%;
+    }
+
+    .h1_register {
+        font-size: 40px;
+    }
 }
