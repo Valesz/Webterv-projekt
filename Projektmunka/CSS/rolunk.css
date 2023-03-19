@@ -43,13 +43,13 @@ section {
     margin: 25px;
 }
 
-h1, h2 {
+h2, h3 {
     font-size: 5vh;
     text-align: center;
     color: #2a2a2a;
 }
 
-h2, p {
+h3, p {
     color: white;
 }
 
