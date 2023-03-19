@@ -153,7 +153,6 @@ header {
     text-align: center;
     border-radius: 20px;
     animation: forwards animMegjelenes 1500ms;
-    animation-delay: 500ms;
 }
 
 .cim {
