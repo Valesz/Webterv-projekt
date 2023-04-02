@@ -52,12 +52,12 @@
                                 <p>$description</p>
                                 <hr>
                                 <input type='text' placeholder='Kommentelj...'>
-                                <button id='kuldes'>Küldés</button>
-                                <ul>
-                                    <li>Nagyon aranyos cica 😍</li>
-                                    <li>Mint egy igazi oroszlán 😎</li>
-                                    <li>Ez a kép annyira cuki, hogy azonnal meg kell osztanom a barátaimmal is!</li>
-                                </ul>
+                                <button id='kuldes'>Küldés</button>";
+                    echo "<ul>";
+                    foreach(explode('|', $row['comments']) as $s) {
+                        echo "<li>$s</li>";
+                    }
+                    echo "</ul>
                                 <button class='orokbefogad' onclick='window.location.href='Regisztracio.php''>Örökbefogad!</button>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
 
             $connection->close();
         ?>
-        <div id="Gunter">
+        <!--<div id="Gunter">
             <h2>Günter</h2>
             <div class="flexbox">
                 <div class="kep" style="background-image: url('Kepek/Adoptalos/Gunter.jpg');"></div>
@@ -243,7 +243,7 @@
                     <button class="orokbefogad" onclick="window.location.href='Regisztracio.php'">Örökbefogad!</button>
                 </div>
             </div>
-        </div>
+        </div>-->
     </main>
     <footer>
         <div>
