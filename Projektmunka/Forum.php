@@ -38,6 +38,7 @@
             $result = $connection->query($query);
 
             if ($result -> num_rows > 0) {
+                $i = 0;
                 while ($row = $result -> fetch_assoc()) {
                     $name = $row['name'];
                     $imgName = $row['imgName'];
@@ -52,16 +53,17 @@
                                 <p>$description</p>
                                 <hr>
                                 <input type='text' placeholder='Kommentelj...'>
-                                <button id='kuldes'>Küldés</button>";
+                                <button id='kuldes$i'>Küldés</button>";
                     echo "<ul>";
                     foreach(explode('|', $row['comments']) as $s) {
                         echo "<li>$s</li>";
                     }
                     echo "</ul>
-                                <button class='orokbefogad' onclick='window.location.href='Regisztracio.php''>Örökbefogad!</button>
+                                <button class='orokbefogad' value='Örökbefogad!' onclick='window.location.href" . "=Regisztracio.php" . "'>Örökbefogad!</button>
                             </div>
                         </div>
                     </div>";
+                    $i++;
                 }
             }
 
