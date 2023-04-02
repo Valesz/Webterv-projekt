@@ -24,24 +24,49 @@
         <h1>Cicafórum</h1>
     </header>
     <main class="flexbox">
-        <div id="Rafiki">
-            <h2>Rafiki</h2>
-            <div class="flexbox">
-                <div class="kep"  style="background-image: url('Kepek/Adoptalos/Rafiki.jpg');"></div>
-                <div class="description">
-                    <p>A méltóságteljes Rafiki keresi a nyugodtabb cicára vágyó leendő gazdáját!</p>
-                    <hr>
-                    <input type="text" placeholder="Kommentelj...">
-                    <button id="kuldes">Küldés</button>
-                    <ul>
-                        <li>Nagyon aranyos cica 😍</li>
-                        <li>Mint egy igazi oroszlán 😎</li>
-                        <li>Ez a kép annyira cuki, hogy azonnal meg kell osztanom a barátaimmal is!</li>
-                    </ul>
-                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.php'">Örökbefogad!</button>
-                </div>
-            </div>
-        </div>
+        <?php
+            $servername = 'localhost';
+            $username = 'root';
+            $password = '';
+            $dbname = 'Macskalak';
+            $connection = new mysqli($servername, $username, $password, $dbname);
+            if ($connection -> connect_error) {
+                die("connection error: " . $connection->connect_error);
+            }
+
+            $query = "SELECT * FROM forum";
+            $result = $connection->query($query);
+
+            if ($result -> num_rows > 0) {
+                while ($row = $result -> fetch_assoc()) {
+                    $name = $row['name'];
+                    $imgName = $row['imgName'];
+                    $description = $row['description'];
+                    $comments = explode("|", $row['comments']);
+                    echo
+                    "<div id='$name'>
+                        <h2>$name</h2>
+                        <div class='flexbox'>
+                            <div class='kep' style='background-image: url(" . "Kepek/Adoptalos/$imgName" . ");'></div>
+                            <div class='description'>
+                                <p>$description</p>
+                                <hr>
+                                <input type='text' placeholder='Kommentelj...'>
+                                <button id='kuldes'>Küldés</button>
+                                <ul>
+                                    <li>Nagyon aranyos cica 😍</li>
+                                    <li>Mint egy igazi oroszlán 😎</li>
+                                    <li>Ez a kép annyira cuki, hogy azonnal meg kell osztanom a barátaimmal is!</li>
+                                </ul>
+                                <button class='orokbefogad' onclick='window.location.href='Regisztracio.php''>Örökbefogad!</button>
+                            </div>
+                        </div>
+                    </div>";
+                }
+            }
+
+            $connection->close();
+        ?>
         <div id="Gunter">
             <h2>Günter</h2>
             <div class="flexbox">
