@@ -5,26 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regisztráció - Macskalak</title>
-    <link rel="stylesheet" href="../CSS/navBar.css">
-    <link rel="stylesheet" href="../CSS/footer.css">
-    <link rel="stylesheet" href="../CSS/regisztracio.css">
-    <link rel="icon" type="image/x-icon" href="../kepek/cat.png">
+    <link rel="stylesheet" href="CSS/navBar.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/regisztracio.css">
+    <link rel="icon" type="image/x-icon" href="kepek/cat.png">
 </head>
 <body>
 
     <nav>
         <ul>
-            <li><a href="Profil.html" class="gomb">Profil</a></li>
-            <li><a href="Rolunk.html" class="gomb">Támogatás</a></li>
-            <li><a href="Forum.html" class="gomb">Fórum</a></li>
-            <li><a href="index.html" class="gomb">Kezdőlap</a></li>
-            <li class="icon-img-container"><a href="index.html"><img src="../Kepek/cat.png" class="icon-img" alt="Logo"></a></li>
+            <li><a href="Profil.php" class="gomb">Profil</a></li>
+            <li><a href="Rolunk.php" class="gomb">Támogatás</a></li>
+            <li><a href="Forum.php" class="gomb">Fórum</a></li>
+            <li><a href="index.php" class="gomb">Kezdőlap</a></li>
+            <li class="icon-img-container"><a href="index.php"><img src="Kepek/cat.png" class="icon-img" alt="Logo"></a></li>
         </ul>
     </nav>
 
     <main>
         <br>
-        <form method="post" class="register_form" action="Bejelentkezes.html">
+        <form method="post" class="register_form" action="Bejelentkezes.php">
             <div class="form-block">
                 <h1 class="h1_register">Regisztráció</h1>
                 <hr>
@@ -89,7 +89,7 @@
             </label>
             
             <br>
-            <a href="Bejelentkezes.html" id="notyet_member" target="_self">Már tagja vagy cicasztikus közösségünknek?</a>
+            <a href="Bejelentkezes.php" id="notyet_member" target="_self">Már tagja vagy cicasztikus közösségünknek?</a>
         </form>
     </main>
 

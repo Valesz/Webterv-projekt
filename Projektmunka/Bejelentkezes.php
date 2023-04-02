@@ -5,25 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bejelentkezés - Macskalak</title>
-    <link rel="stylesheet" href="../CSS/navBar.css">
-    <link rel="stylesheet" href="../CSS/footer.css">
-    <link rel="stylesheet" href="../CSS/bejelentkezes.css">
-    <link rel="icon" type="image/x-icon" href="../kepek/cat.png">
+    <link rel="stylesheet" href="CSS/navBar.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/bejelentkezes.css">
+    <link rel="icon" type="image/x-icon" href="kepek/cat.png">
 </head>
 <body>
     
     <nav>
         <ul>
-            <li><a href="Profil.html" class="gomb">Profil</a></li>
-            <li><a href="Rolunk.html" class="gomb">Támogatás</a></li>
-            <li><a href="Forum.html" class="gomb">Fórum</a></li>
-            <li><a href="index.html" class="gomb">Kezdőlap</a></li>
-            <li class="icon-img-container"><a href="index.html"><img src="../Kepek/cat.png" class="icon-img" alt="Logo"></a></li>
+            <li><a href="Profil.php" class="gomb">Profil</a></li>
+            <li><a href="Rolunk.php" class="gomb">Támogatás</a></li>
+            <li><a href="Forum.php" class="gomb">Fórum</a></li>
+            <li><a href="index.php" class="gomb">Kezdőlap</a></li>
+            <li class="icon-img-container"><a href="index.php"><img src="Kepek/cat.png" class="icon-img" alt="Logo"></a></li>
         </ul>
     </nav>
 
     <main>
-        <form method="post" class="login_form" action="Profil.html">
+        <form method="post" class="login_form" action="Profil.php">
             <div class="form-block">
                 <h1 class="h1_login">Bejelentkezés</h1>
                 <hr>
@@ -61,7 +61,7 @@
             </label>     
             
             <br>
-            <a href="Regisztracio.html" id="already_member" target="_self">Még nem vagy tagja cicasztikus közösségünknek?</a>
+            <a href="Regisztracio.php" id="already_member" target="_self">Még nem vagy tagja cicasztikus közösségünknek?</a>
         </form>
     </main>
     <footer>

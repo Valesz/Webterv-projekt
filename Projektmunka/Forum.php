@@ -5,19 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cicafórum - Macskalak</title>
-    <link rel="stylesheet" href="../CSS/navBar.css">
-    <link rel="stylesheet" href="../CSS/footer.css">
-    <link rel="stylesheet" href="../CSS/forum.css">
-    <link rel="icon" type="image/x-icon" href="../kepek/cat.png">
+    <link rel="stylesheet" href="CSS/navBar.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/forum.css">
+    <link rel="icon" type="image/x-icon" href="kepek/cat.png">
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="Profil.html" class="gomb">Profil</a></li>
-            <li><a href="Rolunk.html" class="gomb">Támogatás</a></li>
-            <li><a href="Forum.html" class="gomb active">Fórum</a></li>
-            <li><a href="index.html" class="gomb">Kezdőlap</a></li>
-            <li class="icon-img-container"><a href="index.html"><img src="../Kepek/cat.png" class="icon-img" alt="Logo"></a></li>
+            <li><a href="Profil.php" class="gomb">Profil</a></li>
+            <li><a href="Rolunk.php" class="gomb">Támogatás</a></li>
+            <li><a href="Forum.php" class="gomb active">Fórum</a></li>
+            <li><a href="index.php" class="gomb">Kezdőlap</a></li>
+            <li class="icon-img-container"><a href="index.php"><img src="Kepek/cat.png" class="icon-img" alt="Logo"></a></li>
         </ul>
     </nav>
     <header>
@@ -27,7 +27,7 @@
         <div id="Rafiki">
             <h2>Rafiki</h2>
             <div class="flexbox">
-                <div class="kep"  style="background-image: url('../Kepek/Adoptalos/Rafiki.jpg');"></div>
+                <div class="kep"  style="background-image: url('Kepek/Adoptalos/Rafiki.jpg');"></div>
                 <div class="description">
                     <p>A méltóságteljes Rafiki keresi a nyugodtabb cicára vágyó leendő gazdáját!</p>
                     <hr>
@@ -38,14 +38,14 @@
                         <li>Mint egy igazi oroszlán 😎</li>
                         <li>Ez a kép annyira cuki, hogy azonnal meg kell osztanom a barátaimmal is!</li>
                     </ul>
-                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.html'">Örökbefogad!</button>
+                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.php'">Örökbefogad!</button>
                 </div>
             </div>
         </div>
         <div id="Gunter">
             <h2>Günter</h2>
             <div class="flexbox">
-                <div class="kep" style="background-image: url('../Kepek/Adoptalos/Gunter.jpg');"></div>
+                <div class="kep" style="background-image: url('Kepek/Adoptalos/Gunter.jpg');"></div>
                 <div class="description">
                     <p>Günter egy játékos macska, így mellette lehetetlen az unatkozás!</p>
                     <hr>
@@ -56,14 +56,14 @@
                         <li>Azonnal elolvadok ettől a kis aranyos fejétől!</li>
                         <li>Ez a kép igazán megmutatja, mennyire szerethetőek és aranyosak tudnak lenni a cicák.</li>
                     </ul>
-                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.html'">Örökbefogad!</button>
+                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.php'">Örökbefogad!</button>
                 </div>
             </div>
         </div>
         <div id="Igor">
             <h2>Igor</h2>
             <div class="flexbox">
-                <div class="kep"  style="background-image: url('../Kepek/Adoptalos/Igor.jpg');"></div>
+                <div class="kep"  style="background-image: url('Kepek/Adoptalos/Igor.jpg');"></div>
                 <div class="description">
                     <p>Igor a tekintetével a gonoszt is kiűzi a lelkedből! Démonűző gazdáját keresi.</p>
                     <hr>
@@ -74,14 +74,14 @@
                         <li>Ez a kis cica olyan aranyos, hogy az ember rögtön megszeretné!</li>
                         <li>Milyen bájos és szerethető kis állat ez a cica!</li>
                     </ul>
-                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.html'">Örökbefogad!</button>
+                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.php'">Örökbefogad!</button>
                 </div>
             </div>
         </div>
         <div id="Gaia">
             <h2>Gaia</h2>
             <div class="flexbox">
-                <div class="kep"  style="background-image: url('../Kepek/Adoptalos/Gaia.jpg');"></div>
+                <div class="kep"  style="background-image: url('Kepek/Adoptalos/Gaia.jpg');"></div>
                 <div class="description">
                     <p>Gaia nehéz időszakon ment keresztül, ezért szeretetteljes és befogadó környezetre vágyik.</p>
                     <hr>
@@ -92,14 +92,14 @@
                         <li>Mi így is imádunk téged!</li>
                         <li>Gyönyörű kis cica így is! Number 1 Gaia fan vagyok!</li>
                     </ul>
-                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.html'">Örökbefogad!</button>
+                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.php'">Örökbefogad!</button>
                 </div>
             </div>
         </div>
         <div>
             <h2>Po</h2>
             <div class="flexbox">
-                <div class="kep"  style="background-image: url('../Kepek/Adoptalos/Po.jpg');"></div>
+                <div class="kep"  style="background-image: url('Kepek/Adoptalos/Po.jpg');"></div>
                 <div class="description">
                     <p>Sárkányharcosunk keresi elveszett gazdáját!</p>
                     <hr>
@@ -110,14 +110,14 @@
                         <li>Shifu mester büszkesége!</li>
                         <li>Legendás harcos!</li>
                     </ul>
-                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.html'">Örökbefogad!</button>
+                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.php'">Örökbefogad!</button>
                 </div>
             </div>
         </div>
         <div>
             <h2>Karcsi</h2>
             <div class="flexbox">
-                <div class="kep"  style="background-image: url('../Kepek/Adoptalos/Karcsi.jpg');"></div>
+                <div class="kep"  style="background-image: url('Kepek/Adoptalos/Karcsi.jpg');"></div>
                 <div class="description">
                     <p>A "legokosabb" macska gazdáját keresi... Kedvenc tevékenysége a fal bámulása, és az indokolatlan nyávogás</p>
                     <hr>
@@ -128,14 +128,14 @@
                         <li>Milyen macskát nézel te? 😂</li>
                         <li>Őt sem az eszéért szeretjük 🥰</li>
                     </ul>
-                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.html'">Örökbefogad!</button>
+                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.php'">Örökbefogad!</button>
                 </div>
             </div>
         </div>
         <div>
             <h2>Fogatlan</h2>
             <div class="flexbox">
-                <div class="kep"  style="background-image: url('../Kepek/Adoptalos/Fogatlan.jpg');"></div>
+                <div class="kep"  style="background-image: url('Kepek/Adoptalos/Fogatlan.jpg');"></div>
                 <div class="description">
                     <p>Segítség elhagytam a Hablatyomat, és nem tudom merre van a haza!</p>
                     <hr>
@@ -146,14 +146,14 @@
                         <li>Hol van Hablaty? 🤔</li>
                         <li>Mi van a kissárkányokkal? 😨</li>
                     </ul>
-                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.html'">Örökbefogad!</button>
+                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.php'">Örökbefogad!</button>
                 </div>
             </div>
         </div>
         <div>
             <h2>Szimat</h2>
             <div class="flexbox">
-                <div class="kep"  style="background-image: url('../Kepek/Adoptalos/Szimat.jpg');"></div>
+                <div class="kep"  style="background-image: url('Kepek/Adoptalos/Szimat.jpg');"></div>
                 <div class="description">
                     <p>Szimat a minden, a megváltó, a prog 1 gyakvez, a dékán, és még te is!</p>
                     <hr>
@@ -179,14 +179,14 @@
                         <li>Szimat!</li>
                         <li>Szimat!</li>
                     </ul>
-                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.html'">Örökbefogad!</button>
+                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.php'">Örökbefogad!</button>
                 </div>
             </div>
         </div>
         <div>
             <h2>Junior</h2>
             <div class="flexbox">
-                <div class="kep"  style="background-image: url('../Kepek/Adoptalos/Junior.jpg');"></div>
+                <div class="kep"  style="background-image: url('Kepek/Adoptalos/Junior.jpg');"></div>
                 <div class="description">
                     <p>Icike-picike aranyos kiscica keresi gazdáját, minél előbb!</p>
                     <hr>
@@ -197,14 +197,14 @@
                         <li>Egy ilyen aranyos kis macskát bárki szívesen magáénak tudna! 🥰</li>
                         <li>Ez a kép teljesen elvarázsol és boldoggá tesz! 🥰</li>
                     </ul>
-                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.html'">Örökbefogad!</button>
+                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.php'">Örökbefogad!</button>
                 </div>
             </div>
         </div>
         <div>
             <h2>Jerry</h2>
             <div class="flexbox">
-                <div class="kep"  style="background-image: url('../Kepek/Adoptalos/Jerry.jpg');"></div>
+                <div class="kep"  style="background-image: url('Kepek/Adoptalos/Jerry.jpg');"></div>
                 <div class="description">
                     <p>Végre megszabadult Tom elől, és most a segítségedet kéri, hogy soha ne találjon rá!</p>
                     <hr>
@@ -215,7 +215,7 @@
                         <li>Fuss ameddig tudsz!</li>
                         <li>Szerepet váltottatok? ....</li>
                     </ul>
-                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.html'">Örökbefogad!</button>
+                    <button class="orokbefogad" onclick="window.location.href='Regisztracio.php'">Örökbefogad!</button>
                 </div>
             </div>
         </div>
