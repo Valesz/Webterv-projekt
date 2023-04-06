@@ -36,13 +36,13 @@
                 die("connection error");
             }
             
-            if (isset($_GET['komment'])) {
+            if (isset($_GET['komment']) && !empty($_GET['komment'])) {
                 $index = $_GET['index'];
                 $query = "INSERT INTO `kommentek`(value, postId) 
                 VALUES ('" . $_GET["komment"] . "', $index)";
                 $connection -> query($query);
             }
-            $query = "SELECT * FROM forum";
+            $query = "SELECT * FROM forum ORDER BY id desc";
             $result = $connection->query($query);
 
             if ($result -> num_rows > 0) {
