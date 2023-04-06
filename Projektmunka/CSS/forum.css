@@ -95,7 +95,7 @@ input[type="text"] {
     font-size: 20px;
 }
 
-button {
+button, input[type="submit"] {
     background-color: orange;
     color: white;
     font-size: 20px;
@@ -105,7 +105,7 @@ button {
     transition: all 500ms;
 }
 
-button:hover {
+button:hover, input[type="submit"]:hover {
     filter: brightness(80%);
     transition: all 500ms;
     scale: 110% 110%;

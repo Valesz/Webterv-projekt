@@ -128,7 +128,7 @@ li.icon-img-container {
 /* HEADER */
 
 header {
-    background-image: url("Kepek/hatter_sotet.jpg");
+    background-image: url("../Kepek/hatter_sotet.jpg");
     height: 100vh;
     margin: 0;
     background-position: bottom;

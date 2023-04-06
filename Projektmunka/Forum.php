@@ -29,21 +29,28 @@
             $username = 'root';
             $password = '';
             $dbname = 'Macskalak';
-            $connection = new mysqli($servername, $username, $password, $dbname);
-            if ($connection -> connect_error) {
-                die("connection error: " . $connection->connect_error);
+            try {
+                $connection = new mysqli($servername, $username, $password, $dbname);
             }
-
+            catch (Exception) {
+                die("connection error");
+            }
+            
+            if (isset($_GET['komment'])) {
+                $index = $_GET['index'];
+                $query = "INSERT INTO `kommentek`(value, postId) 
+                VALUES ('" . $_GET["komment"] . "', $index)";
+                $connection -> query($query);
+            }
             $query = "SELECT * FROM forum";
             $result = $connection->query($query);
 
             if ($result -> num_rows > 0) {
-                $i = 0;
+                $i = 1;
                 while ($row = $result -> fetch_assoc()) {
                     $name = $row['name'];
                     $imgName = $row['imgName'];
                     $description = $row['description'];
-                    $comments = explode("|", $row['comments']);
                     echo
                     "<div id='$name'>
                         <h2>$name</h2>
@@ -52,12 +59,22 @@
                             <div class='description'>
                                 <p>$description</p>
                                 <hr>
-                                <input type='text' placeholder='Kommentelj...'>
-                                <button id='kuldes$i'>Küldés</button>";
+                                <form method='GET'>
+                                    <input type='text' name='index' value='$i' style='display: none;'>
+                                    <input type='text' name='komment' placeholder='Kommentelj...'>
+                                    <input type='submit' id='kuldes$i'>
+                                </form>";
                     echo "<ul>";
-                    foreach(explode('|', $row['comments']) as $s) {
-                        echo "<li>$s</li>";
+
+                    $komQuery = "SELECT kommentek.value FROM `kommentek`
+                        INNER JOIN forum
+                        ON forum.id = kommentek.postId
+                        WHERE forum.id = $i";
+                    $commentsRes = $connection -> query($komQuery);
+                    while ($comments = $commentsRes -> fetch_assoc()) {
+                        echo "<li>" . $comments['value'] ."</li>";
                     }
+
                     echo "</ul>
                                 <button class='orokbefogad' value='Örökbefogad!' onclick='window.location.href" . "=Regisztracio.php" . "'>Örökbefogad!</button>
                             </div>
@@ -68,6 +85,19 @@
             }
 
             $connection->close();
+
+            function connect() {
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "Macskalak";
+                $connection = new mysqli($servername, $username, $password, $dbname);
+                if ($connection -> connect_error) {
+                    die("connection error: " . $connection->connect_error);
+                }
+                return $connection;
+            }
+
         ?>
     </main>
     <footer>
