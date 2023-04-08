@@ -102,7 +102,7 @@ label.kep:hover {
 }
 
 form.xSymbol {
-    float: inline-end;
+    float: right;
     height: 50px;
     width: 50px;
     margin: 10px;
