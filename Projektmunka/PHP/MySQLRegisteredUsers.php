@@ -14,7 +14,7 @@
             die("connection error: " . $connection->connect_error);
         }
 
-        $query = "CREATE DATABASE RegisteredUsers";
+        $query = "CREATE DATABASE Users";
         if ($connection->query($query) === TRUE) {
             echo "Database created successfully";
         } else {
