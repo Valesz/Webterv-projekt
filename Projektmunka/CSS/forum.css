@@ -16,6 +16,7 @@ main {
     background-color: white;
     box-shadow: 0 0 20px 5px white;
     flex-direction: column;
+    min-height: 100px;
 }
 
 @keyframes megjelenes {
@@ -100,6 +101,33 @@ label.kep:hover {
     scale: 110% 110%;
 }
 
+form.xSymbol {
+    float: inline-end;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #ff914c;
+    box-shadow: 0px 0px 10px 5px #ff914c;
+    transition: all 500ms;
+}
+
+form.xSymbol input {
+    height: 100%;
+    width: 100%;
+    background-image: url("../Kepek/Ikonok/XJel.jpg");
+    background-size: cover;
+    border: none;
+    border-radius: 20px;
+}
+
+form.xSymbol:hover {
+    transition: all 500ms;
+    scale: 110% 110%;
+    filter: brightness(80%);
+}
+
 header h1 {
     text-align: center;
     font-weight: bold;
@@ -110,6 +138,7 @@ header h1 {
 
 .flexbox {
     display: flex;
+    clear: both;
 }
 
 main > div {
@@ -129,6 +158,7 @@ h2 {
     color: white;
     border-radius: 20px;
     display: block;
+    float: left;
 }
 
 .kep {
@@ -165,7 +195,7 @@ input[type="text"] {
     font-size: 20px;
 }
 
-button, input[type="submit"] {
+ button, input[type="submit"] {
     background-color: orange;
     color: white;
     font-size: 20px;
@@ -175,7 +205,7 @@ button, input[type="submit"] {
     transition: all 500ms;
 }
 
-button:hover, input[type="submit"]:hover {
+.description button:hover, .description input[type="submit"]:hover {
     filter: brightness(80%);
     transition: all 500ms;
     scale: 110% 110%;
@@ -214,7 +244,6 @@ button:hover, input[type="submit"]:hover {
 }
 
 /* RESZPONZIVITÁS */
-
 @media screen and (max-width: 900px) {
     main * {
         overflow-x: hidden;

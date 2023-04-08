@@ -1,6 +1,64 @@
 <?php
     include "PHP/Upload.php";
     include "PHP/Comments.php";
+    include "PHP/DeletePost.php";
+
+    $posts = "";
+
+    $servername = 'localhost';
+    $username = 'root';
+    $password = '';
+    $dbname = 'Macskalak';
+    try {
+        $connection = new mysqli($servername, $username, $password, $dbname);
+    }
+    catch (Exception) {
+        die("connection error");
+    }
+    
+    $query = "SELECT * FROM forum ORDER BY id DESC";
+    $result = $connection->query($query);
+
+    if ($result -> num_rows > 0) {
+        while ($row = $result -> fetch_assoc()) {
+            $name = $row['name'];
+            $imgName = $row['imgName'];
+            $description = $row['description'];
+            $i = $row['id'];
+            $posts = $posts .
+            "<div id='$name'>
+                <h2>$name</h2> <form class='xSymbol'> <input type='submit' value='' name='torles'> <input type='hidden' name='index' value='$i'> </form>
+                <div class='flexbox'>
+                    <div class='kep' style='background-image: url(" . "Kepek/Adoptalos/$imgName" . ");'></div>
+                    <div class='description'>
+                        <p>$description</p>
+                        <hr>
+                        <form method='GET'>
+                            <input type='text' name='index' value='$i' style='display: none;'>
+                            <input type='text' name='komment' placeholder='Kommentelj...' required>
+                            <input type='submit' id='kuldes$i'>
+                        </form>";
+            $posts = $posts . "<ul>";
+
+            $komQuery = "SELECT kommentek.value FROM `kommentek`
+                INNER JOIN forum
+                ON forum.id = kommentek.postId
+                WHERE forum.id = $i";
+            $commentsRes = $connection -> query($komQuery);
+            while ($comments = $commentsRes -> fetch_assoc()) {
+                $posts = $posts . "<li>" . $comments['value'] ."</li>";
+            }
+
+            $posts = $posts . "</ul>
+                        <button class='orokbefogad' value='Örökbefogad!' onclick='window.location.href" . "=Regisztracio.php" . "'>Örökbefogad!</button>
+                    </div>
+                </div>
+            </div>";
+            $i--;
+        }
+    }
+
+    $connection->close();
 ?>
 
 <!DOCTYPE html>
@@ -18,10 +76,10 @@
         function feltoltesGomb() {
             if (document.getElementById("feltoltes").style.display == "block") {
                 document.getElementById("feltoltes").style.display = "none";
-                document.getElementById("feltoltesGomb").style.backgroundImage = "url('Kepek/Ikonok/PluszJel.jpg')"
+                document.getElementById("feltoltesGomb").style.backgroundImage = "url('Kepek/Ikonok/PluszJel.jpg')";
             } else {
                 document.getElementById("feltoltes").style.display = "block";
-                document.getElementById("feltoltesGomb").style.backgroundImage = "url('Kepek/Ikonok/MinuszJel.jpg')"
+                document.getElementById("feltoltesGomb").style.backgroundImage = "url('Kepek/Ikonok/MinuszJel.jpg')";
             }
         }
     </script>
@@ -68,65 +126,7 @@
                 </form>
             </div>
         </div>
-
-        <?php
-            $servername = 'localhost';
-            $username = 'root';
-            $password = '';
-            $dbname = 'Macskalak';
-            try {
-                $connection = new mysqli($servername, $username, $password, $dbname);
-            }
-            catch (Exception) {
-                die("connection error");
-            }
-            
-            $query = "SELECT * FROM forum ORDER BY id DESC";
-            $result = $connection->query($query);
-
-            if ($result -> num_rows > 0) {
-                $query = "SELECT * FROM forum";
-                $indexRes = $connection -> query($query);
-                $i = $indexRes -> num_rows;
-                while ($row = $result -> fetch_assoc()) {
-                    $name = $row['name'];
-                    $imgName = $row['imgName'];
-                    $description = $row['description'];
-                    echo
-                    "<div id='$name'>
-                        <h2>$name</h2>
-                        <div class='flexbox'>
-                            <div class='kep' style='background-image: url(" . "Kepek/Adoptalos/$imgName" . ");'></div>
-                            <div class='description'>
-                                <p>$description</p>
-                                <hr>
-                                <form method='GET'>
-                                    <input type='text' name='index' value='$i' style='display: none;'>
-                                    <input type='text' name='komment' placeholder='Kommentelj...' required>
-                                    <input type='submit' id='kuldes$i'>
-                                </form>";
-                    echo "<ul>";
-
-                    $komQuery = "SELECT kommentek.value FROM `kommentek`
-                        INNER JOIN forum
-                        ON forum.id = kommentek.postId
-                        WHERE forum.id = $i";
-                    $commentsRes = $connection -> query($komQuery);
-                    while ($comments = $commentsRes -> fetch_assoc()) {
-                        echo "<li>" . $comments['value'] ."</li>";
-                    }
-
-                    echo "</ul>
-                                <button class='orokbefogad' value='Örökbefogad!' onclick='window.location.href" . "=Regisztracio.php" . "'>Örökbefogad!</button>
-                            </div>
-                        </div>
-                    </div>";
-                    $i--;
-                }
-            }
-
-            $connection->close();
-        ?>
+        <?php echo $posts; ?>
     </main>
     <footer>
         <div>
