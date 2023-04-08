@@ -13,5 +13,8 @@
 
         $query = "DELETE FROM `forum` WHERE id = " . $_GET['index'];
         $connection -> query($query);
+
+        $query = "DELETE FROM `kommentek` WHERE postId = " . $_GET['index'];
+        $connection -> query($query);
     }
 ?>
