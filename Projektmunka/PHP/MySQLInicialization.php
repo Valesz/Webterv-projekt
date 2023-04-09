@@ -67,7 +67,8 @@
         $query = "CREATE TABLE kommentek (
             id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
             value VARCHAR(250) NOT NULL,
-            postId int NOT NULL
+            postId int NOT NULL,
+            owner VARCHAR(30) NOT NULL
         )";
 
         if ($connection->query($query) === TRUE) {
@@ -76,36 +77,41 @@
             echo "Error creating table: " . $connection->error;
         }
 
-        $query = "INSERT INTO kommentek (value, postId)
+        $query = "INSERT INTO kommentek (value, postId, owner)
             VALUES 
-            ('Nagyon aranyos cica 😍', 10),
-            ('Mint egy igazi oroszlán 😎', 10),
-            ('Ez a kép annyira cuki, hogy azonnal meg kell osztanom a barátaimmal is!', 10),
-            ('Ó, de aranyos! Milyen bájos kis macska!', 9),
-            ('Azonnal elolvadok ettől a kis aranyos fejétől!', 9),
-            ('Ez a kép igazán megmutatja, mennyire szerethetőek és aranyosak tudnak lenni a cicák.', 9),
-            ('A cicák ilyen bájosak, hogy az embernek nincs más választása, mint rajongani értük!', 8),
-            ('Ez a kis cica olyan aranyos, hogy az ember rögtön megszeretné!', 8),
-            ('Milyen bájos és szerethető kis állat ez a cica!', 8),
-            ('Szegény cica 😥', 7),
-            ('Mi így is imádunk téged!', 7),
-            ('Gyönyörű kis cica így is! Number 1 Gaia fan vagyok!', 7),
-            ('SáRkÁnYyYy!! 😱😱😱😱', 6),
-            ('Hol van Hablaty? 🤔', 6),
-            ('Mi van a kissárkányokkal? 😨', 6),
-            ('Nemcsak gyönyörű, hanem nagyon okos is lehet ez a kis cica!', 5),
-            ('Milyen macskát nézel te? 😂', 5),
-            ('Őt sem az eszéért szeretjük 🥰', 5),
-            ('Igazi sárkányharcos! 🐼', 4),
-            ('Shifu mester büszkesége!', 4),
-            ('Legendás harcos!', 4),
-            ('Szimat!', 3),('Szimat!', 3),('Szimat!', 3),('Szimat!', 3),('Szimat!', 3),('Szimat!', 3),
-            ('Ez olyan édes, hogy szinte elolvadok! 😍😍', 2),
-            ('Egy ilyen aranyos kis macskát bárki szívesen magáénak tudna! 🥰', 2),
-            ('Ez a kép teljesen elvarázsol és boldoggá tesz! 🥰', 2),
-            ('Megmentelek én Tom elől!', 1),
-            ('Fuss ameddig tudsz! - Tom', 1),
-            ('Szerepet váltottatok? ....', 1)";
+            ('Nagyon aranyos cica 😍', 10, 'Valesz'),
+            ('Mint egy igazi oroszlán 😎', 10, 'Kevin'),
+            ('Ez a kép annyira cuki, hogy azonnal meg kell osztanom a barátaimmal is!', 10, 'Valesz'),
+            ('Ó, de aranyos! Milyen bájos kis macska!', 9, 'Valesz'),
+            ('Azonnal elolvadok ettől a kis aranyos fejétől!', 9, 'Kevin'),
+            ('Ez a kép igazán megmutatja, mennyire szerethetőek és aranyosak tudnak lenni a cicák.', 9, 'Valesz'),
+            ('A cicák ilyen bájosak, hogy az embernek nincs más választása, mint rajongani értük!', 8, 'Valesz'),
+            ('Ez a kis cica olyan aranyos, hogy az ember rögtön megszeretné!', 8, 'Kevin'),
+            ('Milyen bájos és szerethető kis állat ez a cica!', 8, 'Valesz'),
+            ('Szegény cica 😥', 7, 'Valesz'),
+            ('Mi így is imádunk téged!', 7, 'Kevin'),
+            ('Gyönyörű kis cica így is! Number 1 Gaia fan vagyok!', 7, 'Valesz'),
+            ('SáRkÁnYyYy!! 😱😱😱😱', 6, 'Valesz'),
+            ('Hol van Hablaty? 🤔', 6, 'Kevin'),
+            ('Mi van a kissárkányokkal? 😨', 6, 'Valesz'),
+            ('Nemcsak gyönyörű, hanem nagyon okos is lehet ez a kis cica!', 5, 'Valesz'),
+            ('Milyen macskát nézel te? 😂', 5, 'Kevin'),
+            ('Őt sem az eszéért szeretjük 🥰', 5, 'Valesz'),
+            ('Igazi sárkányharcos! 🐼', 4, 'Valesz'),
+            ('Shifu mester büszkesége!', 4, 'Kevin'),
+            ('Legendás harcos!', 4, 'Valesz'),
+            ('Szimat!', 3, 'Valesz'),
+            ('Szimat!', 3, 'Kevin'),
+            ('Szimat!', 3, 'Valesz'),
+            ('Szimat!', 3, 'Kevin'),
+            ('Szimat!', 3, 'Valesz'),
+            ('Szimat!', 3, 'Kevin'),
+            ('Ez olyan édes, hogy szinte elolvadok! 😍😍', 2, 'Valesz'),
+            ('Egy ilyen aranyos kis macskát bárki szívesen magáénak tudna! 🥰', 2, 'Kevin'),
+            ('Ez a kép teljesen elvarázsol és boldoggá tesz! 🥰', 2, 'Valesz'),
+            ('Megmentelek én Tom elől!', 1, 'Valesz'),
+            ('Fuss ameddig tudsz! - Tom', 1, 'Valesz'),
+            ('Szerepet váltottatok? ....', 1, 'Kevin')";
         if ($connection->query($query) === TRUE) {
             echo "Record inserted successfully<br>";
         } else {
