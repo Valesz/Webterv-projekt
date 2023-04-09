@@ -27,7 +27,10 @@
             $i = $row['id'];
             $posts = $posts .
             "<div id='$name'>
-                <h2>$name</h2> <form class='xSymbol'> <input type='submit' value='' name='torles'> <input type='hidden' name='index' value='$i'> </form>
+                <form class='xSymbol'>
+                    <input type='submit' value='' name='torles'> <input type='hidden' name='index' value='$i'> 
+                </form>
+                <h2>$name</h2>
                 <div class='flexbox'>
                     <div class='kep' style='background-image: url(" . "Kepek/Adoptalos/$imgName" . ");'></div>
                     <div class='description'>
@@ -40,13 +43,24 @@
                         </form>";
             $posts = $posts . "<ul>";
 
-            $komQuery = "SELECT kommentek.value FROM `kommentek`
+            $komQuery = "SELECT kommentek.value, users.id, users.name FROM kommentek
                 INNER JOIN forum
-                ON forum.id = kommentek.postId
+                ON kommentek.postId = forum.id
+                INNER JOIN users
+                ON kommentek.owner = users.name
                 WHERE forum.id = $i";
             $commentsRes = $connection -> query($komQuery);
             while ($comments = $commentsRes -> fetch_assoc()) {
-                $posts = $posts . "<li>" . $comments['value'] ."</li>";
+                $comment = $comments['value'];
+                $userID = $comments['id'];
+                $username = $comments['name'];
+                $posts = $posts . "<li>
+                <form action='Profil.php' method='GET'>
+                    <input type='submit' value='$username:' name='profilOpen' class='commentNev'>
+                    <input type='hidden' value='$userID' name='userId'>
+                </form>
+                <p>$comment</p>
+                </li>";
             }
 
             $posts = $posts . "</ul>
