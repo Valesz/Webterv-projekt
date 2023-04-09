@@ -1,3 +1,7 @@
+<?php
+    include "PHP/RegisterUsers.php";
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -24,7 +28,7 @@
 
     <main>
         <br>
-        <form method="post" class="register_form" action="Bejelentkezes.php">
+        <form method="post" class="register_form" action="">
             <div class="form-block">
                 <h1 class="h1_register">Regisztráció</h1>
                 <hr>
@@ -37,24 +41,90 @@
                             </label>
                         </div>
                         <div class="grid-item">    
-                            <input type="text" name="username" id="username" placeholder="Sanyi Cica" required>
+                            <input type="text" name="username" id="username" placeholder="Sanyi (legalább 4 betű)" value='<?php if (isset($_POST['register'])) {echo $_POST["username"];}?>' required>
                         </div>
+                        <?php
+                            if ($elsohiba === "short")
+                                echo
+                                "<div class='grid-item errorMessage' style='grid-column: 1 / 3;'>   
+                                    <label for='felhasznalonev' style='color: red; font-size: 16px;'>
+                                        Túl rövid felhasználónevet adtál meg!
+                                    </label>
+                                </div>";
+                            else if ($elsohiba === "used") {
+                                echo
+                                "<div class='grid-item errorMessage' style='grid-column: 1 / 3;'>   
+                                    <label for='felhasznalonev' style='color: red; font-size: 16px;'>
+                                        Ezzel a felhasználónévvel már regisztráltak!
+                                    </label>
+                                </div>";
+                            } else if ($elsohiba === "toolong") {
+                                echo
+                                "<div class='grid-item errorMessage' style='grid-column: 1 / 3;'>   
+                                    <label for='felhasznalonev' style='color: red; font-size: 16px;'>
+                                        A felhasználónév maximum 100 karakter lehet!
+                                    </label>
+                                </div>";
+                            }
+                        ?>
                         <div class="grid-item">   
                             <label for="email">
                                 E-mail:
                             </label>
                         </div>
                         <div class="grid-item">  
-                            <input type="email" name="email" id="email" placeholder="valaki@email.com" required>
+                            <input type="email" name="email" id="email" placeholder="valaki@email.com" value='<?php if (isset($_POST['register'])) {echo $_POST["email"];}?>' required>
                         </div>
+                        <?php
+                            if ($masodikhiba === "badformat")
+                                echo
+                                "<div class='grid-item errorMessage' style='grid-column: 1 / 3;'>   
+                                    <label for='emailcim' style='color: red; font-size: 16px;'>
+                                        Rossz formátumú a megadott e-mail cím!
+                                    </label>
+                                </div>";
+                            else if ($masodikhiba === "used") {
+                                echo
+                                "<div class='grid-item errorMessage' style='grid-column: 1 / 3;'>   
+                                    <label for='emailcim' style='color: red; font-size: 16px;'>
+                                        Ezzel az e-mail címmel már regisztráltak!
+                                    </label>
+                                </div>";
+                            }
+                        ?>
                         <div class="grid-item">    
                             <label for="password">
                                 Jelszó:
                             </label>
                         </div>
                         <div class="grid-item">    
-                            <input type="password" name="password" id="password" placeholder="Biztonságos jelszót adj meg!" required>
+                            <input type="password" name="password" id="password" placeholder="Legalább 8 betű (1 nagy)" required>
                         </div>
+                        <?php
+                            if ($harmadikhiba === "eightchar") {
+                                echo
+                                "<div class='grid-item errorMessage' style='grid-column: 1 / 3;'>   
+                                    <label for='jelszo' style='color: red; font-size: 16px;'>
+                                        A jelszónak legalább 8 és legfeljebb 100 betűből kell állnia!
+                                    </label>
+                                </div>";
+                            }
+                            if ($harmadikhiba === "nouppercase")
+                                echo
+                                "<div class='grid-item errorMessage' style='grid-column: 1 / 3;'>   
+                                    <label for='jelszo' style='color: red; font-size: 16px;'>
+                                        A jelszónak tartalmaznia kell nagybetűt!
+                                    </label>
+                                </div>";
+                            if ($harmadikhiba === "toolong") {
+                                echo
+                                "<div class='grid-item errorMessage' style='grid-column: 1 / 3;'>   
+                                    <label for='jelszo' style='color: red; font-size: 16px;'>
+                                        A jelszónak legalább 8 és legfeljebb 100 karakterből kell állnia és tartalmaznia kell nagybetűt!
+                                    </label>
+                                </div>";
+                            }
+                        ?>
                         <div class="grid-item">    
                             <label for="password-again">
                                 Jelszó ismét:
@@ -62,7 +132,17 @@
                         </div>
                         <div class="grid-item">    
                             <input type="password" name="password-again" id="password-again" placeholder="Na mégegyszer!" required>   
-                        </div>      
+                        </div>
+                        <?php
+                            if ($negyedikhiba === "notequals") {
+                                echo
+                                "<div class='grid-item errorMessage' style='grid-column: 1 / 3;'>   
+                                    <label for='jelszoujra' style='color: red; font-size: 16px;'>
+                                        A jelszók nem egyeznek!
+                                    </label>
+                                </div>";
+                            }    
+                        ?>
                     </div>
                 </fieldset>    
             </div>
@@ -81,11 +161,11 @@
                 </div>    
             </div>
             <label for="register">
-                <input type="submit" name="submit-btn" id="register" value="Regisztrálok!">
+                <input type="submit" name="register" id="register" value="Regisztrálok!">
             </label>
 
             <label for="reset">
-                <input type="reset" name="reset-btn" id="reset" value="Állítsd vissza!">
+                <input type="reset" name="reset" id="reset" value="Állítsd vissza!">
             </label>
             
             <br>

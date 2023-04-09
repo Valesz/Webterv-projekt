@@ -1,3 +1,7 @@
+<?php
+    include "PHP/RegisterUsers.php";
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -26,6 +30,12 @@
         <form method="post" class="login_form" action="Profil.php">
             <div class="form-block">
                 <h1 class="h1_login">Bejelentkezés</h1>
+                <?php
+                    if ($sikeres === TRUE) {
+                        echo
+                        "<h3 style='color: red';>Sikeres regisztráció!</h3>";
+                    }
+                ?>
                 <hr>
                 <div class="grid-container">
                     <div class="grid-item">

@@ -117,8 +117,35 @@
         } else {
             echo "Error creating record: " . $connection->error;
         }
-        
-        $connection -> close();
+
+        echo "<br>FELHASZNÁLÓK TÁBLA<br>";
+
+        $query = "CREATE TABLE Users (
+            id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            username VARCHAR(35) NOT NULL,
+            email VARCHAR(70) NOT NULL,
+            password VARCHAR(100) NOT NULL
+        )";
+
+        if ($connection->query($query) === TRUE) {
+            echo "Table created successfully<br>";
+        } else {
+            echo "Error creating table: " . $connection->error;
+        }
+
+        $query = "INSERT INTO Users (username, email, password)
+        VALUES 
+        ('admin', 'admin@admin.hu', 'admin'),
+        ('testuser', 'testuser@testuser.hu', 'testuser123')
+        ";
+
+        if ($connection->query($query) === TRUE) {
+            echo "Record inserted successfully<br>";
+        } else {
+            echo "Error creating record: " . $connection->error;
+        }
+
+        $connection->close();
     ?>
 
 </body>

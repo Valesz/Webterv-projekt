@@ -77,13 +77,15 @@ legend {
     margin-right: auto;
     display: grid;
     grid-template-columns: auto auto;
-    gap: 50px;
+    gap: 20px;
     align-items: center;
     justify-content: center;
 }
 
 .grid-container > .grid-item {
     text-align: right;
+    color: white;
+    font-size: 24px;
 }
 
 .grid-container-c {
@@ -99,9 +101,14 @@ legend {
 
 .grid-container-c > .grid-item-c {
     text-align: left;
+    color: white;
 }
 
 /********/
+
+#felhasznalonev {
+    font-size: 30px;
+}
 
 input[type] {
     padding-left: 5px;
@@ -112,20 +119,14 @@ input[type] {
     transition: all 500ms;
 }
 
+input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 18px;
+}
+
 input[type="checkbox"] {
     font-size: medium;
     width: 50px;
     margin: 10px;
-}
-
-label {
-    color: white;
-    font-size: 25px;
-}
-
-.checkbox-table label {
-    color: white;
-    font-size: 40px;
 }
 
 input:required {
@@ -136,27 +137,6 @@ table {
     margin-left: auto;
     margin-right: auto;
     transition: all 500ms;
-}
-
-.checkbox-table {
-    margin-top: 6vh;
-}
-
-.checkbox-table tr {
-    height: 2vh;
-}
-
-.checkbox-table td {
-    padding: 0;
-    transition: all 500ms;
-}
-
-.checkbox-table td:nth-of-type(even) {
-    padding-left: 7px;
-}
-
-td:nth-of-type(even) {
-    text-align: left;
 }
 
 .h1_register {
