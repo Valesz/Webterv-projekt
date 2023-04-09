@@ -29,7 +29,7 @@
             if (strlen($felhasznalonev) < 4) {
                 $elsohiba = "short";
                 $hibak = $hibak + 1;
-            } else if (strlen($felhasznalonev > 100)) {
+            } else if (strlen($felhasznalonev) > 100) {
                 $elsohiba = "toolong";
                 $hibak = $hibak + 1;
             } else if ($result -> num_rows > 0) {
