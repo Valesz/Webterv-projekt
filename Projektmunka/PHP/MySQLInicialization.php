@@ -112,6 +112,8 @@
             echo "Error creating record: " . $connection->error;
         }
 
+        echo "<br>FELHASZNÁLÓK TÁBLA<br>";
+
         $query = "CREATE TABLE Users (
             id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             username VARCHAR(35) NOT NULL,
@@ -120,7 +122,7 @@
         )";
 
         if ($connection->query($query) === TRUE) {
-            echo "Table UserData created successfully";
+            echo "Table created successfully<br>";
         } else {
             echo "Error creating table: " . $connection->error;
         }

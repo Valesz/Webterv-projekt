@@ -15,7 +15,7 @@
             
             $query = "DROP DATABASE Macskalak";
             if ($connection->query($query) === TRUE) {
-                echo "Database deleted successfully";
+                echo "Database deleted successfully<br>";
             } else {
                 echo "Error deleting database: " . $connection->error;
             }
