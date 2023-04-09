@@ -2,10 +2,6 @@
     include "PHP/RegisterUsers.php";
 ?>
 
-<?php 
-    if (isset($_POST['reset'])) {header("Refresh:0");}
-?>
-
 <!DOCTYPE html>
 <html lang="hu">
 <head>
