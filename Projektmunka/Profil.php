@@ -33,23 +33,23 @@
             <table>
                 <tr>
                     <th id="felhasznalonev">Felhasználónév:</th>
-                    <td headers="felhasznalonev">Frigyes</td>
+                    <td headers="felhasznalonev"></td>
                 </tr>
                 <tr>
                     <th id="reg-ido">Ennyi ideje vagy tag:</th>
-                    <td headers="reg-ido">265 napja</td>
+                    <td headers="reg-ido"></td>
                 </tr>
                 <tr>
-                    <th id="cicapontok">Összegyűjtött CicaPontok:</th>
-                    <td headers="cicapontok">345</td>
+                    <th id="szulinap">Szülinap:</th>
+                    <td headers="szulinap"></td>
                 </tr>
                 <tr>
                     <th id="orok-cicaid">Örökbefogadott cicák:</th>
-                    <td headers="orok-cicaid">5</td>
+                    <td headers="orok-cicaid"></td>
                 </tr>
                 <tr>
                     <th id="legutolso-belepes">Legutolsó belépés dátuma:</th>
-                    <td headers="legutolso-belepes">2023. 03. 10. - 18:07</td>
+                    <td headers="legutolso-belepes"></td>
                 </tr>    
             </table>
             <br>

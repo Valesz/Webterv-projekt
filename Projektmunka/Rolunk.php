@@ -72,8 +72,7 @@
             <hr>
             <h2 class="help">Hogy tudsz segíteni?</h2>
             <div class="card">
-                <p class="donate">Mindössze annyi a dolgod, hogy az alábbi gombra kattintva pénzzel, vagy a <strong>Kaparófalva, Miautca 12</strong> címre macskaeledelt hozol
-                    mely után a profilodra <strong>20 CicaPontot</strong> írunk jóvá.
+                <p class="donate">Mindössze annyi a dolgod, hogy az alábbi gombra kattintva pénzzel, vagy a <strong>Kaparófalva, Miautca 12</strong> címre macskaeledelt hozol.
                 </p>
             </div>
             <form>
