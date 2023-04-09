@@ -43,17 +43,17 @@
                         </form>";
             $posts = $posts . "<ul>";
 
-            $komQuery = "SELECT kommentek.value, users.id, users.name FROM kommentek
+            $komQuery = "SELECT kommentek.value, users.id, users.username FROM kommentek
                 INNER JOIN forum
                 ON kommentek.postId = forum.id
                 INNER JOIN users
-                ON kommentek.owner = users.name
+                ON kommentek.owner = users.username
                 WHERE forum.id = $i";
             $commentsRes = $connection -> query($komQuery);
             while ($comments = $commentsRes -> fetch_assoc()) {
                 $comment = $comments['value'];
                 $userID = $comments['id'];
-                $username = $comments['name'];
+                $username = $comments['username'];
                 $posts = $posts . "<li>
                 <form action='Profil.php' method='GET'>
                     <input type='submit' value='$username:' name='profilOpen' class='commentNev'>

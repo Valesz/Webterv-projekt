@@ -136,7 +136,9 @@
         $query = "INSERT INTO Users (username, email, password)
         VALUES 
         ('admin', 'admin@admin.hu', 'admin'),
-        ('testuser', 'testuser@testuser.hu', 'testuser123')
+        ('testuser', 'testuser@testuser.hu', 'testuser123'),
+        ('Valesz', 'valesz@gmail.com', 'BiztonsagosJelszo'),
+        ('Kevin', 'kevin@gmail.com', 'KevinJelszav')
         ";
 
         if ($connection->query($query) === TRUE) {
