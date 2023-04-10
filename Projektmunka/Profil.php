@@ -1,5 +1,55 @@
 <?php
-    include "PHP/Regisztracio.php"
+    include "PHP/RegisterUsers.php";
+    
+    session_start();
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "Macskalak";
+    try {
+        $connection = new mysqli($servername, $username, $password, $dbname);
+    }
+    catch (Exception) {
+        die("connection error");
+    }
+
+    $uname = "";
+    $email = "";
+    $password = "";
+    $userID = -1;
+
+    if (isset($_SESSION["userID"])) {
+        $query = "SELECT id FROM users WHERE id = $_SESSION[userID]";
+        $result = $connection->query($query);
+        $userID = $result;
+    }
+
+    // szuletesnap beallitasa
+    $query = "SELECT birthday FROM users WHERE id = $_SESSION[userID]";
+    $result = $connection->query($query);
+
+    $birthday = $result;
+
+    // username beállítása
+    $query = "SELECT username FROM users WHERE id = $userID";
+    $result = $connection->query($query);
+
+    $uname = $result;
+
+    // email cím beállítása
+    $query = "SELECT email FROM users WHERE id = $userID";
+    $result = $connection->query($query);
+
+    $email = $result;
+
+    // jelszó beállítása
+    $query = "SELECT password FROM users WHERE id = $userID";
+    $result = $connection->query($query);
+
+    $password = $result;
+
+    $connection -> close();
 ?>
 
 <!DOCTYPE html>
@@ -34,25 +84,52 @@
         
         <div class="card">
             <div class="profile_pic"><img src="Kepek/Ikonok/morcoscica.jpg" alt="morcoscica" class="profile_pic"></div>
-            <h2>Frigyes</h2>
+            <h2>
+                <?php
+                    echo $uname;
+                ?>
+            </h2>
             <table>
                 <tr>
                     <th id="reg-ido">Ennyi ideje vagy tag:</th>
-                    <td headers="reg-ido"></td>
+                    <td headers="reg-ido">
+
+                    </td>
                 </tr>
                 <tr>
                     <th id="szulinap">Szülinap:</th>
-                    <td headers="szulinap"></td>
+                    <td headers="szulinap">
+                    <?php 
+                        if (isset($birthday)) {
+                            echo "$birthday";
+                        } else {
+                            echo "Nincs beállítva a születésnapod!";
+                        }
+                    ?>
+                    </td>
                 </tr>
                 <tr>
-                    <th id="orok-cicaid">Örökbefogadott cicák:</th>
-                    <td headers="orok-cicaid"></td>
+                    <th id="orok-cicaid">E-mail címed:</th>
+                    <td headers="orok-cicaid">
+                    <?php 
+                        echo "Nincs beállítva az email-címed!";
+                    ?>
+                    </td>
                 </tr>
                 <tr>
-                    <th id="legutolso-belepes">Legutolsó belépés dátuma:</th>
+                    <th id="legutolso-belepes">Jelszavad:
+                    <?php 
+                        if (isset($jelszo)) {
+                            echo $jelszo;
+                        } else {
+                            echo "";
+                        }
+                    ?>
+                    </th>
                     <td headers="legutolso-belepes"></td>
                 </tr>    
             </table>
+            <input type="submit" name="change" id="change" onclick="window.location.href='ProfilModositas.php'" value="Módosítás">
             <br>
             <p class="quote"><em><q>A macska oroszlán a kis bokrok dzsungelében.</q></em></p> <br> <p class="proverb"><em>- Közmondás</em></p>
         </div>

@@ -124,7 +124,8 @@
             id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             username VARCHAR(35) NOT NULL,
             email VARCHAR(70) NOT NULL,
-            password VARCHAR(100) NOT NULL
+            password VARCHAR(100) NOT NULL,
+            birthday VARCHAR(100) NOT NULL
         )";
 
         if ($connection->query($query) === TRUE) {

@@ -33,35 +33,39 @@
             <form>
                 <table>
                     <tr>
-                        <th id="adatok" colspan="2">Adatok</th>
-                        <td>Legyen publikus</td>
+                        <th id="corner"></th>
+                        <th id="adatok">Adatok</th>
+                        <th>Legyen publikus</th>
                     </tr>
                     <tr>
                         <th id="felhasznalonev">Felhasználónév:</th>
                         <td headers="felhasznalonev"></td>
-                        <td><input type="checkbox" id="username-cb" name="username"></td>
+                        <td><input type="checkbox" id="felhasznalonev-cb" name="felhasznalonev-cb"></td>
                     </tr>
                     <tr>
                         <th id="reg-ido">Ennyi ideje vagy tag:</th>
                         <td headers="reg-ido"></td>
-                        <td><input type="checkbox" id="username-cb" name="username"></td>
+                        <td><input type="checkbox" id="tag-cb" name="tag-cb"></td>
                     </tr>
                     <tr>
                         <th id="szulinap">Szülinap:</th>
                         <td headers="szulinap"><input type="date" id="borndate" name="borndate"></td>
-                        <td><input type="checkbox" id="username-cb" name="username"></td>
+                        <td><input type="checkbox" id="szulinap-cb" name="szulinap-cb"></td>
                     </tr>
                     <tr>
                         <th id="orok-cicaid">Örökbefogadott cicák:</th>
                         <td headers="orok-cicaid"></td>
-                        <td><input type="checkbox" id="username-cb" name="username"></td>
+                        <td><input type="checkbox" id="orokbefogadottcicak-cb" name="orokbefogadottcicak-cb"></td>
                     </tr>
                     <tr>
-                        <th id="legutolso-belepes">Legutolsó belépés dátuma:</th>
-                        <td headers="legutolso-belepes"></td>
-                        <td><input type="checkbox" id="username-cb" name="username" width="15px"></td>
+                        <th id="jelszavad">Jelszavad:</th>
+                        <td headers="jelszavad"><?php ?></td>
+                        <td><input type="checkbox" id="jelszo-cb" name="jelszo-cb" width="15px"></td>
                     </tr>    
                 </table>
+                <label for="change">
+                    <input type="submit" name="change" id="change" onclick="window.location.href='Profil.php'" value="Változtatok!">
+                </label>
             </form>    
             <br>
             <p class="quote"><em><q>A macska oroszlán a kis bokrok dzsungelében.</q></em></p> <br> <p class="proverb"><em>- Közmondás</em></p>
