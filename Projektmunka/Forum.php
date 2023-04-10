@@ -64,7 +64,6 @@
             }
 
             $posts = $posts . "</ul>
-                        <button class='orokbefogad' value='Örökbefogad!' onclick='window.location.href" . "=Regisztracio.php" . "'>Örökbefogad!</button>
                     </div>
                 </div>
             </div>";

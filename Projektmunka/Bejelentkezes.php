@@ -1,5 +1,5 @@
 <?php
-    include "PHP/RegisterUsers.php";
+    include "PHP/BejelentkezesCheck.php";
 ?>
 
 <!DOCTYPE html>
@@ -27,14 +27,14 @@
     </nav>
 
     <main>
-        <form method="post" class="login_form" action="Profil.php">
+        <form method="post" class="login_form">
             <div class="form-block">
                 <h1 class="h1_login">Bejelentkezés</h1>
                 <?php
-                    if ($sikeres === TRUE) {
+                    /*if ($sikeres === TRUE) {
                         echo
                         "<h3 style='color: red';>Sikeres regisztráció!</h3>";
-                    }
+                    }*/
                 ?>
                 <hr>
                 <div class="grid-container">
@@ -44,8 +44,17 @@
                         </label>
                     </div>    
                     <div class="grid-item">    
-                        <input type="text" name="username" id="username" placeholder="Felhasználónév" required>
+                        <input type="text" name="username" id="username" placeholder="Felhasználónév" value="<?php if(isset($_POST['submit-btn'])) echo $_POST['username']; ?>" required>
                     </div>
+                    <?php 
+                        if (strlen($usernameErrorMessage) > 0)
+                            echo "
+                            <div class='grid-item' style='grid-column: 1/3; gap:5px; text-align:center;'>
+                                <label style='color:red; font-size: 20px;'>
+                                    $usernameErrorMessage
+                                </label>
+                            </div> ";
+                    ?>
                     <div class="grid-item">    
                         <label for="password">
                             Jelszó:
@@ -53,13 +62,22 @@
                     </div>
                     <div>    
                         <input type="password" name="password" id="password" placeholder="Jelszó" required>  
-                    </div>    
+                    </div>  
+                    <?php 
+                        if (strlen($passwordErrorMessage) > 0)
+                            echo "
+                            <div class='grid-item' style='grid-column: 1/3; gap:5px; text-align:center;'>
+                                <label style='color:red; font-size: 20px;'>
+                                    $passwordErrorMessage;
+                                </label>
+                            </div> ";
+                    ?>
                 </div>
             </div>
             
             <div class="grid-container-c">
                 <div class="grid-item-c">    
-                    <input type="checkbox" id="remember_me"> 
+                    <input type="checkbox" id="remember_me" name="remember_me"> 
                 </div>
                 <div class="grid-item-c">    
                     <label for="remember_me" style="font-size: 100%;">Jegyezz meg!</label>
