@@ -14,7 +14,7 @@
         die("connection error");
     }
 
-    $uname = "";
+    $uname = "Felhasználó";
     $email = "";
     $password = "";
     $userID = -1;
@@ -25,11 +25,7 @@
         $userID = $result;
     }
 
-    // szuletesnap beallitasa
-    $query = "SELECT birthday FROM users WHERE id = $_SESSION[userID]";
-    $result = $connection->query($query);
-
-    $birthday = $result;
+    
 
     // username beállítása
     $query = "SELECT username FROM users WHERE id = $userID";
@@ -85,9 +81,7 @@
         <div class="card">
             <div class="profile_pic"><img src="Kepek/Ikonok/morcoscica.jpg" alt="morcoscica" class="profile_pic"></div>
             <h2>
-                <?php
-                    echo $uname;
-                ?>
+                
             </h2>
             <table>
                 <tr>

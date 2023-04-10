@@ -59,7 +59,7 @@
                     </tr>
                     <tr>
                         <th id="jelszavad">Jelszavad:</th>
-                        <td headers="jelszavad">></td>
+                        <td headers="jelszavad"></td>
                         <td><input type="checkbox" id="jelszo-cb" name="jelszo-cb" width="15px"></td>
                     </tr>    
                 </table>
