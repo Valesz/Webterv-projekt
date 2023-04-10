@@ -20,30 +20,15 @@
     $userID = -1;
 
     if (isset($_SESSION["userID"])) {
-        $query = "SELECT id FROM users WHERE id = $_SESSION[userID]";
+        $query = "SELECT * FROM users WHERE id = $_SESSION[userID]";
         $result = $connection->query($query);
-        $userID = $result;
+        $array = $result->fetch_assoc();
+        $userID = $array["id"];
+        $uname = $array["username"];
+        $email = $array["email"];
+        $password = $array["password"];
+        $birthday = $array["birthday"];
     }
-
-    
-
-    // username beállítása
-    $query = "SELECT username FROM users WHERE id = $userID";
-    $result = $connection->query($query);
-
-    $uname = $result;
-
-    // email cím beállítása
-    $query = "SELECT email FROM users WHERE id = $userID";
-    $result = $connection->query($query);
-
-    $email = $result;
-
-    // jelszó beállítása
-    $query = "SELECT password FROM users WHERE id = $userID";
-    $result = $connection->query($query);
-
-    $password = $result;
 
     $connection -> close();
 ?>
@@ -81,7 +66,9 @@
         <div class="card">
             <div class="profile_pic"><img src="Kepek/Ikonok/morcoscica.jpg" alt="morcoscica" class="profile_pic"></div>
             <h2>
-                
+                <?php
+                    echo $uname;
+                ?>
             </h2>
             <table>
                 <tr>
@@ -111,16 +98,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <th id="legutolso-belepes">Jelszavad:
+                    <th id="legutolso-belepes">Jelszavad:</th>
+                    <td headers="legutolso-belepes">
                     <?php 
-                        if (isset($jelszo)) {
-                            echo $jelszo;
+                        if (isset($password)) {
+                            echo $password;
                         } else {
                             echo "";
                         }
                     ?>
-                    </th>
-                    <td headers="legutolso-belepes"></td>
+                    </td>
                 </tr>    
             </table>
             <input type="submit" name="change" id="change" onclick="window.location.href='ProfilModositas.php'" value="Módosítás">

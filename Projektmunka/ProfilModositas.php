@@ -49,7 +49,7 @@
                     </tr>
                     <tr>
                         <th id="szulinap">Szülinap:</th>
-                        <td headers="szulinap"><input type="date" id="birthdate" name="birthdate"></td>
+                        <td headers="szulinap"><input type="text" id="birthdate" name="birthdate" placeholder="2000-01-01"></td>
                         <td><input type="checkbox" id="szulinap-cb" name="szulinap-cb"></td>
                     </tr>
                     <tr>
