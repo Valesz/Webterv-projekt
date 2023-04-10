@@ -28,7 +28,7 @@
 
     <main>
         <br>
-        <form method="post" class="register_form" action="">
+        <form method="post" class="register_form">
             <div class="form-block">
                 <h1 class="h1_register">Regisztráció</h1>
                 <hr>

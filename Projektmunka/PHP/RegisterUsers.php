@@ -36,6 +36,8 @@
                 $elsohiba = "used";
                 $hibak = $hibak + 1;
             }
+        } else {
+            $hibak = $hibak + 1;
         }
 
         // email - check
@@ -50,6 +52,8 @@
                 $masodikhiba = "used";
                 $hibak = $hibak + 1;
             }
+        } else {
+            $hibak = $hibak + 1;
         }
 
         // jelszo - check
@@ -65,6 +69,8 @@
                 $harmadikhiba = $harmadikhiba . "nouppercase";
                 $hibak = $hibak + 1;
             }
+        } else {
+            $hibak = $hibak + 1;
         }
 
         // jelszo es jelszo ujra - check
@@ -74,6 +80,8 @@
                 $negyedikhiba = "notequals";
                 $hibak = $hibak + 1;
             }
+        } else {
+            $hibak = $hibak + 1;
         }
 
 

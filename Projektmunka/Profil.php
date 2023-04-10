@@ -1,3 +1,7 @@
+<?php
+    include "PHP/Regisztracio.php"
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -30,11 +34,8 @@
         
         <div class="card">
             <div class="profile_pic"><img src="Kepek/Ikonok/morcoscica.jpg" alt="morcoscica" class="profile_pic"></div>
+            <h2>Frigyes</h2>
             <table>
-                <tr>
-                    <th id="felhasznalonev">Felhasználónév:</th>
-                    <td headers="felhasznalonev"></td>
-                </tr>
                 <tr>
                     <th id="reg-ido">Ennyi ideje vagy tag:</th>
                     <td headers="reg-ido"></td>
