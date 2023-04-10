@@ -49,7 +49,7 @@
                     </tr>
                     <tr>
                         <th id="szulinap">Szülinap:</th>
-                        <td headers="szulinap"><input type="date" id="borndate" name="borndate"></td>
+                        <td headers="szulinap"><input type="date" id="birthdate" name="birthdate"></td>
                         <td><input type="checkbox" id="szulinap-cb" name="szulinap-cb"></td>
                     </tr>
                     <tr>
@@ -59,7 +59,7 @@
                     </tr>
                     <tr>
                         <th id="jelszavad">Jelszavad:</th>
-                        <td headers="jelszavad"><?php ?></td>
+                        <td headers="jelszavad">></td>
                         <td><input type="checkbox" id="jelszo-cb" name="jelszo-cb" width="15px"></td>
                     </tr>    
                 </table>
