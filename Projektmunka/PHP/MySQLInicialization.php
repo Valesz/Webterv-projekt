@@ -126,7 +126,8 @@
             username VARCHAR(35) NOT NULL,
             email VARCHAR(70) NOT NULL,
             password VARCHAR(100) NOT NULL,
-            birthday VARCHAR(100) NOT NULL
+            birthday VARCHAR(100) NOT NULL,
+            favquote VARCHAR(250) NOT NULL
         )";
 
         if ($connection->query($query) === TRUE) {
