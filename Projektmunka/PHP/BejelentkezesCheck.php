@@ -38,7 +38,7 @@
             $query = "SELECT * FROM users WHERE username = '$givenUsername'";
             $result = $connection->query($query);
             $row = $result->fetch_assoc();
-            if ($givenUsername === $row['username'] && password_verify($givenPassword, $row['password'])) {
+            if (isset($row['username']) && $givenUsername === $row['username'] && password_verify($givenPassword, $row['password'])) {
                 session_start();
                 $_SESSION["userID"] = $row['id'];
 

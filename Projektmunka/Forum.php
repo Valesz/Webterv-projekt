@@ -1,7 +1,14 @@
 <?php
+    session_start();
     include "PHP/Upload.php";
     include "PHP/Comments.php";
     include "PHP/DeletePost.php";
+
+    if (isset($_COOKIE['userID']) || isset($_SESSION['userID'])) {
+        if (isset($_COOKIE['userID'])) {
+            $_SESSION['userID'] = $_COOKIE['userID'];
+        }
+    }
 
     $posts = "";
 
@@ -25,12 +32,17 @@
             $imgName = $row['imgName'];
             $description = $row['description'];
             $i = $row['id'];
+            $ownerID = $row['ownerID'];
             $posts = $posts .
-            "<div id='$name'>
-                <form class='xSymbol'>
-                    <input type='submit' value='' name='torles'> <input type='hidden' name='index' value='$i'> 
-                </form>
-                <h2>$name</h2>
+            "<div id='$name'>";
+
+                if (isset($_SESSION['userID']) && ($_SESSION['userID'] === $ownerID || $_SESSION['userID'] === "1")) {
+                    $posts = $posts . "<form class='xSymbol'>
+                        <input type='submit' value='' name='torles'> <input type='hidden' name='index' value='$i'> 
+                    </form>";
+                }
+
+                $posts = $posts . "<h2>$name</h2>
                 <div class='flexbox'>
                     <div class='kep' style='background-image: url(" . "Kepek/Adoptalos/$imgName" . ");'></div>
                     <div class='description'>

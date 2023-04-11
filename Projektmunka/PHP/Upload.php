@@ -1,6 +1,10 @@
 <?php
     $uploadErrorMessage = "";
     if (isset($_POST['feltoltes'])) {
+        if (!isset($_SESSION['userID'])) {
+            header("location: Bejelentkezes.php");
+        }
+
         if (!empty(trim($_POST['name'])) && !empty(trim($_POST['description']))) {
             $targetDir = "Kepek/Adoptalos/";
             $targetFile = $targetDir . basename($_FILES["file"]['name']);
@@ -30,8 +34,8 @@
                     die("connection error");
                 }
 
-                $query = "INSERT INTO forum (name, imgName, description)
-                VALUES ('" . htmlspecialchars($_POST['name']) . "', '" . pathinfo($targetFile, PATHINFO_BASENAME) . "', '" .htmlspecialchars( $_POST['description']) . "')";
+                $query = "INSERT INTO forum (name, imgName, description, ownerID)
+                VALUES ('" . htmlspecialchars($_POST['name']) . "', '" . pathinfo($targetFile, PATHINFO_BASENAME) . "', '" .htmlspecialchars( $_POST['description']) . "', $_SESSION[userID])";
                 $connection -> query($query);
             }
         } else {

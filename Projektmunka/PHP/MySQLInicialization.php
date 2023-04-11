@@ -35,7 +35,8 @@
             id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
             name VARCHAR(30) NOT NULL,
             imgName VARCHAR(30) NOT NULL,
-            description VARCHAR(200)
+            description VARCHAR(200),
+            ownerID INT NOT NULL
         )";
 
         if ($connection->query($query) === TRUE) {
@@ -44,18 +45,18 @@
             echo "Error creating table: " . $connection->error;
         }
 
-        $query = "INSERT INTO forum (name, imgName, description)
+        $query = "INSERT INTO forum (name, imgName, description, ownerID)
             VALUES 
-            ('Jerry', 'Jerry.jpg', 'Végre megszabadult Tom elől, és most a segítségedet kéri, hogy soha ne találjon rá!'),
-            ('Junior', 'Junior.jpg', 'Icike-picike aranyos kiscica keresi gazdáját, minél előbb!'),
-            ('Szimat', 'Szimat.jpg', 'Szimat a minden, a megváltó, a prog 1 gyakvez, a dékán, és még te is!'),
-            ('Po', 'Po.jpg', 'Sárkányharcosunk keresi elveszett gazdáját!'),
-            ('Karcsi', 'Karcsi.jpg', 'A \"legokosabb\" macska gazdáját keresi... Kedvenc tevékenysége a fal bámulása, és az indokolatlan nyávogás'),
-            ('Fogatlan', 'Fogatlan.jpg', 'Segítség elhagytam a Hablatyomat, és nem tudom merre van a haza!'),
-            ('Gaia', 'Gaia.jpg', 'Gaia nehéz időszakon ment keresztül, ezért szeretetteljes és befogadó környezetre vágyik.'),
-            ('Igor', 'Igor.jpg', 'Igor a tekintetével a gonoszt is kiűzi a lelkedből! Démonűző gazdáját keresi.'),
-            ('Günter', 'Gunter.jpg', 'Günter egy játékos macska, így mellette lehetetlen az unatkozás!'),
-            ('Rafiki', 'Rafiki.jpg', 'A méltóságteljes Rafiki keresi a nyugodtabb cicára vágyó leendő gazdáját!')";
+            ('Jerry', 'Jerry.jpg', 'Végre megszabadult Tom elől, és most a segítségedet kéri, hogy soha ne találjon rá!', 1),
+            ('Junior', 'Junior.jpg', 'Icike-picike aranyos kiscica keresi gazdáját, minél előbb!', 1),
+            ('Szimat', 'Szimat.jpg', 'Szimat a minden, a megváltó, a prog 1 gyakvez, a dékán, és még te is!', 1),
+            ('Po', 'Po.jpg', 'Sárkányharcosunk keresi elveszett gazdáját!', 1),
+            ('Karcsi', 'Karcsi.jpg', 'A \"legokosabb\" macska gazdáját keresi... Kedvenc tevékenysége a fal bámulása, és az indokolatlan nyávogás', 1),
+            ('Fogatlan', 'Fogatlan.jpg', 'Segítség elhagytam a Hablatyomat, és nem tudom merre van a haza!', 1),
+            ('Gaia', 'Gaia.jpg', 'Gaia nehéz időszakon ment keresztül, ezért szeretetteljes és befogadó környezetre vágyik.', 1),
+            ('Igor', 'Igor.jpg', 'Igor a tekintetével a gonoszt is kiűzi a lelkedből! Démonűző gazdáját keresi.', 1),
+            ('Günter', 'Gunter.jpg', 'Günter egy játékos macska, így mellette lehetetlen az unatkozás!', 3),
+            ('Rafiki', 'Rafiki.jpg', 'A méltóságteljes Rafiki keresi a nyugodtabb cicára vágyó leendő gazdáját!', 1)";
         if ($connection->query($query) === TRUE) {
             echo "Record inserted successfully<br>";
         } else {
