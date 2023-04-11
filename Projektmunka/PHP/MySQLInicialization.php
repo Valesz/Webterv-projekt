@@ -136,10 +136,10 @@
 
         $query = "INSERT INTO Users (username, email, password)
         VALUES 
-        ('admin', 'admin@admin.hu', 'admin'),
-        ('testuser', 'testuser@testuser.hu', 'testuser123'),
-        ('Valesz', 'valesz@gmail.com', 'BiztonsagosJelszo'),
-        ('Kevin', 'kevin@gmail.com', 'KevinJelszav')
+        ('admin', 'admin@admin.hu', '" . password_hash("admin", PASSWORD_DEFAULT) . "'),
+        ('testuser', 'testuser@testuser.hu', '" . password_hash("test1234", PASSWORD_DEFAULT) . "'),
+        ('Valesz', 'valesz@gmail.com', '" . password_hash("ValeszAkiNemAKuki", PASSWORD_DEFAULT) . "'),
+        ('Kevin', 'kevin@gmail.com', '" . password_hash("KevinAkiNemAKuki", PASSWORD_DEFAULT) . "')
         ";
 
         if ($connection->query($query) === TRUE) {

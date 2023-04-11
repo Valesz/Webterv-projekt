@@ -1,5 +1,13 @@
 <?php
 
+    session_start();
+    if (isset($_COOKIE['userID']) || isset($_SESSION['userID'])) {
+        if (isset($_COOKIE['userID'])) {
+            $_SESSION['userID'] = $_COOKIE['userID'];
+        }
+        header("location: Profil.php");
+    }
+
     $usernameErrorMessage = "";
     $passwordErrorMessage = "";
 
@@ -27,14 +35,15 @@
                 die("connection error");
             }
 
-            $query = "SELECT * FROM users WHERE username = '$givenUsername' AND password = '$givenPassword'";
+            $query = "SELECT * FROM users WHERE username = '$givenUsername'";
             $result = $connection->query($query);
-            if ($result -> num_rows == 1) {
+            $row = $result->fetch_assoc();
+            if ($givenUsername === $row['username'] && password_verify($givenPassword, $row['password'])) {
                 session_start();
-                $_SESSION["userID"] = $result->fetch_assoc()['id'];
+                $_SESSION["userID"] = $row['id'];
 
                 if ($_POST['remember_me']) {
-                    
+                    setcookie("userID", $row['id'], time() + (60 * 60 * 24 * 30), "/");
                 }
 
                 header("location: Profil.php");

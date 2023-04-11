@@ -19,7 +19,7 @@
     </header>
     <nav>
         <ul>
-            <li><a href="Regisztracio.php" class="gomb">Profil</a></li>
+            <li><a href="Bejelentkezes.php" class="gomb">Profil</a></li>
             <li><a href="Rolunk.php" class="gomb">Támogatás</a></li>
             <li><a href="Forum.php" class="gomb">Fórum</a></li>
             <li><a href="index.php" class="gomb active">Kezdőlap</a></li>

@@ -76,7 +76,7 @@ hr {
 .login_form {
     padding: 20px 20px 30px;
     height: fit-content;
-    min-height: 500px;
+    /*min-height: 500px;*/
     max-width: 75vw;
     margin-left: auto;
     margin-right: auto;
