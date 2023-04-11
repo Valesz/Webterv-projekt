@@ -16,8 +16,8 @@
 
     $uname = "Felhasználó";
     $email = "";
-    $password = "";
-    $userID = -1;
+    $pword = "";
+    $userID = "";
 
     if (isset($_SESSION["userID"])) {
         $query = "SELECT * FROM users WHERE id = $_SESSION[userID]";
@@ -26,8 +26,9 @@
         $userID = $array["id"];
         $uname = $array["username"];
         $email = $array["email"];
-        $password = $array["password"];
+        $pword = $array["password"];
         $birthday = $array["birthday"];
+        $favqoute = $array["favquote"];
     }
 
     $connection -> close();
@@ -72,7 +73,7 @@
             </h2>
             <table>
                 <tr>
-                    <th id="reg-ido">Ennyi ideje vagy tag:</th>
+                    <th id="reg-ido">Ennyi ideje vagy belépve/tag:</th>
                     <td headers="reg-ido">
 
                     </td>
@@ -82,7 +83,7 @@
                     <td headers="szulinap">
                     <?php 
                         if (isset($birthday)) {
-                            echo "$birthday";
+                            echo $birthday;
                         } else {
                             echo "Nincs beállítva a születésnapod!";
                         }
@@ -93,7 +94,7 @@
                     <th id="orok-cicaid">E-mail címed:</th>
                     <td headers="orok-cicaid">
                     <?php 
-                        echo "Nincs beállítva az email-címed!";
+                        echo $email;
                     ?>
                     </td>
                 </tr>
@@ -101,8 +102,8 @@
                     <th id="legutolso-belepes">Jelszavad:</th>
                     <td headers="legutolso-belepes">
                     <?php 
-                        if (isset($password)) {
-                            echo $password;
+                        if (isset($pword)) {
+                            echo $pword;
                         } else {
                             echo "";
                         }
@@ -112,7 +113,7 @@
             </table>
             <input type="submit" name="change" id="change" onclick="window.location.href='ProfilModositas.php'" value="Módosítás">
             <br>
-            <p class="quote"><em><q>A macska oroszlán a kis bokrok dzsungelében.</q></em></p> <br> <p class="proverb"><em>- Közmondás</em></p>
+            <p class="quote"><em><q><?php echo $favqoute;?></q></em></p> <br> <p class="proverb"></p>
         </div>
 
     </main>

@@ -1,3 +1,155 @@
+<?php
+
+    session_start();
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "Macskalak";
+    try {
+        $connection = new mysqli($servername, $username, $password, $dbname);
+    }
+    catch (Exception) {
+        die("connection error");
+    }
+
+    // lekérdezések
+    $uname = "Felhasználó";
+    $email = "";
+    $pword = "";
+    $pwordagain = "";
+    $favqoute = "";
+    $userID = "";
+
+    if (isset($_SESSION["userID"])) {
+        $query = "SELECT * FROM users WHERE id = $_SESSION[userID]";
+        $result = $connection->query($query);
+        $array = $result->fetch_assoc();
+        $userID = $array["id"];
+        $uname = $array["username"];
+        $email = $array["email"];
+        $pword = $array["password"];
+        $birthday = $array["birthday"];
+        $favqoute = $array["favquote"];
+    }
+
+    // módosítások
+
+    $elsohiba = "";
+    $masodikhiba = "";
+    $harmadikhiba = "";
+    $negyedikhiba = "";
+    $otodikhiba = "";
+    $hatodikhiba = "";
+    $hibak = 0;
+
+    if (isset($_POST["change"])) {
+        // felhasznalonev - check
+        if (!empty(trim($_POST["username"]))) {
+            $uname = trim($_POST["username"]);
+            $query = "SELECT username FROM users WHERE username = '$uname'";
+            $result = $connection -> query($query);
+            if (strlen($uname) < 4) {
+                $elsohiba = "short";
+                $hibak = $hibak + 1;
+            } else if (strlen($uname) > 100) {
+                $elsohiba = "toolong";
+                $hibak = $hibak + 1;
+            } else if ($result -> num_rows > 0) {
+                $elsohiba = "used";
+                $hibak = $hibak + 1;
+            }
+        }
+
+        // email - check
+        if (!empty(trim($_POST["email"]))) {
+            $email = trim($_POST["email"]);
+            $query = "SELECT email FROM users WHERE email = '$email'";
+            $result = $connection -> query($query);
+            if (count($array = explode("@", $email)) != 2 || count(explode(".", $array[1])) < 2) {
+                $masodikhiba = "badformat";
+                $hibak = $hibak + 1;
+            } else if ($result -> num_rows > 0) {
+                $masodikhiba = "used";
+                $hibak = $hibak + 1;
+            }
+        }
+
+        // jelszo - check
+        if (!empty(trim($_POST["password"]))) {
+            $pword = trim($_POST["password"]);
+            if (strlen($pword) < 8) {
+                $harmadikhiba = "eightchar";
+                $hibak = $hibak + 1;
+            } else if (strlen($pword) > 100) {
+                $harmadikhiba = "toolong";
+                $hibak = $hibak + 1;
+            } else if (strtolower($pword) === $pword) {
+                $harmadikhiba = $harmadikhiba . "nouppercase";
+                $hibak = $hibak + 1;
+            }
+        }
+
+        // jelszo es jelszo ujra - check
+        if (!empty(trim($_POST["password-again"]))) {
+            $pwordagain = trim($_POST["password-again"]);
+            if ($pword !== $pwordagain) {
+                $negyedikhiba = "notequals";
+                $hibak = $hibak + 1;
+            }
+        }
+        
+        // jelszó hash-elés
+        $pword = password_hash($pword, PASSWORD_DEFAULT);
+
+        // szulinap - check
+        if (!empty(trim($_POST["birthdate"]))) {
+            $birthday = trim($_POST["birthdate"]);
+            $array = explode("-", $birthday);
+            if (count($array) !== 3 || strlen($array[0]) !== 4 || strlen($array[1]) !== 2 || strlen($array[2]) !== 2) {
+                $otodikhiba = "badformat";
+                $hibak = $hibak + 1;
+            }
+        }
+
+        // kedvenc idezet - check
+        if (!empty(trim($_POST["favquote"]))) {
+            $favqoute = trim($_POST["favquote"]);
+            if (strlen($favqoute) > 250) {
+                $hatodikhiba = "toolong";
+                $hibak = $hibak + 1;
+            }
+        }
+        
+        // felvetel adatbazisba vagy nem
+        if ($hibak === 0) {
+            $query = "UPDATE users 
+            SET username = '$uname', 
+            email = '$email',
+            birthday = '$birthday',
+            password = '$pword',
+            favquote = '$favquote'
+            WHERE id = '$userID'";
+            $connection->query($query);
+            header("Location: Profil.php");
+        }
+        
+    }
+    
+    if (isset($_SESSION["userID"])) {
+        $query = "SELECT * FROM users WHERE id = $_SESSION[userID]";
+        $result = $connection->query($query);
+        $array = $result->fetch_assoc();
+        $userID = $array["id"];
+        $uname = $array["username"];
+        $email = $array["email"];
+        $pword = $array["password"];
+        $birthday = $array["birthday"];
+        $favqoute = $array["favquote"];
+    }
+
+    $connection -> close();
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -28,9 +180,9 @@
         <hr>
         <br>
         
-        <div class="card">
+        <div class="card_mod">
             <div class="profile_pic"><img src="Kepek/Ikonok/morcoscica.jpg" alt="morcoscica" class="profile_pic"></div>
-            <form>
+            <form method="POST">
                 <table>
                     <tr>
                         <th id="corner"></th>
@@ -39,36 +191,76 @@
                     </tr>
                     <tr>
                         <th id="felhasznalonev">Felhasználónév:</th>
-                        <td headers="felhasznalonev"></td>
-                        <td><input type="checkbox" id="felhasznalonev-cb" name="felhasznalonev-cb"></td>
+                        <td headers="felhasznalonev"><input type="text" name="username" placeholder=<?php echo $uname;?>></td>
+                        <td><input type="checkbox" id="checkbox" name="felhasznalonev-cb" disabled></td>
+
                     </tr>
                     <tr>
-                        <th id="reg-ido">Ennyi ideje vagy tag:</th>
-                        <td headers="reg-ido"></td>
-                        <td><input type="checkbox" id="tag-cb" name="tag-cb"></td>
-                    </tr>
-                    <tr>
-                        <th id="szulinap">Szülinap:</th>
-                        <td headers="szulinap"><input type="text" id="birthdate" name="birthdate" placeholder="2000-01-01"></td>
-                        <td><input type="checkbox" id="szulinap-cb" name="szulinap-cb"></td>
-                    </tr>
-                    <tr>
-                        <th id="orok-cicaid">Örökbefogadott cicák:</th>
-                        <td headers="orok-cicaid"></td>
-                        <td><input type="checkbox" id="orokbefogadottcicak-cb" name="orokbefogadottcicak-cb"></td>
+                        <th id="orok-cicaid">E-mail címed:</th>
+                        <td headers="orok-cicaid"><input type="text" name="email" placeholder=<?php echo $email;?>></td>
+                        <td><input type="checkbox" id="checkbox" name="email-cb"></td>
                     </tr>
                     <tr>
                         <th id="jelszavad">Jelszavad:</th>
-                        <td headers="jelszavad"></td>
-                        <td><input type="checkbox" id="jelszo-cb" name="jelszo-cb" width="15px"></td>
-                    </tr>    
+                        <td headers="jelszavad"><input type="password" name="password"></td>
+                        <td><input type="checkbox" id="checkbox" name="jelszo-cb" disabled></td>
+                    </tr>
+                    <tr>
+                        <th id="jelszavad">Jelszavad újra:</th>
+                        <td headers="jelszavad"><input type="password" name="password-again"></td>
+                        <td><input type="checkbox" id="checkbox" name="jelszo-again-cb" disabled></td>
+                    </tr>        
+                    <tr>
+                        <th id="szulinap">Szülinap:</th>
+                        <td headers="szulinap"><input type="text" id="birthdate" name="birthdate" maxlength="10" placeholder="2000-01-01"></td>
+                        <td><input type="checkbox" id="checkbox" name="szulinap-cb"></td>
+                    </tr>
+                    <tr>
+                        <th id="reg-ido">Kedvenc idézeted:</th>
+                        <td headers="reg-ido"><input type="text" name="favquote" placeholder="max. 250 karakter"></td>
+                        <td><input type="checkbox" id="checkbox" name="favquote-cb"></td>
+                    </tr>
                 </table>
+                <?php
+                    if ($elsohiba === "short") {
+                        echo "<p class='errormessage'>A felhasználónévnek legalább 4 karakterből kell állnia!</p>";
+                    }
+                    if ($elsohiba === "toolong") {
+                        echo "<p class='errormessage'>A felhasználónév legfeljebb 35 karakterből állhat!</p>";
+                    }
+                    if ($elsohiba === "used") {
+                        echo "<p class='errormessage'>A felhasználónév foglalt!</p>";
+                    }
+                    if ($masodikhiba === "badformat") {
+                        echo "<p class='errormessage'>Az email cím nem megfelelő formátumú!</p>";
+                    }
+                    if ($masodikhiba === "used") {
+                        echo "<p class='errormessage'>Ezzel az email címmel már regisztráltak!</p>";
+                    }
+                    if ($harmadikhiba === "eightchar") {
+                        echo "<p class='errormessage'>A jelszónak legalább 8 karakterből kell állnia!</p>";
+                    }
+                    if ($harmadikhiba === "toolong") {
+                        echo "<p class='errormessage'>A jelszó legfeljebb 100 karakter lehet!</p>";
+                    }
+                    if ($harmadikhiba === "nouppercase") {
+                        echo "<p class='errormessage'>A jelszónak tartalmaznia kell nagybetűt!</p>";
+                    }
+                    if ($negyedikhiba === "notequals") {
+                        echo "<p class='errormessage'>A jelszavak nem egyeznek!</p>";
+                    }
+                    if ($otodikhiba === "badformat") {
+                        echo "<p class='errormessage'>A születésnap nem megfelelő formátumú!</p>";
+                    }
+                    if ($hatodikhiba === "toolong") {
+                        echo "<p class='errormessage'>A kedvenc idézeted max 250 karakter lehet!</p>";
+                    }
+                ?>
                 <label for="change">
-                    <input type="submit" name="change" id="change" onclick="window.location.href='Profil.php'" value="Változtatok!">
+                    <input type="submit" name="change" id="change" value="Változtatok!">
                 </label>
             </form>    
             <br>
-            <p class="quote"><em><q>A macska oroszlán a kis bokrok dzsungelében.</q></em></p> <br> <p class="proverb"><em>- Közmondás</em></p>
         </div>
 
     </main>
