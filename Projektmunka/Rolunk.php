@@ -14,7 +14,7 @@
     
     <nav>
         <ul>
-            <li><a href="Profil.php" class="gomb">Profil</a></li>
+            <li><a href="Bejelentkezes.php" class="gomb">Profil</a></li>
             <li><a href="Rolunk.php" class="gomb active">Támogatás</a></li>
             <li><a href="Forum.php" class="gomb">Fórum</a></li>
             <li><a href="index.php" class="gomb">Kezdőlap</a></li>
