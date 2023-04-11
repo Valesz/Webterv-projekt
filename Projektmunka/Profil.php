@@ -20,6 +20,8 @@
     $userID = "";
     $birthday = "";
     $registerTime = "";
+    $favquote = "";
+    $favcat = "";
 
     if (isset($_GET['profilOpen'])) {
         $query = "SELECT * FROM users WHERE id = $_GET[userId]";
@@ -30,7 +32,7 @@
         $email = $array["email"];
         $pword = $array["password"];
         $birthday = $array["birthday"];
-        $favqoute = $array["favquote"];
+        $favquote = $array["favquote"];
         $registerTime = $array["registerTime"];
     }
     else if (isset($_SESSION["userID"])) {
@@ -42,8 +44,9 @@
         $email = $array["email"];
         $pword = $array["password"];
         $birthday = $array["birthday"];
-        $favqoute = $array["favquote"];
+        $favquote = $array["favquote"];
         $registerTime = $array["registerTime"];
+        $favcat = $array["favcat"];
     }
 
     $connection -> close();
@@ -88,9 +91,15 @@
             </h2>
             <table>
                 <tr>
-                    <th id="reg-ido">Ennyi ideje vagy belépve/tag:</th>
-                    <td headers="reg-ido">
-
+                    <th id="favcat">Kedvenc cicám:</th>
+                    <td headers="favcat">
+                        <?php
+                            if (isset($favcat) && $favcat !== "") {
+                                echo $favcat;
+                            } else {
+                                echo "Nincs kedvenc cicám, mindegyik cuki! :3";
+                            }
+                        ?>
                     </td>
                 </tr>
                 <tr>
@@ -106,16 +115,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <th id="orok-cicaid">E-mail címed:</th>
-                    <td headers="orok-cicaid">
+                    <th id="emailcimed">E-mail címed:</th>
+                    <td headers="emailcimed">
                     <?php 
                         echo $email;
                     ?>
                     </td>
                 </tr>
                 <tr>
-                    <th id="legutolso-belepes">Csatlakozásod dátuma:</th>
-                    <td headers="legutolso-belepes">
+                    <th id="csatlakozasoddatuma">Csatlakozásod dátuma:</th>
+                    <td headers="csatlakozasoddatuma">
                     <?php 
                         if (isset($registerTime)) {
                             echo $registerTime;
@@ -131,7 +140,8 @@
                     echo "<form action='ProfilModositas.php'><input type='submit' name='change' id='change' value='Módosítás'></form>";
             ?>
             <br>
-            <p class="quote"><em><q><?php echo $favqoute;?></q></em></p> <br> <p class="proverb"></p>
+            <p class="quote">A kedvenc idézetem:</p> <br>
+            <p class="quote"><em><q><?php echo $favquote;?></q></em></p> <br>
         </div>
 
     </main>

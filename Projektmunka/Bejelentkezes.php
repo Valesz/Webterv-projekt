@@ -51,7 +51,7 @@
                             echo "
                             <div class='grid-item' style='grid-column: 1/3; gap:5px; text-align:center;'>
                                 <label style='color:red; font-size: 20px;'>
-                                    $usernameErrorMessage
+                                    $usernameErrorMessage;
                                 </label>
                             </div> ";
                     ?>

@@ -87,10 +87,13 @@
         // jelszó hash-elés
         $jelszo = password_hash($jelszo, PASSWORD_DEFAULT);
 
+        // a regisztracio idopontja
+        $regdate = date("Y-m-d");
+
         // felvetel adatbazisba vagy nem, ha nem sikeres a regisztacio
         if (empty($hibak)) {
-            $query = "INSERT INTO users (username, email, password)
-            VALUES ('$felhasznalonev', '$email', '$jelszo')";
+            $query = "INSERT INTO users (username, email, password, registerTime)
+            VALUES ('$felhasznalonev', '$email', '$jelszo', '$regdate')";
             $connection->query($query);
             $sikeres = TRUE;
             header("Location: Bejelentkezes.php");

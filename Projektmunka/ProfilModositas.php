@@ -18,7 +18,8 @@
     $email = "";
     $pword = "";
     $pwordagain = "";
-    $favqoute = "";
+    $favquote = "";
+    $favcat = "";
     $userID = "";
 
     if (isset($_SESSION["userID"])) {
@@ -30,7 +31,8 @@
         $email = $array["email"];
         $pword = $array["password"];
         $birthday = $array["birthday"];
-        $favqoute = $array["favquote"];
+        $favquote = $array["favquote"];
+        $favcat = $array["favcat"];
     }
 
     // módosítások
@@ -41,6 +43,7 @@
     $negyedikhiba = "";
     $otodikhiba = "";
     $hatodikhiba = "";
+    $hetedikhiba = "";
     $hibak = 0;
 
     if (isset($_POST["change"])) {
@@ -116,9 +119,18 @@
 
         // kedvenc idezet - check
         if (!empty(trim($_POST["favquote"]))) {
-            $favqoute = trim($_POST["favquote"]);
-            if (strlen($favqoute) > 250) {
+            $favquote = trim($_POST["favquote"]);
+            if (strlen($favquote) > 250) {
                 $hatodikhiba = "toolong";
+                $hibak = $hibak + 1;
+            }
+        }
+
+        // kedvenc cica - check
+        if (!empty(trim($_POST["favcat"]))) {
+            $favcat = trim($_POST["favcat"]);
+            if (strlen($favcat) > 35) {
+                $hetedikhiba = "toolong";
                 $hibak = $hibak + 1;
             }
         }
@@ -130,7 +142,7 @@
             email = '$email',
             birthday = '$birthday',
             password = '$pword',
-            favquote = '$favqoute'
+            favquote = '$favquote'
             WHERE id = '$userID'";
             $connection->query($query);
             header("Location: Profil.php");
@@ -147,7 +159,7 @@
         $email = $array["email"];
         $pword = $array["password"];
         $birthday = $array["birthday"];
-        $favqoute = $array["favquote"];
+        $favquote = $array["favquote"];
     }
 
     $connection -> close();
@@ -189,38 +201,43 @@
                     <tr>
                         <th id="corner"></th>
                         <th id="adatok">Adatok</th>
-                        <th>Legyen publikus</th>
+                        <th id="letitbepublic">Legyen publikus</th>
                     </tr>
                     <tr>
                         <th id="felhasznalonev">Felhasználónév:</th>
                         <td headers="felhasznalonev"><input type="text" name="username" placeholder=<?php echo $uname;?>></td>
-                        <td><input type="checkbox" id="checkbox" name="felhasznalonev-cb" disabled></td>
+                        <td><input type="checkbox" id="checkbox1" name="felhasznalonev-cb" disabled></td>
 
                     </tr>
                     <tr>
                         <th id="orok-cicaid">E-mail címed:</th>
                         <td headers="orok-cicaid"><input type="text" name="email" placeholder=<?php echo $email;?>></td>
-                        <td><input type="checkbox" id="checkbox" name="email-cb"></td>
+                        <td><input type="checkbox" id="checkbox2" name="email-cb"></td>
                     </tr>
                     <tr>
                         <th id="jelszavad">Jelszavad:</th>
                         <td headers="jelszavad"><input type="password" name="password"></td>
-                        <td><input type="checkbox" id="checkbox" name="jelszo-cb" disabled></td>
+                        <td><input type="checkbox" id="checkbox3" name="jelszo-cb" disabled></td>
                     </tr>
                     <tr>
-                        <th id="jelszavad">Jelszavad újra:</th>
+                        <th id="jelszavadujra">Jelszavad újra:</th>
                         <td headers="jelszavad"><input type="password" name="password-again"></td>
-                        <td><input type="checkbox" id="checkbox" name="jelszo-again-cb" disabled></td>
+                        <td><input type="checkbox" id="checkbox4" name="jelszo-again-cb" disabled></td>
                     </tr>        
                     <tr>
                         <th id="szulinap">Szülinap:</th>
                         <td headers="szulinap"><input type="text" id="birthdate" name="birthdate" maxlength="10" placeholder="2000-01-01"></td>
-                        <td><input type="checkbox" id="checkbox" name="szulinap-cb"></td>
+                        <td><input type="checkbox" id="checkbox5" name="szulinap-cb"></td>
                     </tr>
                     <tr>
-                        <th id="reg-ido">Kedvenc idézeted:</th>
-                        <td headers="reg-ido"><input type="text" name="favquote" placeholder="max. 250 karakter"></td>
-                        <td><input type="checkbox" id="checkbox" name="favquote-cb"></td>
+                        <th id="kedvenccica">Kedvenc cicám:</th>
+                        <td headers="kedvenccica"><input type="text" id="favcat" name="favcat" maxlength="10" placeholder="max. 35 karakter"></td>
+                        <td><input type="checkbox" id="checkbox6" name="favcat-cb"></td>
+                    </tr>
+                    <tr>
+                        <th id="favquote">Kedvenc idézeted:</th>
+                        <td headers="favquote"><input type="text" name="favquote" placeholder="max. 250 karakter"></td>
+                        <td><input type="checkbox" id="checkbox7" name="favquote-cb"></td>
                     </tr>
                 </table>
                 <?php
@@ -255,11 +272,17 @@
                         echo "<p class='errormessage'>A születésnap nem megfelelő formátumú!</p>";
                     }
                     if ($hatodikhiba === "toolong") {
-                        echo "<p class='errormessage'>A kedvenc idézeted max 250 karakter lehet!</p>";
+                        echo "<p class='errormessage'>A kedvenc idézeted max. 250 karakter lehet!</p>";
+                    }
+                    if ($hetedikhiba === "toolong") {
+                        echo "<p class='errormessage'>A kedvenc cicád neve max. 35 karakter hosszú lehet!</p>";
                     }
                 ?>
                 <label for="change">
-                    <input type="submit" name="change" id="change" value="Változtatok!">
+                    <input type="submit" name="change" id="change" value="Mentés">
+                </label>
+                <label for="back">
+                    <input type="button" name="back" id="back" onclick="window.location.href='Profil.php'" value="Vissza">
                 </label>
             </form>    
             <br>

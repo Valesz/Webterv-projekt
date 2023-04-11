@@ -128,6 +128,7 @@
             password VARCHAR(100) NOT NULL,
             birthday VARCHAR(100) NOT NULL,
             favquote VARCHAR(250) NOT NULL,
+            favcat VARCHAR(35) NOT NULL,
             registerTime VARCHAR(250) NOT NULL
         )";
 
