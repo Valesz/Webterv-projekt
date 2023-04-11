@@ -18,8 +18,22 @@
     $email = "";
     $pword = "";
     $userID = "";
+    $birthday = "";
+    $registerTime = "";
 
-    if (isset($_SESSION["userID"])) {
+    if (isset($_GET['profilOpen'])) {
+        $query = "SELECT * FROM users WHERE id = $_GET[userId]";
+        $result = $connection->query($query);
+        $array = $result->fetch_assoc();
+        $userID = $array["id"];
+        $uname = $array["username"];
+        $email = $array["email"];
+        $pword = $array["password"];
+        $birthday = $array["birthday"];
+        $favqoute = $array["favquote"];
+        $registerTime = $array["registerTime"];
+    }
+    else if (isset($_SESSION["userID"])) {
         $query = "SELECT * FROM users WHERE id = $_SESSION[userID]";
         $result = $connection->query($query);
         $array = $result->fetch_assoc();
@@ -29,6 +43,7 @@
         $pword = $array["password"];
         $birthday = $array["birthday"];
         $favqoute = $array["favquote"];
+        $registerTime = $array["registerTime"];
     }
 
     $connection -> close();
@@ -82,9 +97,9 @@
                     <th id="szulinap">Szülinap:</th>
                     <td headers="szulinap">
                     <?php 
-                        if (isset($birthday)) {
+                        if (isset($birthday) && $birthday !== "") {
                             echo $birthday;
-                        } else {
+                        } else if (empty($birthday)) {
                             echo "Nincs beállítva a születésnapod!";
                         }
                     ?>
@@ -99,11 +114,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <th id="legutolso-belepes">Jelszavad:</th>
+                    <th id="legutolso-belepes">Csatlakozásod dátuma:</th>
                     <td headers="legutolso-belepes">
                     <?php 
-                        if (isset($pword)) {
-                            echo $pword;
+                        if (isset($registerTime)) {
+                            echo $registerTime;
                         } else {
                             echo "";
                         }
@@ -111,7 +126,10 @@
                     </td>
                 </tr>    
             </table>
-            <input type="submit" name="change" id="change" onclick="window.location.href='ProfilModositas.php'" value="Módosítás">
+            <?php 
+                if ((isset($_GET['userId']) && isset($_SESSION['userID']) && $_GET['userId'] === $_SESSION['userID']) || !isset($_GET['userId']))
+                    echo "<form action='ProfilModositas.php'><input type='submit' name='change' id='change' value='Módosítás'></form>";
+            ?>
             <br>
             <p class="quote"><em><q><?php echo $favqoute;?></q></em></p> <br> <p class="proverb"></p>
         </div>

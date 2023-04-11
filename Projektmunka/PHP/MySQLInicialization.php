@@ -127,7 +127,8 @@
             email VARCHAR(70) NOT NULL,
             password VARCHAR(100) NOT NULL,
             birthday VARCHAR(100) NOT NULL,
-            favquote VARCHAR(250) NOT NULL
+            favquote VARCHAR(250) NOT NULL,
+            registerTime VARCHAR(250) NOT NULL
         )";
 
         if ($connection->query($query) === TRUE) {
@@ -136,12 +137,12 @@
             echo "Error creating table: " . $connection->error;
         }
 
-        $query = "INSERT INTO Users (username, email, password)
+        $query = "INSERT INTO Users (username, email, password, registerTime)
         VALUES 
-        ('admin', 'admin@admin.hu', '" . password_hash("admin", PASSWORD_DEFAULT) . "'),
-        ('testuser', 'testuser@testuser.hu', '" . password_hash("test1234", PASSWORD_DEFAULT) . "'),
-        ('Valesz', 'valesz@gmail.com', '" . password_hash("ValeszAkiNemAKuki", PASSWORD_DEFAULT) . "'),
-        ('Kevin', 'kevin@gmail.com', '" . password_hash("KevinAkiNemAKuki", PASSWORD_DEFAULT) . "')
+        ('admin', 'admin@admin.hu', '" . password_hash("admin", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "'),
+        ('testuser', 'testuser@testuser.hu', '" . password_hash("test1234", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "'),
+        ('Valesz', 'valesz@gmail.com', '" . password_hash("ValeszAkiNemAKuki", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "'),
+        ('Kevin', 'kevin@gmail.com', '" . password_hash("KevinAkiNemAKuki", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "')
         ";
 
         if ($connection->query($query) === TRUE) {

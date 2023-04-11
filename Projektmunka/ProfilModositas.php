@@ -106,7 +106,9 @@
         if (!empty(trim($_POST["birthdate"]))) {
             $birthday = trim($_POST["birthdate"]);
             $array = explode("-", $birthday);
-            if (count($array) !== 3 || strlen($array[0]) !== 4 || strlen($array[1]) !== 2 || strlen($array[2]) !== 2) {
+            if (count($array) !== 3 || strlen($array[0]) !== 4 || strlen($array[1]) !== 2 || strlen($array[2]) !== 2 
+                || !is_numeric($array[0]) || !is_numeric($array[1]) || !is_numeric($array[2]) 
+                || intval($array[1]) > 12 || intval($array[2]) > 31 || intval($array[1]) === 0 || intval($array[2]) == 0) {
                 $otodikhiba = "badformat";
                 $hibak = $hibak + 1;
             }
@@ -128,7 +130,7 @@
             email = '$email',
             birthday = '$birthday',
             password = '$pword',
-            favquote = '$favquote'
+            favquote = '$favqoute'
             WHERE id = '$userID'";
             $connection->query($query);
             header("Location: Profil.php");
