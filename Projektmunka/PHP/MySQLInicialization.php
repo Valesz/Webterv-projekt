@@ -129,7 +129,8 @@
             birthday VARCHAR(100) NOT NULL,
             favquote VARCHAR(250) NOT NULL,
             favcat VARCHAR(35) NOT NULL,
-            registerTime VARCHAR(250) NOT NULL
+            registerTime VARCHAR(250) NOT NULL,
+            profilepic VARCHAR(300) NOT NULL
         )";
 
         if ($connection->query($query) === TRUE) {

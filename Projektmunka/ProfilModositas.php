@@ -1,6 +1,8 @@
 <?php
 
     session_start();
+    
+    include "PHP/ProfilePicUpload.php";
 
     $servername = "localhost";
     $username = "root";
@@ -142,7 +144,8 @@
             email = '$email',
             birthday = '$birthday',
             password = '$pword',
-            favquote = '$favquote'
+            favquote = '$favquote',
+            favcat = '$favcat'
             WHERE id = '$userID'";
             $connection->query($query);
             header("Location: Profil.php");
@@ -150,6 +153,7 @@
         
     }
     
+    // lekérdezés miután fel lettek töltve az adatbázisba az adatok
     if (isset($_SESSION["userID"])) {
         $query = "SELECT * FROM users WHERE id = $_SESSION[userID]";
         $result = $connection->query($query);
@@ -196,12 +200,17 @@
         
         <div class="card_mod">
             <div class="profile_pic"><img src="Kepek/Ikonok/morcoscica.jpg" alt="morcoscica" class="profile_pic"></div>
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
                 <table>
                     <tr>
                         <th id="corner"></th>
                         <th id="adatok">Adatok</th>
                         <th id="letitbepublic">Legyen publikus</th>
+                    </tr>
+                    <tr>
+                        <th id='profilepic'>Profilképem:</th>
+                        <td headers='profilepic'><input type='file' id="profilepic" name="profilepic" accept="image/*"></td>
+                        <td><input type="checkbox" id="checkbox0" name="pfp-cb" disabled></td>
                     </tr>
                     <tr>
                         <th id="felhasznalonev">Felhasználónév:</th>
@@ -276,6 +285,18 @@
                     }
                     if ($hetedikhiba === "toolong") {
                         echo "<p class='errormessage'>A kedvenc cicád neve max. 35 karakter hosszú lehet!</p>";
+                    }
+                    if ($nyolcadikhiba === "notmoved") {
+                        echo "<p class='errormessage'>A fájlt nem sikerült átmozgatni!</p>";
+                    }
+                    if ($nyolcadikhiba === "toobig") {
+                        echo "<p class='errormessage'>A fájl mérete maximum 25 MB lehet!</p>";
+                    }
+                    if ($nyolcadikhiba === "error") {
+                        echo "<p class='errormessage'>A fájlt nem sikerült feltölteni!</p>";
+                    }
+                    if ($nyolcadikhiba === "bad_file_extension") {
+                        echo "<p class='errormessage'>A fájl kiterjesztése nem megfelelő!</p>";
                     }
                 ?>
                 <label for="change">

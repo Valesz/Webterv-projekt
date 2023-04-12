@@ -23,6 +23,8 @@
     $favquote = "";
     $favcat = "";
 
+    $profilepic = "";
+
     if (isset($_GET['profilOpen'])) {
         $query = "SELECT * FROM users WHERE id = $_GET[userId]";
         $result = $connection->query($query);
@@ -34,6 +36,7 @@
         $birthday = $array["birthday"];
         $favquote = $array["favquote"];
         $registerTime = $array["registerTime"];
+        $profilepic = $array["profilepic"]; 
     }
     else if (isset($_SESSION["userID"])) {
         $query = "SELECT * FROM users WHERE id = $_SESSION[userID]";
@@ -47,6 +50,7 @@
         $favquote = $array["favquote"];
         $registerTime = $array["registerTime"];
         $favcat = $array["favcat"];
+        $profilepic = $array["profilepic"];
     }
 
     $connection -> close();
@@ -75,19 +79,19 @@
             <li class="icon-img-container"><a href="index.php"><img src="Kepek/cat.png" class="icon-img" alt="Logo"></a></li>
         </ul>
     </nav>
-
+    
     <main>
-
+        
         <h1>Profilod</h1>
         <hr>
         <br>
         
         <div class="card">
-            <div class="profile_pic"><img src="Kepek/Ikonok/morcoscica.jpg" alt="morcoscica" class="profile_pic"></div>
+            <div class="profile_pic"><img src="<?php if (!empty($profilepic)) {echo $profilepic;} else { echo "Kepek/Ikonok/morcoscica.jpg"; }?>" alt="profilkép" class="profile_pic"></div>
             <h2>
                 <?php
                     echo $uname;
-                ?>
+                    ?>
             </h2>
             <table>
                 <tr>
@@ -103,7 +107,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th id="szulinap">Szülinap:</th>
+                    <th id="szulinap">Szülinapom:</th>
                     <td headers="szulinap">
                     <?php 
                         if (isset($birthday) && $birthday !== "") {
@@ -115,7 +119,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th id="emailcimed">E-mail címed:</th>
+                    <th id="emailcimed">E-mail címem:</th>
                     <td headers="emailcimed">
                     <?php 
                         echo $email;
@@ -123,7 +127,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th id="csatlakozasoddatuma">Csatlakozásod dátuma:</th>
+                    <th id="csatlakozasoddatuma">Csatlakozásom dátuma:</th>
                     <td headers="csatlakozasoddatuma">
                     <?php 
                         if (isset($registerTime)) {
@@ -133,7 +137,7 @@
                         }
                     ?>
                     </td>
-                </tr>    
+                </tr>
             </table>
             <?php 
                 if ((isset($_GET['userId']) && isset($_SESSION['userID']) && $_GET['userId'] === $_SESSION['userID']) || !isset($_GET['userId']))
