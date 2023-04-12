@@ -2,8 +2,7 @@
 
     session_start();
     
-    include "PHP/ProfilePicUpload.php";
-
+    
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -23,7 +22,8 @@
     $favquote = "";
     $favcat = "";
     $userID = "";
-
+    $destination = "";
+    
     if (isset($_SESSION["userID"])) {
         $query = "SELECT * FROM users WHERE id = $_SESSION[userID]";
         $result = $connection->query($query);
@@ -31,14 +31,15 @@
         $userID = $array["id"];
         $uname = $array["username"];
         $email = $array["email"];
-        $pword = $array["password"];
+        //$pword = $array["password"];
         $birthday = $array["birthday"];
         $favquote = $array["favquote"];
         $favcat = $array["favcat"];
+        $destination = $array["profilepic"];
     }
 
     // módosítások
-
+    
     $elsohiba = "";
     $masodikhiba = "";
     $harmadikhiba = "";
@@ -46,7 +47,48 @@
     $otodikhiba = "";
     $hatodikhiba = "";
     $hetedikhiba = "";
+    $nyolcadikhiba = "";
     $hibak = 0;
+    
+    $siker = "";
+
+    //echo empty($_FILES["profilepic"]);
+
+    
+    if (isset($_FILES["profilepic"]) && $_FILES["profilepic"]["name"] !== "") {
+        $allowed_file_extensions = ["jpg", "jpeg", "png", "gif"];
+        
+        $file_extension = strtolower(pathinfo($_FILES["profilepic"]["name"], PATHINFO_EXTENSION));
+        
+        if (in_array($file_extension, $allowed_file_extensions)) {
+            $targetDir = "Kepek/Profilkep/";
+            $targetFile = $targetDir . basename($_FILES["profilepic"]['name']);
+            echo basename($_FILES["profilepic"]['name']);
+            if ($_FILES["profilepic"]["error"] === 0) {
+                if ($_FILES["profilepic"]["size"] <= 26214400) {
+                    while (file_exists($targetFile)) {
+                        $targetFile = $targetDir . pathinfo($targetFile, PATHINFO_FILENAME) . "1." . $file_extension;
+                    }
+                    $query = "UPDATE users
+                    SET profilepic = '$targetFile' 
+                    WHERE id = '$_SESSION[userID]'";
+                    $connection->query($query);
+                    move_uploaded_file($_FILES['profilepic']['tmp_name'], $targetFile);
+                } else {
+                    $nyolcadikhiba = "toobig";
+                    $hibak = $hibak + 1;
+                }
+            } else {
+                $nyolcadikhiba = "error";
+                $hibak = $hibak + 1;
+            }
+        } else {
+            $nyolcadikhiba = "bad_file_extension";
+            $hibak = $hibak + 1;
+        }
+        
+    }
+
 
     if (isset($_POST["change"])) {
         // felhasznalonev - check
@@ -143,11 +185,18 @@
             SET username = '$uname', 
             email = '$email',
             birthday = '$birthday',
-            password = '$pword',
             favquote = '$favquote',
             favcat = '$favcat'
             WHERE id = '$userID'";
             $connection->query($query);
+
+            if (!empty(trim($_POST["password"])) && $pword === $pwordagain) {
+                $query = "UPDATE users 
+            SET password = '$pword'
+            WHERE id = '$userID'";
+            $connection->query($query);
+            }
+
             header("Location: Profil.php");
         }
         
