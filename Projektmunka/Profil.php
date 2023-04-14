@@ -64,6 +64,8 @@
         $birthdayVisibility = $array["birthdayVisibility"];
         $favcatVisibility = $array["favcatVisibility"];
         $favquoteVisibility = $array["favquoteVisibility"];
+    } else {
+        header("location: index.php");
     }
 
     $connection -> close();
@@ -207,7 +209,21 @@
                 }
             ?>    
         </div>
-
+        <?php
+            if ((isset($_GET['userId']) && isset($_SESSION['userID']) && $_GET['userId'] === $_SESSION['userID']) || !isset($_GET['userId'])) {
+                echo "<form action='PHP/Logout.php' method='get' class='logout'>
+                    <input type='submit' value='Kijelentkezés'>
+                </form>";
+            }
+        ?>
+        <?php
+            if ((isset($_GET['userId']) && isset($_SESSION['userID']) && $_GET['userId'] === $_SESSION['userID']) || !isset($_GET['userId']) || $_SESSION['userID'] == 1) {
+                echo "<form action='PHP/DeleteUser.php' method='get' class='logout' style='width:15%;height:40px;padding:5px;'>
+                    <input style='font-size:20px;' type='submit' value='Profil törlése'>
+                    <input type='hidden' name='id' value='$userID'>
+                </form>";
+            }
+        ?>
     </main>
 
     <footer>

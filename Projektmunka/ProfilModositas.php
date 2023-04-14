@@ -148,16 +148,15 @@
                 $harmadikhiba = $harmadikhiba . "nouppercase";
                 $hibak = $hibak + 1;
             }
-        }
-
-        // jelszo es jelszo ujra - check
-        if (!empty(trim($_POST["password-again"]))) {
+            
             $pwordagain = trim($_POST["password-again"]);
             if ($pword !== $pwordagain) {
                 $negyedikhiba = "notequals";
                 $hibak = $hibak + 1;
             }
+            
         }
+
         
         // szulinap - check
         if (!empty(trim($_POST["birthdate"]))) {
@@ -231,12 +230,12 @@
             favquoteVisibility = '$favquoteVisibility'
             WHERE id = '$userID'";
             $connection->query($query);
-
-            if (!empty(trim($_POST["password"])) && $pword === $pwordagain) {
+            
+            if (!empty(trim($_POST["password"])) && $_POST["password"] === $pwordagain) {
                 $query = "UPDATE users 
-            SET password = '$pword'
-            WHERE id = '$userID'";
-            $connection->query($query);
+                    SET password = '$pword'
+                    WHERE id = '$userID'";
+                $connection->query($query);
             }
 
             header("Location: Profil.php");
