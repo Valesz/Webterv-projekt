@@ -4,6 +4,7 @@
     $masodikhiba = "";
     $harmadikhiba = "";
     $negyedikhiba = "";
+    $otodikhiba = "";
     $sikeres = NULL;
     $hibak = 0;
 
@@ -84,6 +85,12 @@
             $hibak = $hibak + 1;
         }
 
+        // checkbox - check
+        if (!isset($_POST["agreement"])) {
+            $otodikhiba = "agreement";
+            $hibak = $hibak + 1;
+        }
+
         // jelszó hash-elés
         $jelszo = password_hash($jelszo, PASSWORD_DEFAULT);
 
@@ -92,8 +99,8 @@
 
         // felvetel adatbazisba vagy nem, ha nem sikeres a regisztacio
         if (empty($hibak)) {
-            $query = "INSERT INTO users (username, email, password, registerTime)
-            VALUES ('$felhasznalonev', '$email', '$jelszo', '$regdate')";
+            $query = "INSERT INTO users (username, email, password, registerTime, emailVisibility, birthdayVisibility, favcatVisibility, favquoteVisibility)
+            VALUES ('$felhasznalonev', '$email', '$jelszo', '$regdate', 'FALSE', 'FALSE', 'TRUE', 'TRUE')";
             $connection->query($query);
             $sikeres = TRUE;
             header("Location: Bejelentkezes.php");

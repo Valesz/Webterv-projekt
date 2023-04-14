@@ -23,6 +23,14 @@
     $favcat = "";
     $userID = "";
     $destination = "";
+
+    // checkboxok
+    $emailVisibility = "";
+    $birthdayVisibility = "";
+    $favcatVisibility = "";
+    $favquoteVisibility = "";
+
+    //
     
     if (isset($_SESSION["userID"])) {
         $query = "SELECT * FROM users WHERE id = $_SESSION[userID]";
@@ -36,6 +44,10 @@
         $favquote = $array["favquote"];
         $favcat = $array["favcat"];
         $destination = $array["profilepic"];
+        $emailVisibility = $array["emailVisibility"];
+        $birthdayVisibility = $array["birthdayVisibility"];
+        $favcatVisibility = $array["favcatVisibility"];
+        $favquoteVisibility = $array["favquoteVisibility"];
     }
 
     // módosítások
@@ -146,9 +158,6 @@
             }
         }
         
-        // jelszó hash-elés
-        $pword = password_hash($pword, PASSWORD_DEFAULT);
-
         // szulinap - check
         if (!empty(trim($_POST["birthdate"]))) {
             $birthday = trim($_POST["birthdate"]);
@@ -169,7 +178,7 @@
                 $hibak = $hibak + 1;
             }
         }
-
+        
         // kedvenc cica - check
         if (!empty(trim($_POST["favcat"]))) {
             $favcat = trim($_POST["favcat"]);
@@ -178,6 +187,34 @@
                 $hibak = $hibak + 1;
             }
         }
+
+        // checkboxok - check
+        if (isset($_POST["email-cb"])) {
+            $emailVisibility = "TRUE";
+        } else {
+            $emailVisibility = "FALSE";
+        }
+    
+        if (isset($_POST["szulinap-cb"])) {
+            $birthdayVisibility = "TRUE";
+        } else {
+            $birthdayVisibility = "FALSE";
+        }
+    
+        if (isset($_POST["favcat-cb"])) {
+            $favcatVisibility = "TRUE";
+        } else {
+            $favcatVisibility = "FALSE";
+        }
+    
+        if (isset($_POST["favquote-cb"])) {
+            $favquoteVisibility = "TRUE";
+        } else {
+            $favquoteVisibility = "FALSE";
+        }
+
+        // jelszó hash-elés
+        $pword = password_hash($pword, PASSWORD_DEFAULT);
         
         // felvetel adatbazisba vagy nem
         if ($hibak === 0) {
@@ -186,7 +223,11 @@
             email = '$email',
             birthday = '$birthday',
             favquote = '$favquote',
-            favcat = '$favcat'
+            favcat = '$favcat',
+            emailVisibility = '$emailVisibility',
+            birthdayVisibility = '$birthdayVisibility',
+            favcatVisibility = '$favcatVisibility',
+            favquoteVisibility = '$favquoteVisibility'
             WHERE id = '$userID'";
             $connection->query($query);
 
@@ -210,7 +251,7 @@
         $userID = $array["id"];
         $uname = $array["username"];
         $email = $array["email"];
-        $pword = $array["password"];
+        // $pword = $array["password"];
         $birthday = $array["birthday"];
         $favquote = $array["favquote"];
     }

@@ -148,11 +148,19 @@
             </div>
             <div class="grid-container-c">
                 <div class="grid-item-c">
-                    <input type="checkbox" id="agreement" required> 
+                    <input type="checkbox" id="agreement" name="agreement" required> 
                 </div>
                 <div class="grid-item-c">    
-                    <label for="agreement" style="font-size: 100%;">A regisztrációval beleegyezel, hogy adataidat titkosan kezeljük, és a szervereinken tárolhassuk. Csupa klassz dolog, nemde?</label>     
+                    <label for="agreement" style="font-size: 100%;">A regisztrációval beleegyezel, hogy adataidat titkosan kezeljük, és a szervereinken tárolhassuk, illetve sütiket használhassunk. Csupa klassz dolog, nemde?</label>     
                 </div>
+                <?php
+                    if ($otodikhiba === "agreement") {
+                        echo
+                        "<div class='grid-item-c errorMessage' style='grid-column: 1 / 3; color: red; font-size: 16px; text-align: center;'>    
+                            Fogadd el az adatvédelmi nyilatkozatot!
+                        </div>";
+                    }    
+                ?>
                 <div class="grid-item-c">           
                     <input type="checkbox" id="subscribe">
                 </div>

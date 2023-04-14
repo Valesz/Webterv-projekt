@@ -1,6 +1,6 @@
 <?php
     include "PHP/RegisterUsers.php";
-    
+
     session_start();
 
     $servername = "localhost";
@@ -23,6 +23,11 @@
     $favquote = "";
     $favcat = "";
 
+    $emailVisibility = "";
+    $birthdayVisibility = "";
+    $favcatVisibility = "";
+    $favquoteVisibility = "";
+
     $profilepic = "";
 
     if (isset($_GET['profilOpen'])) {
@@ -37,6 +42,10 @@
         $favquote = $array["favquote"];
         $registerTime = $array["registerTime"];
         $profilepic = $array["profilepic"]; 
+        $emailVisibility = $array["emailVisibility"];
+        $birthdayVisibility = $array["birthdayVisibility"];
+        $favcatVisibility = $array["favcatVisibility"];
+        $favquoteVisibility = $array["favquoteVisibility"];
     }
     else if (isset($_SESSION["userID"])) {
         $query = "SELECT * FROM users WHERE id = $_SESSION[userID]";
@@ -51,6 +60,10 @@
         $registerTime = $array["registerTime"];
         $favcat = $array["favcat"];
         $profilepic = $array["profilepic"];
+        $emailVisibility = $array["emailVisibility"];
+        $birthdayVisibility = $array["birthdayVisibility"];
+        $favcatVisibility = $array["favcatVisibility"];
+        $favquoteVisibility = $array["favquoteVisibility"];
     }
 
     $connection -> close();
@@ -95,36 +108,74 @@
             </h2>
             <table>
                 <tr>
-                    <th id="favcat">Kedvenc cicám:</th>
-                    <td headers="favcat">
-                        <?php
-                            if (isset($favcat) && $favcat !== "") {
-                                echo $favcat;
-                            } else {
-                                echo "Nincs kedvenc cicám, mindegyik cuki! :3";
-                            }
-                        ?>
-                    </td>
-                </tr>
-                <tr>
-                    <th id="szulinap">Szülinapom:</th>
-                    <td headers="szulinap">
-                    <?php 
-                        if (isset($birthday) && $birthday !== "") {
-                            echo $birthday;
-                        } else if (empty($birthday)) {
-                            echo "Nincs beállítva a születésnapod!";
+                    <th id="corner"></th>
+                    <th id="adatok">Adatok</th>
+                    <?php
+                        if (!isset($_GET["userId"])) {
+                            echo "<th id='visibility'>Láthatóság</th>";
                         }
                     ?>
-                    </td>
                 </tr>
                 <tr>
-                    <th id="emailcimed">E-mail címem:</th>
-                    <td headers="emailcimed">
-                    <?php 
-                        echo $email;
+                    <?php
+                        if ((isset($_SESSION["userID"]) && !isset($_GET["userId"]))|| (isset($_GET["userId"]) && $favcatVisibility === "TRUE")) {
+                            echo
+                            "<th id='favcat'>Kedvenc cicám:</th>
+                            <td headers='favcat'>";
+                            if ($favcatVisibility === "TRUE" && isset($favcat) && $favcat !== "") {
+                                echo "$favcat</td>";
+                            } else {
+                                echo "Nincs kedvenc cicám, mindegyik cuki! :3</td>";
+                            }
+                        }
+                        if (!isset($_GET["userId"]) && isset($_SESSION["userID"])) {
+                            echo "<td><input type='checkbox' id='checkbox0' name='kedvenccica-cb' disabled ";
+                        }    
+                        if (!isset($_GET["userId"]) && isset($_SESSION["userID"]) && $favcatVisibility === "TRUE") {
+                            echo "checked></td>";
+                        } else if (!isset($_GET["userId"]) && isset($_SESSION["userID"])) {
+                            echo "></td>";
+                        }   
+                    ?>    
+                </tr>
+                <tr>
+                    <?php
+                        if ((isset($_SESSION["userID"]) && !isset($_GET["userId"])) || (isset($_GET["userId"]) && $birthdayVisibility === "TRUE")) {
+                            echo
+                            "<th id='szulinap'>Szülinapom:</th>
+                            <td headers='szulinap'>";
+                            if (isset($birthday) && $birthday !== "") {
+                                echo "$birthday</td>";
+                            } else {
+                                echo "Nincs beállítva a születésnapod!</td>";
+                            }
+                        }
+                        if (!isset($_GET["userId"])) {
+                            echo "<td><input type='checkbox' id='checkbox1' name='szulinap-cb' disabled ";
+                        }
+                        if (!isset($_GET["userId"]) && $birthdayVisibility === "TRUE") {
+                            echo "checked></td>";
+                        } else if (!isset($_GET["userId"])) {
+                            echo "></td>";
+                        }  
+                    ?>   
+                </tr>
+                <tr>
+                    <?php
+                        if (($emailVisibility === "TRUE" && isset($_GET["userId"])) || (isset($_SESSION["userID"]) && !isset($_GET["userId"]))) {
+                            echo
+                            "<th id='emailcimed'>E-mail címem:</th>
+                            <td headers='emailcimed'>$email</td>";
+                        }
+                        if (!isset($_GET["userId"])) {
+                            echo "<td><input type='checkbox' id='checkbox2' name='emailcimem' disabled ";
+                        }
+                        if (!isset($_GET["userId"]) && $emailVisibility === "TRUE") {
+                            echo "checked></td>";
+                        } else if (!isset($_GET["userId"])) {
+                            echo "></td>";
+                        }
                     ?>
-                    </td>
                 </tr>
                 <tr>
                     <th id="csatlakozasoddatuma">Csatlakozásom dátuma:</th>
@@ -137,6 +188,11 @@
                         }
                     ?>
                     </td>
+                    <?php
+                        if (!isset($_GET["userId"])) {
+                            echo "<td><input type='checkbox' id='checkbox3' name='csatlakozasdatum' disabled checked></td>";
+                        }
+                    ?>        
                 </tr>
             </table>
             <?php 
@@ -144,8 +200,12 @@
                     echo "<form action='ProfilModositas.php'><input type='submit' name='change' id='change' value='Módosítás'></form>";
             ?>
             <br>
-            <p class="quote">A kedvenc idézetem:</p> <br>
-            <p class="quote"><em><q><?php echo $favquote;?></q></em></p> <br>
+            <?php
+                if ((isset($_GET["userId"]) && $favquoteVisibility === "TRUE") || (isset($_SESSION["userID"]) && !isset($_GET["userId"]))) {
+                    echo "<p class='quote'>A kedvenc idézetem:</p> <br>
+                    <p class='quote'><em><q>$favquote</q></em></p> <br>";
+                }
+            ?>    
         </div>
 
     </main>

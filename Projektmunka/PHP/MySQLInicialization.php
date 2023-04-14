@@ -130,7 +130,11 @@
             favquote VARCHAR(250) NOT NULL,
             favcat VARCHAR(35) NOT NULL,
             registerTime VARCHAR(250) NOT NULL,
-            profilepic VARCHAR(300) NOT NULL
+            profilepic VARCHAR(300) NOT NULL,
+            emailVisibility VARCHAR(5) NOT NULL,
+            birthdayVisibility VARCHAR(5) NOT NULL,
+            favcatVisibility VARCHAR(5) NOT NULL,
+            favquoteVisibility VARCHAR(5) NOT NULL
         )";
 
         if ($connection->query($query) === TRUE) {
@@ -139,12 +143,12 @@
             echo "Error creating table: " . $connection->error;
         }
 
-        $query = "INSERT INTO Users (username, email, password, registerTime)
+        $query = "INSERT INTO Users (username, email, password, registerTime, emailVisibility, birthdayVisibility, favcatVisibility, favquoteVisibility)
         VALUES 
-        ('admin', 'admin@admin.hu', '" . password_hash("admin", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "'),
-        ('testuser', 'testuser@testuser.hu', '" . password_hash("test1234", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "'),
-        ('Valesz', 'valesz@gmail.com', '" . password_hash("ValeszAkiNemAKuki", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "'),
-        ('Kevin', 'kevin@gmail.com', '" . password_hash("KevinAkiNemAKuki", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "')
+        ('admin', 'admin@admin.hu', '" . password_hash("admin", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "', 'FALSE', 'FALSE', 'TRUE', 'TRUE'),
+        ('testuser', 'testuser@testuser.hu', '" . password_hash("test1234", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "', 'FALSE', 'FALSE', 'TRUE', 'TRUE'),
+        ('Valesz', 'valesz@gmail.com', '" . password_hash("ValeszAkiNemAKuki", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "', 'FALSE', 'FALSE', 'TRUE', 'TRUE'),
+        ('Kevin', 'kevin@gmail.com', '" . password_hash("KevinAkiNemAKuki", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "', 'FALSE', 'FALSE', 'TRUE', 'TRUE')
         ";
 
         if ($connection->query($query) === TRUE) {
