@@ -113,14 +113,14 @@
                     <th id="corner"></th>
                     <th id="adatok">Adatok</th>
                     <?php
-                        if (!isset($_GET["userId"])) {
+                        if (!isset($_GET["userId"]) || (isset($_SESSION["userID"]) && $_GET["userId"] === $_SESSION["userID"])) {
                             echo "<th id='visibility'>Láthatóság</th>";
                         }
                     ?>
                 </tr>
                 <tr>
                     <?php
-                        if ((isset($_SESSION["userID"]) && !isset($_GET["userId"]))|| (isset($_GET["userId"]) && $favcatVisibility === "TRUE")) {
+                        if ((isset($_SESSION["userID"]) && !isset($_GET["userId"])) || (isset($_GET["userId"]) && $favcatVisibility === "TRUE") || (isset($_SESSION["userID"]) && $_GET["userId"] === $_SESSION["userID"])) {
                             echo
                             "<th id='favcat'>Kedvenc cicám:</th>
                             <td headers='favcat'>";
@@ -130,7 +130,7 @@
                                 echo "Nincs kedvenc cicám, mindegyik cuki! :3</td>";
                             }
                         }
-                        if (!isset($_GET["userId"]) && isset($_SESSION["userID"])) {
+                        if (!isset($_GET["userId"]) && isset($_SESSION["userID"]) || (isset($_SESSION["userID"]) && $_GET["userId"] === $_SESSION["userID"])) {
                             echo "<td><input type='checkbox' id='checkbox0' name='kedvenccica-cb' disabled ";
                         }    
                         if (!isset($_GET["userId"]) && isset($_SESSION["userID"]) && $favcatVisibility === "TRUE") {
@@ -142,7 +142,7 @@
                 </tr>
                 <tr>
                     <?php
-                        if ((isset($_SESSION["userID"]) && !isset($_GET["userId"])) || (isset($_GET["userId"]) && $birthdayVisibility === "TRUE")) {
+                        if ((isset($_SESSION["userID"]) && !isset($_GET["userId"])) || (isset($_GET["userId"]) && $birthdayVisibility === "TRUE") || (isset($_SESSION["userID"]) && $_GET["userId"] === $_SESSION["userID"])) {
                             echo
                             "<th id='szulinap'>Szülinapom:</th>
                             <td headers='szulinap'>";
@@ -152,7 +152,7 @@
                                 echo "Nincs beállítva a születésnapod!</td>";
                             }
                         }
-                        if (!isset($_GET["userId"])) {
+                        if (!isset($_GET["userId"]) || (isset($_SESSION["userID"]) && $_GET["userId"] === $_SESSION["userID"])) {
                             echo "<td><input type='checkbox' id='checkbox1' name='szulinap-cb' disabled ";
                         }
                         if (!isset($_GET["userId"]) && $birthdayVisibility === "TRUE") {
@@ -164,12 +164,12 @@
                 </tr>
                 <tr>
                     <?php
-                        if (($emailVisibility === "TRUE" && isset($_GET["userId"])) || (isset($_SESSION["userID"]) && !isset($_GET["userId"]))) {
+                        if (($emailVisibility === "TRUE" && isset($_GET["userId"])) || (isset($_SESSION["userID"]) && !isset($_GET["userId"])) || (isset($_SESSION["userID"]) && $_GET["userId"] === $_SESSION["userID"])) {
                             echo
                             "<th id='emailcimed'>E-mail címem:</th>
                             <td headers='emailcimed'>$email</td>";
                         }
-                        if (!isset($_GET["userId"])) {
+                        if (!isset($_GET["userId"]) || (isset($_SESSION["userID"]) && $_GET["userId"] === $_SESSION["userID"])) {
                             echo "<td><input type='checkbox' id='checkbox2' name='emailcimem' disabled ";
                         }
                         if (!isset($_GET["userId"]) && $emailVisibility === "TRUE") {
@@ -191,7 +191,7 @@
                     ?>
                     </td>
                     <?php
-                        if (!isset($_GET["userId"])) {
+                        if (!isset($_GET["userId"]) || (isset($_SESSION["userID"]) && $_GET["userId"] === $_SESSION["userID"])) {
                             echo "<td><input type='checkbox' id='checkbox3' name='csatlakozasdatum' disabled checked></td>";
                         }
                     ?>        
@@ -203,7 +203,7 @@
             ?>
             <br>
             <?php
-                if ((isset($_GET["userId"]) && $favquoteVisibility === "TRUE") || (isset($_SESSION["userID"]) && !isset($_GET["userId"]))) {
+                if ((isset($_GET["userId"]) && $favquoteVisibility === "TRUE") || (isset($_SESSION["userID"]) && !isset($_GET["userId"])) || (isset($_SESSION["userID"]) && $_GET["userId"] === $_SESSION["userID"])) {
                     echo "<p class='quote'>A kedvenc idézetem:</p> <br>
                     <p class='quote'><em><q>$favquote</q></em></p> <br>";
                 }

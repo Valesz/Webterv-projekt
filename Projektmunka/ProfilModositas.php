@@ -17,7 +17,6 @@
         die("connection error");
     }
 
-    // lekérdezések
     $uname = "Felhasználó";
     $email = "";
     $pword = "";
@@ -28,12 +27,13 @@
     $destination = "";
 
     // checkboxok
+
     $emailVisibility = "";
     $birthdayVisibility = "";
     $favcatVisibility = "";
     $favquoteVisibility = "";
 
-    //
+    // lekérdezés
     
     if (isset($_SESSION["userID"])) {
         $query = "SELECT * FROM users WHERE id = $_SESSION[userID]";
@@ -42,7 +42,6 @@
         $userID = $array["id"];
         $uname = $array["username"];
         $email = $array["email"];
-        //$pword = $array["password"];
         $birthday = $array["birthday"];
         $favquote = $array["favquote"];
         $favcat = $array["favcat"];
@@ -67,10 +66,9 @@
     $hibak = 0;
     
     $siker = "";
-
-    //echo empty($_FILES["profilepic"]);
-
     
+    // profilkép feltöltése
+
     if (isset($_FILES["profilepic"]) && $_FILES["profilepic"]["name"] !== "") {
         $allowed_file_extensions = ["jpg", "jpeg", "png", "gif"];
         
@@ -107,7 +105,9 @@
 
 
     if (isset($_POST["change"])) {
+
         // felhasznalonev - check
+
         if (!empty(trim($_POST["username"]))) {
             $uname = trim($_POST["username"]);
             $query = "SELECT username FROM users WHERE username = '$uname'";
@@ -125,6 +125,7 @@
         }
 
         // email - check
+
         if (!empty(trim($_POST["email"]))) {
             $email = trim($_POST["email"]);
             $query = "SELECT email FROM users WHERE email = '$email'";
@@ -139,6 +140,7 @@
         }
 
         // jelszo - check
+
         if (!empty(trim($_POST["password"]))) {
             $pword = trim($_POST["password"]);
             if (strlen($pword) < 8) {
@@ -160,8 +162,8 @@
             
         }
 
-        
         // szulinap - check
+
         if (!empty(trim($_POST["birthdate"]))) {
             $birthday = trim($_POST["birthdate"]);
             $array = explode("-", $birthday);
@@ -174,6 +176,7 @@
         }
 
         // kedvenc idezet - check
+
         if (!empty(trim($_POST["favquote"]))) {
             $favquote = trim($_POST["favquote"]);
             if (strlen($favquote) > 250) {
@@ -183,6 +186,7 @@
         }
         
         // kedvenc cica - check
+
         if (!empty(trim($_POST["favcat"]))) {
             $favcat = trim($_POST["favcat"]);
             if (strlen($favcat) > 35) {
@@ -192,6 +196,7 @@
         }
 
         // checkboxok - check
+
         if (isset($_POST["email-cb"])) {
             $emailVisibility = "TRUE";
         } else {
@@ -217,9 +222,11 @@
         }
 
         // jelszó hash-elés
+
         $pword = password_hash($pword, PASSWORD_DEFAULT);
         
         // felvetel adatbazisba vagy nem
+
         if ($hibak === 0) {
             $query = "UPDATE users 
             SET username = '$uname', 
@@ -247,6 +254,7 @@
     }
     
     // lekérdezés miután fel lettek töltve az adatbázisba az adatok
+    
     if (isset($_SESSION["userID"])) {
         $query = "SELECT * FROM users WHERE id = $_SESSION[userID]";
         $result = $connection->query($query);
@@ -254,7 +262,6 @@
         $userID = $array["id"];
         $uname = $array["username"];
         $email = $array["email"];
-        // $pword = $array["password"];
         $birthday = $array["birthday"];
         $favquote = $array["favquote"];
     }
