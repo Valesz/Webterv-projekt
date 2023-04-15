@@ -1,5 +1,10 @@
 <?php
     include "PHP/RegisterUsers.php";
+    session_start();
+
+    if (isset($_SESSION["userID"])) {
+        header("location: Profil.php");
+    }
 ?>
 
 <!DOCTYPE html>

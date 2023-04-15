@@ -2,6 +2,9 @@
 
     session_start();
     
+    if (empty($_SESSION["userID"])) {
+        header("location: Bejelentkezes.php");
+    }
     
     $servername = "localhost";
     $username = "root";
@@ -298,7 +301,7 @@
                     </tr>
                     <tr>
                         <th id='profilepic'>Profilképem:</th>
-                        <td headers='profilepic'><input type='file' id="profilepic" name="profilepic" accept="image/*"></td>
+                        <td headers='profilepic'><input type='file' name="profilepic" accept="image/*"></td>
                         <td><input type="checkbox" id="checkbox0" name="pfp-cb" disabled></td>
                     </tr>
                     <tr>
