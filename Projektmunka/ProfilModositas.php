@@ -46,6 +46,7 @@
         $birthday = $array["birthday"];
         $favquote = $array["favquote"];
         $favcat = $array["favcat"];
+        $profilepic = $array["profilepic"];
         $destination = $array["profilepic"];
         $emailVisibility = $array["emailVisibility"];
         $birthdayVisibility = $array["birthdayVisibility"];
@@ -291,7 +292,7 @@
         <br>
         
         <div class="card_mod">
-            <div class="profile_pic"><img src="Kepek/Ikonok/morcoscica.jpg" alt="morcoscica" class="profile_pic"></div>
+        <div class="profile_pic"><img src="<?php if (!empty($profilepic) && isset($_SESSION["userID"])) {echo $profilepic;} else { echo "Kepek/Ikonok/morcoscica.jpg"; }?>" alt="profilkép" class="profile_pic"></div>
             <form method="POST" enctype="multipart/form-data">
                 <table>
                     <tr>
@@ -313,7 +314,7 @@
                     <tr>
                         <th id="orok-cicaid">E-mail címed:</th>
                         <td headers="orok-cicaid"><input type="text" name="email" placeholder=<?php echo $email;?>></td>
-                        <td><input type="checkbox" id="checkbox2" name="email-cb"></td>
+                        <td><input type="checkbox" id="checkbox2" name="email-cb" <?php if ($emailVisibility === "TRUE") {echo "checked";} ?>></td>
                     </tr>
                     <tr>
                         <th id="jelszavad">Jelszavad:</th>
@@ -328,17 +329,17 @@
                     <tr>
                         <th id="szulinap">Szülinap:</th>
                         <td headers="szulinap"><input type="text" id="birthdate" name="birthdate" maxlength="10" placeholder="2000-01-01"></td>
-                        <td><input type="checkbox" id="checkbox5" name="szulinap-cb"></td>
+                        <td><input type="checkbox" id="checkbox5" name="szulinap-cb" <?php if ($birthdayVisibility === "TRUE") {echo "checked";} ?>></td>
                     </tr>
                     <tr>
                         <th id="kedvenccica">Kedvenc cicám:</th>
                         <td headers="kedvenccica"><input type="text" id="favcat" name="favcat" maxlength="10" placeholder="max. 35 karakter"></td>
-                        <td><input type="checkbox" id="checkbox6" name="favcat-cb"></td>
+                        <td><input type="checkbox" id="checkbox6" name="favcat-cb" <?php if ($favcatVisibility === "TRUE") {echo "checked";} ?>></td>
                     </tr>
                     <tr>
                         <th id="favquote">Kedvenc idézeted:</th>
                         <td headers="favquote"><input type="text" name="favquote" placeholder="max. 250 karakter"></td>
-                        <td><input type="checkbox" id="checkbox7" name="favquote-cb"></td>
+                        <td><input type="checkbox" id="checkbox7" name="favquote-cb" <?php if ($favquoteVisibility === "TRUE") {echo "checked";} ?>></td>
                     </tr>
                 </table>
                 <?php
