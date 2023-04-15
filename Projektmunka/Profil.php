@@ -217,7 +217,7 @@
             }
         ?>
         <?php
-            if ((isset($_GET['userId']) && isset($_SESSION['userID']) && $_GET['userId'] === $_SESSION['userID']) || !isset($_GET['userId']) || $_SESSION['userID'] == 1) {
+            if ((isset($_GET['userId']) && isset($_SESSION['userID']) && $_GET['userId'] === $_SESSION['userID']) || !isset($_GET['userId']) || (isset($_SESSION["userID"]) && $_SESSION['userID'] == 1)) {
                 echo "<form action='PHP/DeleteUser.php' method='get' class='logout' style='width:15%;height:40px;padding:5px;'>
                     <input style='font-size:20px;' type='submit' value='Profil törlése'>
                     <input type='hidden' name='id' value='$userID'>
