@@ -1,5 +1,6 @@
 <?php
     include "PHP/RegisterUsers.php";
+    include "PHP/NewsletterCheck.php";
     session_start();
 
     if (isset($_SESSION["userID"])) {
@@ -194,10 +195,18 @@
             <p>Facebook: Macskalak</p>
             <p>Instagram: Macskalak</p>
             <p>Telephely: Macsköztársaság, Kaparófalva, Miautca 12(cicenkettő).</p>
-            <form class="footer_form">
+            <form class="footer_form" method="POST">
                 <h1>Iratkozz fel hírlevelünkre a funtasztikus cicás hírekért!</h1>
                 <input type="email" name="emailfornewsletter" placeholder="valaki@email.com" required>
                 <input type="submit" name="nl_submit_btn" value="Miau!">
+                <?php
+                    if ($emailhiba === "badformat") {
+                        echo "<p class='errormessage'>Az email cím nem megfelelő formátumú!</p>";
+                    }
+                    if ($emailhiba === "used") {
+                        echo "<p class='errormessage'>Ezzel az email címmel már regisztráltak!</p>";
+                    }
+                ?>
             </form>
         </div>
         <p class="copyright"><sup>©</sup> 2023 Macskalak</p>
