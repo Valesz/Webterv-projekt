@@ -6,6 +6,9 @@
 <body>
     
     <?php
+
+        // kapcsolat létrehozása
+
         $servername='localhost';
         $username='root';
         $password='';
@@ -23,6 +26,8 @@
         
         $connection->close();
 
+        // forum tábla létrehozás
+        
         echo "<br>FORUM TÁBLA<br>";
 
         $dbname='Macskalak';
@@ -62,6 +67,8 @@
         } else {
             echo "Error creating record: " . $connection->error;
         }
+
+        // kommentek tábla létrehozása
 
         echo "<br>KOMMENTEK TÁBLA<br>";
 
@@ -119,6 +126,8 @@
             echo "Error creating record: " . $connection->error;
         }
 
+        // felhasználók tábla létrehozása
+
         echo "<br>FELHASZNÁLÓK TÁBLA<br>";
 
         $query = "CREATE TABLE Users (
@@ -149,6 +158,33 @@
         ('testuser', 'testuser@testuser.hu', '" . password_hash("test1234", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "', 'FALSE', 'FALSE', 'TRUE', 'TRUE'),
         ('Valesz', 'valesz@gmail.com', '" . password_hash("ValeszAkiNemAKuki", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "', 'FALSE', 'FALSE', 'TRUE', 'TRUE'),
         ('Kevin', 'kevin@gmail.com', '" . password_hash("KevinAkiNemAKuki", PASSWORD_DEFAULT) . "', '" . date("Y-m-d") . "', 'FALSE', 'FALSE', 'TRUE', 'TRUE')
+        ";
+
+        if ($connection->query($query) === TRUE) {
+            echo "Record inserted successfully<br>";
+        } else {
+            echo "Error creating record: " . $connection->error;
+        }
+
+        // hirlevél tábla létrehozása
+
+        echo "<br>HÍRLEVÉL TÁBLA<br>";
+
+        $query = "CREATE TABLE hirlevel (
+            id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            email VARCHAR(70) NOT NULL
+        )";
+        
+        if ($connection->query($query) === TRUE) {
+            echo "Table created successfully<br>";
+        } else {
+            echo "Error creating table: " . $connection->error;
+        }
+
+        $query = "INSERT INTO hirlevel (email)
+        VALUES
+        ('valesz@gmail.com'),
+        ('kevin@gmail.com')
         ";
 
         if ($connection->query($query) === TRUE) {

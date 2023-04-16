@@ -11,6 +11,7 @@
     if (isset($_POST["register"])) {
 
         // kapcsolat letrehozasa
+
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -23,6 +24,7 @@
         }
         
         // felhasznalonev - check
+
         if (!empty(trim($_POST["username"]))) {
             $felhasznalonev = trim($_POST["username"]);
             $query = "SELECT username FROM users WHERE username = '$felhasznalonev'";
@@ -42,6 +44,7 @@
         }
 
         // email - check
+
         if (!empty(trim($_POST["email"]))) {
             $email = trim($_POST["email"]);
             $query = "SELECT email FROM users WHERE email = '$email'";
@@ -58,6 +61,7 @@
         }
 
         // jelszo - check
+
         if (!empty(trim($_POST["password"]))) {
             $jelszo = trim($_POST["password"]);
             if (strlen($jelszo) < 8) {
@@ -75,6 +79,7 @@
         }
 
         // jelszo es jelszo ujra - check
+
         if (!empty(trim($_POST["password-again"]))) {
             $jelszoujra = trim($_POST["password-again"]);
             if ($jelszo !== $jelszoujra) {
@@ -86,18 +91,22 @@
         }
 
         // checkbox - check
+
         if (!isset($_POST["agreement"])) {
             $otodikhiba = "agreement";
             $hibak = $hibak + 1;
         }
 
         // jelszó hash-elés
+
         $jelszo = password_hash($jelszo, PASSWORD_DEFAULT);
 
         // a regisztracio idopontja
+
         $regdate = date("Y-m-d");
 
         // felvetel adatbazisba vagy nem, ha nem sikeres a regisztacio
+        
         if (empty($hibak)) {
             $query = "INSERT INTO users (username, email, password, registerTime, emailVisibility, birthdayVisibility, favcatVisibility, favquoteVisibility)
             VALUES ('$felhasznalonev', '$email', '$jelszo', '$regdate', 'FALSE', 'FALSE', 'TRUE', 'TRUE')";
