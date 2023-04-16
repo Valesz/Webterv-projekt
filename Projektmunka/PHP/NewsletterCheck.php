@@ -38,7 +38,7 @@
         // felvétel adatbázisba, vagy nem
 
         if ($hibak === 0) {
-            $query = "INSERT INTO hirlevel
+            $query = "INSERT INTO hirlevel (email)
             VALUES ('$email')";
             $connection->query($query);
         }
